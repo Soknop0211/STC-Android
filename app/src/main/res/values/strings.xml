@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">STC Business</string>
+    <string name="title_search">Search</string>
+    <string name="title_map">Google Maps</string>
+    <string name="title_booking">My Booking</string>
+    <string name="title_profile">Profile</string>
+    <string name="power_by_siem_reap_tourism_club">Power by Siem Reap Tourism Club</string>
+    <string name="about_siem_reap">About Siem Reap</string>
+</resources>

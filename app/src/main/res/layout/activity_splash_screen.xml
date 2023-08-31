@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashScreenActivity">
+
+    <ImageView
+        android:id="@+id/imageTv"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/eazy_stc_logo"
+        android:contentDescription="@string/app_name" />
+
+    <ProgressBar
+        android:id="@+id/determinateBar"
+        android:indeterminateOnly="true"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminateDuration="10"
+        android:indeterminateBehavior="repeat"
+        android:progressBackgroundTint="#208afa"
+        android:progressBackgroundTintMode="multiply"
+        android:minHeight="24dip"
+        android:maxHeight="24dip"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="50dp"
+        android:layout_height="10dp"
+        android:layout_below="@id/imageTv"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"/>
+
+    <FrameLayout
+        android:layout_below="@+id/imageTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/background_stc"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:text="@string/power_by_siem_reap_tourism_club" />
+
+    </FrameLayout>
+
+</RelativeLayout>

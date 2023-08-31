@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/mSearch"
+        android:title="@string/title_search"
+        android:icon="@drawable/ic_search"/>
+    <item android:id="@+id/mMap"
+        android:title="@string/title_map"
+        android:icon="@drawable/ic_map"/>
+    <item android:id="@+id/mMyBooking"
+        android:title="@string/title_booking"
+        android:icon="@drawable/ic_order"/>
+    <item android:id="@+id/mProfile"
+        android:title="@string/title_profile"
+        android:icon="@drawable/ic_user"/>
+</menu>

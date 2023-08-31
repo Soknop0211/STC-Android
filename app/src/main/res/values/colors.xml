@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorTick">#0EB345</color>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorSecondaryPrimary">#FFFFFF</color>
+    <color name="colorAppPrimary">#005D8C</color>
+    <color name="colorPrimaryDark">#004d70</color>
+    <color name="colorAccent">#99AFB8</color>
+    <color name="colorAccentLight">#602B608A</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="gray">#7C7C7C</color>
+    <color name="light_grey">#EAEDED</color>
+    <color name="transparent">#00000000</color>
+
+</resources>
