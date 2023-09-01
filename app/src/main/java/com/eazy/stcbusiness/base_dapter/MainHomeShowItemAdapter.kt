@@ -27,7 +27,7 @@ class MainHomeShowItemAdapter(
             HomeContentFragment.ABOUT_SIEM_REAP-> {
                 holder.recyclerView.apply {
                     layoutManager = LinearLayoutManager(context)
-                    adapter = CustomBannerHomeAdapter(mItem.mainAction, mItem.data)
+                    adapter = CustomBannerHomeAdapter(context, mItem.mainAction, mItem.data)
                     isNestedScrollingEnabled = true
                 }
             }
@@ -37,7 +37,7 @@ class MainHomeShowItemAdapter(
                         context,
                         3
                     )
-                    adapter = CustomBannerHomeAdapter(mItem.mainAction, mItem.data)
+                    adapter = CustomBannerHomeAdapter(context, mItem.mainAction, mItem.data)
                     isNestedScrollingEnabled = true
                 }
             }

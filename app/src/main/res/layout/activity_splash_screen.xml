@@ -5,13 +5,33 @@
     android:layout_height="match_parent"
     tools:context=".SplashScreenActivity">
 
-    <ImageView
-        android:id="@+id/imageTv"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
+    <LinearLayout
+        android:id="@+id/splashBanner"
+        android:orientation="vertical"
         android:layout_centerInParent="true"
-        android:src="@drawable/eazy_stc_logo"
-        android:contentDescription="@string/app_name" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageTv"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:src="@drawable/stc_home_logo"
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/size_5"
+            android:fontFamily="@font/font_bold"
+            android:textSize="25sp"
+            android:text="Siem Reap Wonder" />
+
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/determinateBar"
@@ -26,19 +46,19 @@
         android:layout_width="match_parent"
         android:layout_marginHorizontal="50dp"
         android:layout_height="10dp"
-        android:layout_below="@id/imageTv"
         android:layout_marginTop="20dp"
         android:visibility="gone"/>
 
     <FrameLayout
-        android:layout_below="@+id/imageTv"
+        android:layout_below="@+id/splashBanner"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/background_stc"
+            android:src="@drawable/temple_splash_screen"
             android:scaleType="centerCrop"
             android:contentDescription="@string/app_name" />
 
@@ -49,7 +69,8 @@
             android:layout_gravity="bottom"
             android:layout_marginBottom="30dp"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:fontFamily="@font/font_regular"
+            android:textSize="15sp"
             android:text="@string/power_by_siem_reap_tourism_club" />
 
     </FrameLayout>

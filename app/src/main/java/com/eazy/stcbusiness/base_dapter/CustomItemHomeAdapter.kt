@@ -23,18 +23,9 @@ class CustomItemHomeAdapter(private val list: List<CustomCategoryModel>) : Recyc
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        holder.textTitle.text = if (!TextUtils.isEmpty(list[position].name)) list[position].name else ""
-//        holder.txtHeaderTitle.text = if (!TextUtils.isEmpty(list[position].description)) (String.format("%s : ", list[position].description)) else ""
-//        holder.imageItem.initImage(if (list[position].icon != null) list[position].icon else "")
-//
-//        holder.txtHeaderTitle.visibility = if (!TextUtils.isEmpty(list[position].description)) View.VISIBLE else View.GONE
-//        holder.imageItem.visibility = if (!TextUtils.isEmpty(list[position].icon)) View.VISIBLE else View.GONE
-
         holder.txtBgCorner.visibility =  if (position == 0) View.VISIBLE else View.GONE
         holder.txtTittle.visibility =  if (position > 0) View.VISIBLE else View.GONE
-
         val lastIndex = list.size - 1
-
     }
 
     override fun getItemCount(): Int {
