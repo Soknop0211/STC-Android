@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLayout"
+    android:layout_margin="@dimen/margin_10"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="230dp"
+        android:layout_height="130dp"
+        app:cardElevation="0dp"
+        android:id="@+id/cardViewLayout"
+        android:background="@drawable/card_view_shape"
+        android:orientation="horizontal">
+
+<!--        <com.eazy.stcbusiness.VerticalTextView-->
+<!--            android:visibility="gone"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="Special offer"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_gravity="fill_vertical"/>-->
+
+        <LinearLayout
+            android:background="@drawable/custom_background_gradient"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtBgCorner"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="Special offer"
+                android:layout_marginStart="-20dp"
+                android:layout_marginEnd="-20dp"
+                android:rotation="-90"
+                android:textColor="@color/white"
+                android:gravity="fill_vertical"/>
+
+        </LinearLayout>
+
+<!--        <TextView-->
+<!--            android:visibility="gone"-->
+<!--            android:background="@drawable/card_corner_left"-->
+<!--            android:backgroundTint="@color/colorTick"-->
+<!--            android:layout_width="20dp"-->
+<!--            android:text="@string/app_name"-->
+<!--            android:rotation="-90"-->
+<!--            android:layout_height="match_parent"/>-->
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/discount_banner"
+            android:contentDescription="@string/app_name" />
+
+    </LinearLayout>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/txtTittle"
+        android:layout_width="wrap_content"
+        android:text="Hot Promotion"
+        android:textColor="@color/white"
+        android:paddingVertical="@dimen/size_5"
+        android:layout_margin="@dimen/margin_10"
+        android:background="@drawable/custom_background_gradient_corner"
+        android:paddingHorizontal="10dp"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
