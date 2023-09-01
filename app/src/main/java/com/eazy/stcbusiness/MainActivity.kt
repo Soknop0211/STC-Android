@@ -71,20 +71,23 @@ class MainActivity : SampleBaseActivity() {
 
 
         // OnBack Press
-        onBackPressedDispatcher.addCallback(this, callback)
+        // onBackPressedDispatcher.addCallback(this, callback)
     }
 
     private fun setFragment(){
         mSearchFragment = HomeFragment()
-        mMapFragment = MapFragment()
+        /** mMapFragment = MapFragment()
         mMyOrderFragment = MyOrderFragment()
-        mProfileFragment = ProfileFragment()
+        mProfileFragment = ProfileFragment() */
+        mMapFragment = HomeFragment()
+        mMyOrderFragment = HomeFragment()
+        mProfileFragment = HomeFragment()
         active = mSearchFragment
 
         fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mSearchFragment, HomeFragment::class.java.name).show(mSearchFragment).commit()
-        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mMapFragment, MapFragment::class.java.name).hide(mMapFragment).commit()
-        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mMyOrderFragment, MyOrderFragment::class.java.name).hide(mMyOrderFragment).commit()
-        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mProfileFragment,  ProfileFragment::class.java.name).hide(mProfileFragment).commit()
+        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mMapFragment, HomeFragment::class.java.name).hide(mMapFragment).commit()
+        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mMyOrderFragment, HomeFragment::class.java.name).hide(mMyOrderFragment).commit()
+        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mProfileFragment,  HomeFragment::class.java.name).hide(mProfileFragment).commit()
 
     }
 
@@ -93,12 +96,10 @@ class MainActivity : SampleBaseActivity() {
         active = fragment
     }
 
-    private var callback: OnBackPressedCallback =
-        object : OnBackPressedCallback(true /* enabled by default */) {
-            override fun handleOnBackPressed() {
-                finishAffinity()
-            }
-        }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
 
 
 }

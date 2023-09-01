@@ -4,12 +4,16 @@ import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
+import com.eazy.stcbusiness.ui.thing_to_do.adapter.HighlyRecommendAdapter
+import com.eazy.stcbusiness.utils.backgroundTint
 
 class MainHomeShowItemAdapter(
     private val mList: ArrayList<CustomCategoryDataList>,
@@ -23,6 +27,9 @@ class MainHomeShowItemAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val mItem = mList[position]
+        holder.headerTitleLayout.visibility = if (mItem.isHaveHeader) View.VISIBLE else View.GONE
+        holder.headerInfoTv.text = mItem.title
+
         when (mItem.mainAction) {
             HomeContentFragment.ABOUT_SIEM_REAP-> {
                 holder.recyclerView.apply {
@@ -58,6 +65,17 @@ class MainHomeShowItemAdapter(
                     isNestedScrollingEnabled = true
                 }
             }
+            HomeContentFragment.HIGHLY_RECOMMEND -> {
+                holder.recyclerView.apply {
+                    layoutManager = GridLayoutManager(context, 2)
+                    adapter = HighlyRecommendAdapter(mItem.data)
+                    isNestedScrollingEnabled = true
+                }
+
+                //
+                holder.mainLayout.setBackgroundResource(R.drawable.bottom_sheet_bg)
+                holder.mainLayout.backgroundTint(R.color.light_white)
+            }
         }
 
     }
@@ -68,6 +86,9 @@ class MainHomeShowItemAdapter(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val recyclerView: RecyclerView = itemView.findViewById(R.id.recyclerView)
+        val headerTitleLayout: LinearLayout = itemView.findViewById(R.id.headerTitleLayout)
+        val headerInfoTv: TextView = itemView.findViewById(R.id.headerInfoTv)
+        val mainLayout: LinearLayout = itemView.findViewById(R.id.mainLayout)
     }
 
 }

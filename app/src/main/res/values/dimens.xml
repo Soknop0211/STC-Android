@@ -6,7 +6,10 @@
     <dimen name="margin_10">10dp</dimen>
     <dimen name="margin_12">12dp</dimen>
     <dimen name="margin_30">30dp</dimen>
-    <dimen name="text_16sp">16dp</dimen>
+    <dimen name="size_16sp">16sp</dimen>
+    <dimen name="size_15sp">15sp</dimen>
+    <dimen name="size_14sp">14sp</dimen>
+    <dimen name="size_12sp">12sp</dimen>
     <dimen name="p_60dp">60dp</dimen>
     <dimen name="padding_8dp">8dp</dimen>
     <dimen name="size_35dp">35dp</dimen>

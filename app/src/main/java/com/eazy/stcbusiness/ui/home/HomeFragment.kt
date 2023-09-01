@@ -35,7 +35,7 @@ class HomeFragment : SampleBaseFragment() {
         var mListSubList = ArrayList<CustomCategoryModel>()
         var drawable = ResourcesCompat.getDrawable(resources, R.drawable.angkor_wat_temple, null)
         mListSubList.add(CustomCategoryModel(HomeContentFragment.ABOUT_SIEM_REAP, "About Siem Reap", drawable!!))
-        mList.add(CustomCategoryDataList(HomeContentFragment.ABOUT_SIEM_REAP, mListSubList))
+        mList.add(CustomCategoryDataList(mainAction = HomeContentFragment.ABOUT_SIEM_REAP,"About Siem Reap", data = mListSubList))
 
         mListSubList = ArrayList()
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.happening_now, null)
@@ -44,7 +44,7 @@ class HomeFragment : SampleBaseFragment() {
         mListSubList.add(CustomCategoryModel(HomeContentFragment.CATEGORY, "Things To Do", drawable!!))
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.custom_forum, null)
         mListSubList.add(CustomCategoryModel(HomeContentFragment.CATEGORY, "Custom Forum", drawable!!))
-        mList.add(CustomCategoryDataList(HomeContentFragment.CATEGORY, mListSubList))
+        mList.add(CustomCategoryDataList(HomeContentFragment.CATEGORY, "Custom Forum", mListSubList))
 
         mListSubList = ArrayList()
         mListSubList.add(CustomCategoryModel(HomeContentFragment.DISCOUNT, "Hot Promotion"))
@@ -53,7 +53,7 @@ class HomeFragment : SampleBaseFragment() {
         mListSubList.add(CustomCategoryModel(HomeContentFragment.DISCOUNT, "Hot Promotion"))
         mListSubList.add(CustomCategoryModel(HomeContentFragment.DISCOUNT, "Hot Promotion"))
         mListSubList.add(CustomCategoryModel(HomeContentFragment.DISCOUNT, "Hot Promotion"))
-        mList.add(CustomCategoryDataList(HomeContentFragment.DISCOUNT, mListSubList))
+        mList.add(CustomCategoryDataList(HomeContentFragment.DISCOUNT, "Hot Promotion", mListSubList))
 
         mListSubList = ArrayList()
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.tours_guide, null)
@@ -73,7 +73,7 @@ class HomeFragment : SampleBaseFragment() {
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.tokenize_card, null)
         mListSubList.add(CustomCategoryModel(HomeContentFragment.MAIN_CATEGORY, "Tokenize card", drawable!!))
 
-        mList.add(CustomCategoryDataList(HomeContentFragment.MAIN_CATEGORY, mListSubList))
+        mList.add(CustomCategoryDataList(HomeContentFragment.MAIN_CATEGORY, "Tokenize card", mListSubList))
 
         return mList
     }

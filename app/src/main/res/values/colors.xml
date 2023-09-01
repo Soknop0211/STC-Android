@@ -9,13 +9,19 @@
     <color name="colorAccentLight">#602B608A</color>
 
     <color name="white">#FFFFFF</color>
+    <color name="light_white">#F2F1F7</color>
     <color name="black">#FF000000</color>
     <color name="gray">#7C7C7C</color>
+    <color name="dark_gray">#5F5F5F</color>
     <color name="light_grey">#EAEDED</color>
     <color name="transparent">#00000000</color>
 
+    <!-- Home Page -->
     <color name="end_gradient">#1671A4</color>
     <color name="start_gradient">#7FE6C1</color>
 
+    <!-- Thing To Do -->
+    <color name="top_gradient">#19ACFF</color>
+    <color name="bottom_gradient">#FFFFFF</color>
 
 </resources>

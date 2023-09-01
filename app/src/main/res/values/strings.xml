@@ -95,4 +95,12 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="thing_to_do">Thing To Do</string>
+    <string name="explore_your_activity">Explore your activities</string>
+    <string name="make_your_first_travel_with_us">Make your first travel with us</string>
+    <string name="content_image">Image</string>
+    <string name="where_do_you_destination">Where do you destination?</string>
+    <string name="see_more">See more</string>
+    <string name="see_more_under_line"><u>See more</u></string>
+
 </resources>

@@ -21,6 +21,7 @@ class HomeContentFragment : SampleBaseFragment() {
         const val CATEGORY = "CATEGORY"
         const val DISCOUNT = "DISCOUNT"
         const val MAIN_CATEGORY = "MAIN_CATEGORY"
+        const val HIGHLY_RECOMMEND = "HIGHLY_RECOMMEND"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -39,48 +40,27 @@ class HomeContentFragment : SampleBaseFragment() {
         val mList = ArrayList<CustomCategoryDataList>()
 
         var mListSubList = ArrayList<CustomCategoryModel>()
-        var drawable = ResourcesCompat.getDrawable(resources, R.drawable.angkor_wat_temple, null)
-        mListSubList.add(CustomCategoryModel(ABOUT_SIEM_REAP, "About Siem Reap", drawable!!))
-        mList.add(CustomCategoryDataList(ABOUT_SIEM_REAP, mListSubList))
+        mListSubList.add(CustomCategoryModel(DISCOUNT, "Hot Promotion"))
+        mListSubList.add(CustomCategoryModel(DISCOUNT, "Hot Promotion"))
+        mListSubList.add(CustomCategoryModel(DISCOUNT, "Hot Promotion"))
+        mListSubList.add(CustomCategoryModel(DISCOUNT, "Hot Promotion"))
+        mListSubList.add(CustomCategoryModel(DISCOUNT, "Hot Promotion"))
+        mListSubList.add(CustomCategoryModel(DISCOUNT, "Hot Promotion"))
+        mList.add(CustomCategoryDataList(DISCOUNT, "Special Offer", mListSubList, true))
 
         mListSubList = ArrayList()
-        drawable = ResourcesCompat.getDrawable(resources, R.drawable.happening_now, null)
-        mListSubList.add(CustomCategoryModel(CATEGORY, "Happening Now", drawable!!))
-        drawable = ResourcesCompat.getDrawable(resources, R.drawable.thing_to_do, null)
-        mListSubList.add(CustomCategoryModel(CATEGORY, "Things To Do", drawable!!))
-        drawable = ResourcesCompat.getDrawable(resources, R.drawable.custom_forum, null)
-        mListSubList.add(CustomCategoryModel(CATEGORY, "Custom Forum", drawable!!))
-        mList.add(CustomCategoryDataList(CATEGORY, mListSubList))
-
-        mListSubList = ArrayList()
-        mListSubList.add(CustomCategoryModel(DISCOUNT, "Hot Promotion"))
-        mListSubList.add(CustomCategoryModel(DISCOUNT, "Hot Promotion"))
-        mListSubList.add(CustomCategoryModel(DISCOUNT, "Hot Promotion"))
-        mListSubList.add(CustomCategoryModel(DISCOUNT, "Hot Promotion"))
-        mListSubList.add(CustomCategoryModel(DISCOUNT, "Hot Promotion"))
-        mListSubList.add(CustomCategoryModel(DISCOUNT, "Hot Promotion"))
-        mList.add(CustomCategoryDataList(DISCOUNT, mListSubList))
-
-        mListSubList = ArrayList()
-        drawable = ResourcesCompat.getDrawable(resources, R.drawable.transportation, null)
-        mListSubList.add(CustomCategoryModel(MAIN_CATEGORY, "Transportation", drawable!!))
-        drawable = ResourcesCompat.getDrawable(resources, R.drawable.airport, null)
-        mListSubList.add(CustomCategoryModel(MAIN_CATEGORY, "Airport", drawable!!))
-        drawable = ResourcesCompat.getDrawable(resources, R.drawable.e_visa, null)
-        mListSubList.add(CustomCategoryModel(MAIN_CATEGORY, "E-Visa", drawable!!))
-        drawable = ResourcesCompat.getDrawable(resources, R.drawable.transportation, null)
-        mListSubList.add(CustomCategoryModel(MAIN_CATEGORY, "Transportation", drawable!!))
-        drawable = ResourcesCompat.getDrawable(resources, R.drawable.airport, null)
-        mListSubList.add(CustomCategoryModel(MAIN_CATEGORY, "Airport", drawable!!))
-        drawable = ResourcesCompat.getDrawable(resources, R.drawable.e_visa, null)
-        mListSubList.add(CustomCategoryModel(MAIN_CATEGORY, "E-Visa", drawable!!))
-        drawable = ResourcesCompat.getDrawable(resources, R.drawable.e_visa, null)
-        mListSubList.add(CustomCategoryModel(MAIN_CATEGORY, "E-Visa", drawable!!))
-
-        mList.add(CustomCategoryDataList(MAIN_CATEGORY, mListSubList))
+        mListSubList.add(CustomCategoryModel(HIGHLY_RECOMMEND, "Phnom Penh", "10 Activities", "https://dev.booknow.asia/images/home_slider_1.jpg"))
+        mListSubList.add(CustomCategoryModel(HIGHLY_RECOMMEND, "Siem Reap", "11 Activities", "https://dev.booknow.asia/images/home_slider_2.jpg"))
+        mListSubList.add(CustomCategoryModel(HIGHLY_RECOMMEND, "Kep, Province","11 Activities", "https://dev.booknow.asia/images/home_slider_3.jpg"))
+        mListSubList.add(CustomCategoryModel(HIGHLY_RECOMMEND, "Takeo", "10 Activities", "https://dev.booknow.asia/images/home_slider_4.jpg"))
+        mListSubList.add(CustomCategoryModel(HIGHLY_RECOMMEND, "Kompong Spie", "11 Activities", "https://dev.booknow.asia/images/home_slider_5.jpg"))
+        mListSubList.add(CustomCategoryModel(HIGHLY_RECOMMEND, "Kompot","11 Activities", "https://dev.booknow.asia/images/home_slider_6.jpg"))
+        mListSubList.add(CustomCategoryModel(HIGHLY_RECOMMEND, "Kompot","11 Activities", "https://dev.booknow.asia/images/home_slider_6.jpg"))
+        mList.add(CustomCategoryDataList(HIGHLY_RECOMMEND, "Highly Recommend", mListSubList, true))
 
         return mList
     }
+
 
 
 }
