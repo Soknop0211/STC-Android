@@ -102,5 +102,6 @@
     <string name="where_do_you_destination">Where do you destination?</string>
     <string name="see_more">See more</string>
     <string name="see_more_under_line"><u>See more</u></string>
+    <string name="search_destination">Search Destination</string>
 
 </resources>

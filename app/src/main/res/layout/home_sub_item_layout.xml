@@ -14,14 +14,6 @@
         android:background="@drawable/card_view_shape"
         android:orientation="horizontal">
 
-<!--        <com.eazy.stcbusiness.VerticalTextView-->
-<!--            android:visibility="gone"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:text="Special offer"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:layout_gravity="fill_vertical"/>-->
-
         <LinearLayout
             android:background="@drawable/custom_background_gradient"
             android:layout_width="wrap_content"

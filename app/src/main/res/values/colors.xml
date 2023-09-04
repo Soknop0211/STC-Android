@@ -20,8 +20,13 @@
     <color name="end_gradient">#1671A4</color>
     <color name="start_gradient">#7FE6C1</color>
 
+    <!-- Percentage -->
+    <color name="left_gradient">#1671A4</color>
+    <color name="_gradient">#7FE6C1</color>
+
     <!-- Thing To Do -->
     <color name="top_gradient">#19ACFF</color>
     <color name="bottom_gradient">#FFFFFF</color>
+    <color name="light_red">#F3837B</color>
 
 </resources>

@@ -17,7 +17,10 @@
         android:theme="@style/Theme.Stcbusiness"
         tools:targetApi="s">
         <activity
-            android:name=".ui.thing_to_do.ThingToDoActivity"
+            android:name=".ui.todo_things.SearchDestinationThingsToDoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.todo_things.ThingToDoActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"

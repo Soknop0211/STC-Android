@@ -1,62 +1,45 @@
-package com.eazy.stcbusiness.ui.thing_to_do
+package com.eazy.stcbusiness.ui.todo_things
 
 import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
-import com.eazy.stcbusiness.R
-import com.eazy.stcbusiness.base.SampleBaseActivity
 import com.eazy.stcbusiness.base_dapter.AbsoluteFitLayoutManager
-import com.eazy.stcbusiness.base_dapter.HotelHomeListViewPager
-import com.eazy.stcbusiness.databinding.ActivityThingToDoBinding
+import com.eazy.stcbusiness.databinding.ActivitySearchDestinationThingsToDoBinding
 import com.eazy.stcbusiness.model.CustomCategoryModel
-import com.eazy.stcbusiness.ui.home.HomeContentFragment
-import com.eazy.stcbusiness.ui.thing_to_do.adapter.TodoDestinationAdapter
+import com.eazy.stcbusiness.ui.todo_things.adapter.HighlyRecommendAdapter
+import com.eazy.stcbusiness.ui.todo_things.adapter.TodoDestinationAdapter
 
-class ThingToDoActivity : SampleBaseActivity()  {
-
+class SearchDestinationThingsToDoActivity : AppCompatActivity() {
 
     companion object {
-        fun gotoThingToDoActivity(activity: Context){
-            val intent = Intent(activity, ThingToDoActivity::class.java)
+        fun gotoSearchDestinationThingToDoActivity(activity: Context){
+            val intent = Intent(activity, SearchDestinationThingsToDoActivity::class.java)
             activity.startActivity(intent)
         }
+        const val SEARCH_BY_DESTINATION = "SEARCH_BY_DESTINATION"
     }
 
+    private lateinit var binding : ActivitySearchDestinationThingsToDoBinding
 
-    private lateinit var binding : ActivityThingToDoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityThingToDoBinding.inflate(layoutInflater)
+        binding = ActivitySearchDestinationThingsToDoBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
 
 
+        binding.iconBack.setOnClickListener { finish() }
+
         binding.recyclerView.apply {
-            layoutManager =  AbsoluteFitLayoutManager(
-                context,
-                1,
-                RecyclerView.HORIZONTAL,
-                false,
-                3
-            )
-            adapter = TodoDestinationAdapter(this@ThingToDoActivity, initList())
+            layoutManager =  LinearLayoutManager(this@SearchDestinationThingsToDoActivity)
+            adapter = HighlyRecommendAdapter(SEARCH_BY_DESTINATION, initList())
             isNestedScrollingEnabled = true
         }
 
-        binding.iconBack.setOnClickListener { finish() }
-
-        replaceFragment()
-    }
-
-    private fun replaceFragment() {
-        val hotelHomeListHotelFragment = HomeContentFragment()
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.viewpager, hotelHomeListHotelFragment, hotelHomeListHotelFragment.tag)
-        transaction.disallowAddToBackStack()
-        transaction.commit()
     }
 
     private fun initList() : ArrayList<CustomCategoryModel> {
@@ -70,4 +53,5 @@ class ThingToDoActivity : SampleBaseActivity()  {
         mList.add(CustomCategoryModel("6", "Kompot","11 Activities", "https://dev.booknow.asia/images/home_slider_6.jpg"))
         return mList
     }
+
 }

@@ -76,18 +76,15 @@ class MainActivity : SampleBaseActivity() {
 
     private fun setFragment(){
         mSearchFragment = HomeFragment()
-        /** mMapFragment = MapFragment()
+        mMapFragment = MapFragment()
         mMyOrderFragment = MyOrderFragment()
-        mProfileFragment = ProfileFragment() */
-        mMapFragment = HomeFragment()
-        mMyOrderFragment = HomeFragment()
-        mProfileFragment = HomeFragment()
+        mProfileFragment = ProfileFragment()
         active = mSearchFragment
 
         fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mSearchFragment, HomeFragment::class.java.name).show(mSearchFragment).commit()
-        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mMapFragment, HomeFragment::class.java.name).hide(mMapFragment).commit()
-        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mMyOrderFragment, HomeFragment::class.java.name).hide(mMyOrderFragment).commit()
-        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mProfileFragment,  HomeFragment::class.java.name).hide(mProfileFragment).commit()
+        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mMapFragment, MapFragment::class.java.name).hide(mMapFragment).commit()
+        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mMyOrderFragment, MyOrderFragment::class.java.name).hide(mMyOrderFragment).commit()
+        fragmentManager.beginTransaction().add(R.id.nav_host_fragment, mProfileFragment,  ProfileFragment::class.java.name).hide(mProfileFragment).commit()
 
     }
 

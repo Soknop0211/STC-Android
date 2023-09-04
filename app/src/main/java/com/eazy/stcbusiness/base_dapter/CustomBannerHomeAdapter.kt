@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
-import com.eazy.stcbusiness.ui.thing_to_do.ThingToDoActivity.Companion.gotoThingToDoActivity
+import com.eazy.stcbusiness.ui.todo_things.ThingToDoActivity.Companion.gotoThingToDoActivity
 
 class CustomBannerHomeAdapter(private val mContext : Context, private val mType: String, private val list: List<CustomCategoryModel>) : RecyclerView.Adapter<CustomBannerHomeAdapter.ViewHolder>() {
 

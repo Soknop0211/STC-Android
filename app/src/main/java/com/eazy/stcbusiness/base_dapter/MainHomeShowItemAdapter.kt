@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
-import com.eazy.stcbusiness.ui.thing_to_do.adapter.HighlyRecommendAdapter
+import com.eazy.stcbusiness.ui.todo_things.adapter.HighlyRecommendAdapter
 import com.eazy.stcbusiness.utils.backgroundTint
 
 class MainHomeShowItemAdapter(
@@ -68,7 +68,7 @@ class MainHomeShowItemAdapter(
             HomeContentFragment.HIGHLY_RECOMMEND -> {
                 holder.recyclerView.apply {
                     layoutManager = GridLayoutManager(context, 2)
-                    adapter = HighlyRecommendAdapter(mItem.data)
+                    adapter = HighlyRecommendAdapter(mItem.mainAction, mItem.data)
                     isNestedScrollingEnabled = true
                 }
 

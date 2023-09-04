@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/custom_background_main">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_collapseMode="pin"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            android:elevation="0dp"
+            app:elevation="0dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/size_5"
+                android:layout_marginVertical="@dimen/margin_10"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iconBack"
+                    android:layout_width="@dimen/margin_30"
+                    android:layout_height="@dimen/margin_30"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/title_profile"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:src="@drawable/arrow_back_left"
+                    android:focusable="true"
+                    app:tint="@color/dark_gray" />
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_background_border"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_12">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_25"
+                        android:layout_height="@dimen/size_25"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/title_profile"
+                        android:src="@drawable/search_icon"
+                        app:tint="@color/dark_gray" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/padding_5"
+                        android:fontFamily="@font/font_light"
+                        android:maxLines="2"
+                        android:text="@string/search_destination"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginHorizontal="@dimen/margin_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_background_border"
+                    android:backgroundTint="@color/colorAppPrimary"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_12">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_25"
+                        android:layout_height="@dimen/size_25"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/title_profile"
+                        android:src="@drawable/filter" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:background="@drawable/custom_background_gradient_shape"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/recyclerView"/>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
