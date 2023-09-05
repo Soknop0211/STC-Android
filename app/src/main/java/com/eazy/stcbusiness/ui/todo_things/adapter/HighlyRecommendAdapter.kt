@@ -10,6 +10,7 @@ import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
 import com.eazy.stcbusiness.ui.todo_things.SearchDestinationThingsToDoActivity
+import com.eazy.stcbusiness.ui.todo_things.ThingToDoDetailActivity
 import com.eazy.stcbusiness.utils.initImage
 import com.eazy.stcbusiness.utils.setTextStrikeStyle
 
@@ -46,6 +47,10 @@ class HighlyRecommendAdapter(private val mType : String, private val mList: List
 //        holder.txtTittle.text =  mItem.name
 //        holder.txtDescription.text =  mItem.description
         holder.image.initImage(mItem.urlImage)
+
+        holder.itemView.setOnClickListener {
+            ThingToDoDetailActivity.gotoSearchDestinationThingToDoActivity(holder.image.context)
+        }
     }
 
     override fun getItemViewType(position: Int): Int {

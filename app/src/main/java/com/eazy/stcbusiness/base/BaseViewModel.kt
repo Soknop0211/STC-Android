@@ -1,8 +1,9 @@
 package com.eazy.stcbusiness.base
 
-import androidx.lifecycle.ViewModel
+import android.content.Context
 
-abstract class BaseViewModel<T : BaseView> : ViewModel() {
+
+abstract class BaseViewModel<T : BaseView> : BaseViewModelObservation() {
 
     protected var mView: T? = null
 

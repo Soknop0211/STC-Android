@@ -103,5 +103,14 @@
     <string name="see_more">See more</string>
     <string name="see_more_under_line"><u>See more</u></string>
     <string name="search_destination">Search Destination</string>
+    <string name="loading">Loading</string>
+    <string name="select_destination">Select Destination</string>
+    <string name="description">Description</string>
+    <string name="you_will_know">You will know</string>
+    <string name="term_condition"><![CDATA[Term & Condition]]></string>
+    <string name="book_now">Book Now</string>
+    <string name="search_filter">Search Filter</string>
+    <string name="price_range">Price Range</string>
+    <string name="rating">Rating</string>
 
 </resources>

@@ -31,11 +31,13 @@ fun ImageView.initImage(value : Drawable?) {
         .into(this)
 }
 
+fun TextView.initText(value : String?) {
+    this.text = value ?: ". . ."
+}
 
 fun TextView.setTextStrikeStyle() {
     this.paintFlags = this.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
 }
-
 
 fun Activity.getWidth(): Int {
     val displayMetrics = DisplayMetrics()

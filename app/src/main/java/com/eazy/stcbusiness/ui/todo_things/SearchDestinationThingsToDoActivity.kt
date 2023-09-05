@@ -4,15 +4,20 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.eazy.stcbusiness.base.SampleBaseActivity
 import com.eazy.stcbusiness.base_dapter.AbsoluteFitLayoutManager
 import com.eazy.stcbusiness.databinding.ActivitySearchDestinationThingsToDoBinding
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.ui.todo_things.adapter.HighlyRecommendAdapter
 import com.eazy.stcbusiness.ui.todo_things.adapter.TodoDestinationAdapter
+import com.eazy.stcbusiness.ui.todo_things.fragment.DestinationLocationBottomSheetFragment
+import com.eazy.stcbusiness.utils.listener.CustomResponseOnClickListener
+import com.eazy.stcbusiness.utils.listener.CustomSetOnClickViewListener
 
-class SearchDestinationThingsToDoActivity : AppCompatActivity() {
+class SearchDestinationThingsToDoActivity : SampleBaseActivity() {
 
     companion object {
         fun gotoSearchDestinationThingToDoActivity(activity: Context){
@@ -39,6 +44,15 @@ class SearchDestinationThingsToDoActivity : AppCompatActivity() {
             adapter = HighlyRecommendAdapter(SEARCH_BY_DESTINATION, initList())
             isNestedScrollingEnabled = true
         }
+
+        binding.searchLayout.setOnClickListener(CustomSetOnClickViewListener (object :
+            CustomResponseOnClickListener {
+            override fun onClick(view: View) {
+                val mDestinationBottomSheet = DestinationLocationBottomSheetFragment.newInstance("")
+                mDestinationBottomSheet.show(supportFragmentManager, DestinationLocationBottomSheetFragment::class.java.name)
+            }
+
+        }))
 
     }
 

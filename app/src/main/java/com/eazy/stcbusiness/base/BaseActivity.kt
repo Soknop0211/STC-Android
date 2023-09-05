@@ -18,6 +18,11 @@ abstract class BaseActivity<VB : ViewDataBinding , VM: BaseViewModel<*>> : Sampl
         mBinding = DataBindingUtil.setContentView(this, layoutId)
     }
 
+    open fun setVariable(id: Int, value: Any) {
+        mBinding.setVariable(id, value)
+    }
+
+
     override fun showProgress() {
     }
 

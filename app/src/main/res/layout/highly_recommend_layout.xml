@@ -110,7 +110,7 @@
                         android:text="$19.99"
                         android:layout_marginHorizontal="@dimen/size_5"
                         android:textColor="@color/colorAppPrimary"
-                        android:textSize="@dimen/size_16"
+                        android:textSize="@dimen/size_16sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>

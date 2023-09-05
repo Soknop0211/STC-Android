@@ -1,67 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/toolbar_custom"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimary">
+<layout>
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.eazy.stcbusiness.base.BaseViewModelObservation" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/toolbar_custom"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimary">
 
-        <LinearLayout
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
 
-            <androidx.appcompat.widget.Toolbar
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <androidx.appcompat.widget.Toolbar
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent">
 
-                    <ImageView
-                        android:id="@+id/iconBack"
-                        android:layout_width="@dimen/margin_30"
-                        android:layout_height="@dimen/margin_30"
-                        android:layout_gravity="center_vertical"
-                        android:contentDescription="@string/title_profile"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:clickable="true"
-                        android:src="@drawable/ic_back"
-                        android:focusable="true"
-                        app:tint="@color/colorAppPrimary" />
-
-                    <TextView
-                        android:id="@+id/titleToolbar"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="@dimen/padding_5"
-                        android:layout_marginEnd="@dimen/size_20"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@string/title_profile"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorAppPrimary"
-                        android:textSize="18dp"
-                        tools:ignore="SpUsage"
-                        android:textStyle="bold"/>
+                        android:orientation="horizontal">
 
-                </LinearLayout>
+                        <ImageView
+                            android:id="@+id/iconBack"
+                            android:layout_width="@dimen/margin_30"
+                            android:layout_height="@dimen/margin_30"
+                            android:layout_gravity="center_vertical"
+                            android:contentDescription="@string/title_profile"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:src="@drawable/arrow_back_left"
+                            android:focusable="true"
+                            app:tint="@color/black" />
 
-            </androidx.appcompat.widget.Toolbar>
+                        <TextView
+                            android:id="@+id/titleToolbar"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/padding_5"
+                            android:layout_marginEnd="@dimen/size_20"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:text="@{viewModel.mTitleToolbar, default = @string/app_name}"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            tools:ignore="SpUsage"
+                            android:textStyle="bold"/>
 
-        </LinearLayout>
+                    </LinearLayout>
 
-    </com.google.android.material.appbar.AppBarLayout>
+                </androidx.appcompat.widget.Toolbar>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            </LinearLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>
