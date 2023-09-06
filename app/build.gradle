@@ -87,4 +87,8 @@ dependencies {
     // layout
     implementation 'com.nex3z:flow-layout:1.3.3'
 
+    // Date Range
+    implementation 'io.github.architshah248.calendar:awesome-calendar:2.0.0'
+
+
 }

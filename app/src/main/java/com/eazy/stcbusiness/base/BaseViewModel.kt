@@ -1,7 +1,6 @@
 package com.eazy.stcbusiness.base
 
 
-
 abstract class BaseViewModel<T : BaseView> : BaseViewModelObservation() {
 
     protected var mView: T? = null
@@ -14,4 +13,7 @@ abstract class BaseViewModel<T : BaseView> : BaseViewModelObservation() {
         super.onCleared()
         mView = null
     }
+
+
+
 }

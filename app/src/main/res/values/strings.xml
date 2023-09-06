@@ -119,5 +119,15 @@
     <string name="concierge_price_display_format" translatable="false">%1$s%2$s</string>
     <string name="total">Total</string>
     <string name="date">Date</string>
+    <string name="confirm">Confirm</string>
+    <string name="today">Today</string>
+    <string name="choose_departure_date">Choose Departure Date</string>
+    <string name="adults">Adults</string>
+    <string name="age_adults">Age 18–65/y</string>
+    <string name="youths">Youths</string>
+    <string name="age_youths">Age 16–17/y</string>
+    <string name="children">Children</string>
+    <string name="age_children">Age 16–17/y</string>
+    <string name="max_people">Max People</string>
 
 </resources>

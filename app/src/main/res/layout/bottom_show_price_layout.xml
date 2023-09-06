@@ -5,12 +5,11 @@
     <data>
         <variable
             name="viewModel"
-            type="com.eazy.stcbusiness.view_model.ThingsToDoDetailTicketViewModel" />
+            type="com.eazy.stcbusiness.base.BaseViewModelObservation" />
     </data>
 
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -75,6 +74,7 @@
             android:focusable="true">
 
             <TextView
+                android:id="@+id/btnBookNow"
                 android:layout_width="match_parent"
                 android:background="@drawable/card_view_shape"
                 android:backgroundTint="@color/colorAppPrimary"

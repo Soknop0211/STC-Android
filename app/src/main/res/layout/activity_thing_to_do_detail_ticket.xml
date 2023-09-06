@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.text.TextUtils" />
+
         <variable
             name="viewModel"
             type="com.eazy.stcbusiness.view_model.ThingsToDoDetailTicketViewModel" />
@@ -134,6 +136,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
+                                style="@style/SelectableItemBackground"
                                 app:delayClickListener="@{()-> viewModel.onClickSelectDate()}"
                                 android:background="@drawable/shape_border"
                                 android:backgroundTint="@color/light_grey"
@@ -147,16 +150,16 @@
                                     android:src="@drawable/calendar"
                                     android:contentDescription="@string/app_name" />
 
+                                <!-- android:text="@{!TextUtils.isEmpty(viewModel.mDate)? viewModel.mDate : @string/date, default = @string/date}"-->
                                 <TextView
                                     android:layout_width="match_parent"
-                                    android:foreground="?attr/selectableItemBackground"
-                                    android:clickable="true"
                                     android:layout_height="match_parent"
-                                    android:text="@string/date"
+                                    tools:text="@string/date"
+                                    android:text="@{viewModel.mDate}"
                                     android:paddingHorizontal="@dimen/padding_5"
-                                    android:textSize="17sp"
+                                    android:textSize="13sp"
+                                    android:gravity="center|start"
                                     android:textColor="@color/black"
-                                    android:focusable="true"
                                     app:drawableEndCompat="@drawable/ic_drop_down" />
 
                             </LinearLayout>
@@ -168,6 +171,7 @@
                                 android:gravity="center"
                                 android:background="@drawable/shape_border"
                                 android:backgroundTint="@color/light_grey"
+                                style="@style/SelectableItemBackground"
                                 app:delayClickListener="@{()-> viewModel.onClickPeople()}"
                                 android:layout_margin="@dimen/padding_8dp"
                                 android:padding="@dimen/margin_10"
@@ -182,14 +186,13 @@
 
                                 <TextView
                                     android:layout_width="match_parent"
-                                    android:foreground="?attr/selectableItemBackground"
-                                    android:clickable="true"
                                     android:layout_height="match_parent"
-                                    android:text="@string/person"
-                                    android:textSize="17sp"
+                                    tools:text="@string/person"
+                                    android:text="@{viewModel.mPerson}"
+                                    android:textSize="13sp"
+                                    android:gravity="center|start"
                                     android:paddingHorizontal="@dimen/padding_5"
                                     android:textColor="@color/black"
-                                    android:focusable="true"
                                     app:drawableEndCompat="@drawable/ic_drop_down" />
 
                             </LinearLayout>

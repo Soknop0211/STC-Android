@@ -38,6 +38,10 @@ fun TextView.initText(value : String?) {
     this.text = value ?: ". . ."
 }
 
+fun TextView.initText(resId : Int, mContext: Context) {
+    this.text = mContext.getString(resId)
+}
+
 fun TextView.setTextStrikeStyle() {
     this.paintFlags = this.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
 }

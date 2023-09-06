@@ -43,6 +43,7 @@
                             android:contentDescription="@string/title_profile"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:clickable="true"
+                            app:delayClickListener="@{()-> viewModel.onDismissButton()}"
                             android:src="@drawable/arrow_back_left"
                             android:focusable="true"
                             app:tint="@color/black" />

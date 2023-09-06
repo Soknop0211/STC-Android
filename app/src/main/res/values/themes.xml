@@ -23,14 +23,20 @@
         <item name="android:background">@drawable/bottom_sheet_bg</item>
     </style>
 
-
+    <!--    Custom Button Select Background -->
     <style name="SelectableItemBackground">
         <item name="android:colorControlHighlight">#5677FC</item>
         <item name="android:background">?attr/selectableItemBackground</item>
-        <item name="android:theme">@style/SelectableItemTheme</item>
+        <!-- <item name="android:theme">@style/SelectableItemTheme</item> -->
     </style>
 
     <style name="SelectableItemTheme">
         <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+
+    <style name="AlertShape" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/card_view_shape</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
     </style>
 </resources>

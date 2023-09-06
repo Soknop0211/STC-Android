@@ -12,18 +12,23 @@ import com.eazy.stcbusiness.base.BaseActivity
 import com.eazy.stcbusiness.databinding.ActivityThingToDoDetailTicketBinding
 import com.eazy.stcbusiness.model.TicketAvailableModel
 import com.eazy.stcbusiness.ui.todo_things.adapter.TicketAvailableAdapter
+import com.eazy.stcbusiness.ui.todo_things.fragment.SelectNumberPeopleBottomSheetFragment
+import com.eazy.stcbusiness.ui.todo_things.fragment.SelectStartEndDateRangBottomSheet
+import com.eazy.stcbusiness.view_model.OnTicketListener
 import com.eazy.stcbusiness.view_model.ThingsToDoDetailTicketViewModel
-import com.eazy.stcbusiness.view_model.ThingsToDoDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ThingToDoDetailTicketActivity : BaseActivity<ActivityThingToDoDetailTicketBinding, ThingsToDoDetailTicketViewModel>() {
+class ThingToDoDetailTicketActivity : BaseActivity<ActivityThingToDoDetailTicketBinding, ThingsToDoDetailTicketViewModel>(),
+    OnTicketListener {
 
     override val layoutId: Int get() = R.layout.activity_thing_to_do_detail_ticket
     override val mViewModel: ThingsToDoDetailTicketViewModel by viewModels()
 
     private var mAdapter : TicketAvailableAdapter ? = null
-
+    private var room = "0"
+    private var adults = "0"
+    private var children = "0"
     companion object {
         fun gotoSearchDestinationThingToDoTicketActivity(activity: Context){
             val intent = Intent(activity, ThingToDoDetailTicketActivity::class.java)
@@ -36,6 +41,8 @@ class ThingToDoDetailTicketActivity : BaseActivity<ActivityThingToDoDetailTicket
         super.onCreate(savedInstanceState)
 
         mViewModel.bind(this)
+
+        mViewModel.setContext(this)
 
         setVariable(BR.viewModel, mViewModel)
 
@@ -64,5 +71,43 @@ class ThingToDoDetailTicketActivity : BaseActivity<ActivityThingToDoDetailTicket
 
         mViewModel.setPriceTotal(mAdapter?.updateProductOrderCounter(mListTicket[0].id ?: "") ?: 0.00, this)
     }
+
+    private fun startEndDateRang(){
+        val selectLocationBookingFragment = SelectStartEndDateRangBottomSheet.newInstance(mViewModel.mStartDate.get() ?: "", mViewModel.mEndDate.get() ?: "")
+        selectLocationBookingFragment.initListener(onCallBackDateListener)
+        selectLocationBookingFragment.show(supportFragmentManager, "fragment")
+    }
+
+    private val onCallBackDateListener = object : SelectStartEndDateRangBottomSheet.OnClickCallBackListener{
+        override fun onClickSelect(getStartDate: String, getEndDate : String) {
+            mViewModel.mStartDate.set(getStartDate)
+            mViewModel.mEndDate.set(getEndDate)
+            mViewModel.setSetDate(getStartDate, getEndDate)
+        }
+    }
+
+    override fun onDateSelectClick() {
+        startEndDateRang()
+    }
+
+    override fun onPeopleSelectClick() {
+        val selectLocationBookingFragment : SelectNumberPeopleBottomSheetFragment =
+            SelectNumberPeopleBottomSheetFragment().newInstance(room, adults,children, "select_room")
+        selectLocationBookingFragment.initListener(object :
+            SelectNumberPeopleBottomSheetFragment.OnClickCallBackListener {
+            override fun onClickSelect(titleHeader: String, r: String, ad: String, ch: String) {
+                room = r
+                adults = ad
+                children = ch
+
+                val totalNumber = r.toInt() + ad.toInt() + ch.toInt()
+
+                mViewModel.mPerson.set(totalNumber.toString())
+            }
+
+        })
+        selectLocationBookingFragment.show(supportFragmentManager, "fragment")
+    }
+
 
 }
