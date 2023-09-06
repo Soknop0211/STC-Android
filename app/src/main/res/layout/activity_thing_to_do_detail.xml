@@ -361,6 +361,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:paddingHorizontal="10dp"
+                                    android:layout_marginBottom="@dimen/margin_10"
                                     android:text="Siem Reap is a cheerful city that embraces travelers like old friends. This region was the site of successive capitals of the Khmer Siem Reap is a cheerful city that embraces travelers like old friends. This region was the site of successive capitals of the Khmer"
                                     android:textColor="@color/black"
                                     tools:ignore="SpUsage" />
@@ -394,6 +395,7 @@
                                     android:paddingHorizontal="10dp"
                                     android:text="Siem Reap is a cheerful city that embraces travelers like old friends. This region was the site of successive capitals of the Khmer"
                                     android:textColor="@color/black"
+                                    android:layout_marginBottom="@dimen/margin_10"
                                     tools:ignore="SpUsage" />
 
                             </LinearLayout>

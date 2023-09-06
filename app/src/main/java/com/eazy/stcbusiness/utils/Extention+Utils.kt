@@ -1,6 +1,7 @@
 package com.eazy.stcbusiness.utils
 
 import android.app.Activity
+import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
@@ -12,6 +13,8 @@ import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.eazy.stcbusiness.R
+import java.math.BigDecimal
+import java.util.*
 
 fun View.backgroundTint(color : Int) {
     this.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this.context, color))
@@ -43,4 +46,24 @@ fun Activity.getWidth(): Int {
     val displayMetrics = DisplayMetrics()
     this.windowManager.defaultDisplay.getMetrics(displayMetrics)
     return displayMetrics.widthPixels
+}
+
+// Convert Price
+fun Context.getDisplayPrice(currency : String, price: Double): String {
+    val newPrice: Double = roundPriceValueAsDouble(price, 2)
+    //Currently we manage with "$" currency format display only
+    //Ex: $10.78
+    return this.getString(
+        R.string.concierge_price_display_format,
+        String.format(
+            Locale.ENGLISH,
+            "%.2f",
+            newPrice
+        ),
+        currency
+    )
+}
+
+fun roundPriceValueAsDouble(value: Double, precious: Int): Double {
+    return BigDecimal(value).setScale(precious, BigDecimal.ROUND_HALF_EVEN).toDouble()
 }

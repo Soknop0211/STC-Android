@@ -8,6 +8,7 @@ import com.eazy.stcbusiness.BR
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseActivity
 import com.eazy.stcbusiness.databinding.ActivityThingToDoDetailBinding
+import com.eazy.stcbusiness.ui.todo_things.ThingToDoDetailTicketActivity.Companion.gotoSearchDestinationThingToDoTicketActivity
 import com.eazy.stcbusiness.view_model.ThingsToDoDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,6 +28,10 @@ class ThingToDoDetailActivity : BaseActivity<ActivityThingToDoDetailBinding, Thi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewModel.bind(this)
+
+        mBinding.linearCard.setOnClickListener {
+            gotoSearchDestinationThingToDoTicketActivity(this)
+        }
 
         setVariable(BR.viewModel, mViewModel)
     }

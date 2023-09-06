@@ -112,5 +112,10 @@
     <string name="search_filter">Search Filter</string>
     <string name="price_range">Price Range</string>
     <string name="rating">Rating</string>
+    <string name="schedule">Schedule</string>
+    <string name="ticket_available">Ticket Available</string>
+    <string name="person">Person</string>
+
+    <string name="concierge_price_display_format" translatable="false">%1$s%2$s</string>
 
 </resources>
