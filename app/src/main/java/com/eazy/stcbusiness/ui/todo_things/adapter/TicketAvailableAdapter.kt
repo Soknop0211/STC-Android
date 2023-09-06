@@ -11,18 +11,27 @@ import com.eazy.stcbusiness.view_model.TicketItemAvailableViewModel
 class TicketAvailableAdapter(private val list : List<TicketAvailableModel>, private val mOnClickListener : (TicketAvailableModel?) -> Unit) :
     RecyclerView.Adapter<TicketAvailableAdapter.ViewHolder>(){
 
-    fun updateProductOrderCounter(ids: String) {
+    fun updateProductOrderCounter(ids: String) : Double {
+        var totalPrice = 0.0
+
         for (i in list.indices) {
 
             val indexI: Int = if (list[i].isClick) i else 0
             val indexJ: Int = if (list[i].id == ids) i else 0
 
-            list[i].isClick = list[i].id == ids
+            if (list[i].id == ids) {
+                list[i].isClick = true
+                totalPrice = list[i].price
+            } else {
+                list[i].isClick = false
+            }
 
             notifyItemChanged(indexI)
 
             notifyItemChanged(indexJ)
         }
+
+        return totalPrice
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

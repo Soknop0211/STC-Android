@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.eazy.stcbusiness.view_model.ThingsToDoDetailTicketViewModel" />
+    </data>
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/margin_10"
+        android:paddingHorizontal="@dimen/padding_5"
+        android:background="@drawable/custom_line_above_light_gray"
+        xmlns:tools="http://schemas.android.com/tools">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/totalTv"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:layout_height="wrap_content"
+                android:text="@string/total"
+                tools:ignore="RtlSymmetry" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:maxLines="1"
+                android:gravity="center"
+                tools:ignore="Suspicious0dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="80.00 USD /"
+                    android:text="@{viewModel.mPriceTotal}"
+                    android:id="@+id/totalItemTv"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:maxLines="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/person"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_margin="@dimen/padding_8dp"
+            style="@style/SelectableItemBackground"
+            android:clickable="true"
+            app:delayClickListener="@{()-> viewModel.onClickBookNow()}"
+            android:layout_gravity="center"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:background="@drawable/card_view_shape"
+                android:backgroundTint="@color/colorAppPrimary"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/book_now"
+                android:textSize="17sp"
+                android:padding="@dimen/margin_10"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

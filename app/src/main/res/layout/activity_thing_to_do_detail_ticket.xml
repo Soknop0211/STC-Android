@@ -38,8 +38,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margin_10"
-                        android:background="@drawable/card_view_shape"
+                        android:layout_marginVertical="@dimen/margin_10"
+                        android:padding="@dimen/padding_5"
+                        android:background="@color/white"
                         android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
@@ -51,7 +52,7 @@
 
                             <ImageView
                                 android:id="@+id/image"
-                                android:layout_width="100dp"
+                                android:layout_width="130dp"
                                 android:layout_height="100dp"
                                 android:scaleType="fitXY"
                                 android:src="@drawable/discount_banner"
@@ -68,13 +69,14 @@
                             <TextView
                                 android:id="@+id/txtTittle"
                                 android:layout_width="match_parent"
-                                android:text="Angkor Wat Park Zip Line Adventure in Siem Reap"
+                                android:text="Half Day Kompong Pluck Floating Village on Tonle Sap with Sunset."
                                 android:maxLines="3"
                                 android:textColor="@color/black"
                                 android:fontFamily="@font/font_bold"
                                 android:layout_height="wrap_content"/>
 
                             <LinearLayout
+                                android:layout_marginVertical="@dimen/padding_5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
@@ -105,9 +107,10 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_margin="@dimen/margin_10"
+                        android:layout_marginVertical="@dimen/padding_5"
+                        android:padding="@dimen/padding_5"
+                        android:background="@color/white"
                         android:layout_width="match_parent"
-                        android:background="@drawable/card_view_shape"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
@@ -131,20 +134,27 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
+                                app:delayClickListener="@{()-> viewModel.onClickSelectDate()}"
                                 android:background="@drawable/shape_border"
                                 android:backgroundTint="@color/light_grey"
                                 android:layout_margin="@dimen/padding_8dp"
+                                android:padding="@dimen/margin_10"
                                 android:layout_gravity="center">
+
+                                <ImageView
+                                    android:layout_width="@dimen/size_24"
+                                    android:layout_height="@dimen/size_24"
+                                    android:src="@drawable/calendar"
+                                    android:contentDescription="@string/app_name" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:foreground="?attr/selectableItemBackground"
                                     android:clickable="true"
                                     android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="Date"
+                                    android:text="@string/date"
+                                    android:paddingHorizontal="@dimen/padding_5"
                                     android:textSize="17sp"
-                                    android:padding="@dimen/margin_10"
                                     android:textColor="@color/black"
                                     android:focusable="true"
                                     app:drawableEndCompat="@drawable/ic_drop_down" />
@@ -158,18 +168,26 @@
                                 android:gravity="center"
                                 android:background="@drawable/shape_border"
                                 android:backgroundTint="@color/light_grey"
+                                app:delayClickListener="@{()-> viewModel.onClickPeople()}"
                                 android:layout_margin="@dimen/padding_8dp"
+                                android:padding="@dimen/margin_10"
                                 android:layout_gravity="center">
+
+
+                                <ImageView
+                                    android:layout_width="@dimen/size_24"
+                                    android:layout_height="@dimen/size_24"
+                                    android:src="@drawable/people_users"
+                                    android:contentDescription="@string/app_name" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:foreground="?attr/selectableItemBackground"
                                     android:clickable="true"
                                     android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="People"
+                                    android:text="@string/person"
                                     android:textSize="17sp"
-                                    android:padding="@dimen/margin_10"
+                                    android:paddingHorizontal="@dimen/padding_5"
                                     android:textColor="@color/black"
                                     android:focusable="true"
                                     app:drawableEndCompat="@drawable/ic_drop_down" />
@@ -202,80 +220,9 @@
 
             </androidx.core.widget.NestedScrollView>
 
-            <LinearLayout
-                android:id="@+id/menuItemTotal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/custom_line_above_light_gray">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:padding="5dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/totalTv"
-                        android:layout_width="wrap_content"
-                        android:textColor="@color/colorAccent"
-                        android:layout_height="wrap_content"
-                        android:text="Total"
-                        tools:ignore="RtlSymmetry" />
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:maxLines="1"
-                        android:gravity="center"
-                        tools:ignore="Suspicious0dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="80.00 USD /"
-                            android:id="@+id/totalItemTv"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"/>
-
-                        <TextView
-                            android:maxLines="1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Person"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_margin="@dimen/padding_8dp"
-                    android:layout_gravity="center">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:id="@+id/linear_card"
-                        android:foreground="?attr/selectableItemBackground"
-                        android:clickable="true"
-                        android:background="@drawable/card_view_shape"
-                        android:backgroundTint="@color/colorAppPrimary"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="@string/book_now"
-                        android:textSize="17sp"
-                        android:padding="@dimen/margin_10"
-                        android:textColor="@color/white"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
+            <include
+                app:viewModel="@{viewModel}"
+                layout="@layout/bottom_show_price_layout"/>
 
         </LinearLayout>
 

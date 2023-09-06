@@ -34,9 +34,15 @@ class ThingToDoDetailTicketActivity : BaseActivity<ActivityThingToDoDetailTicket
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         mViewModel.bind(this)
 
+        setVariable(BR.viewModel, mViewModel)
 
+        initAction()
+    }
+
+    private fun initAction() {
         val mListTicket = ArrayList<TicketAvailableModel>()
         for (i in 1..20){
             val mModel = TicketAvailableModel("Half Day-Premium",
@@ -48,7 +54,7 @@ class ThingToDoDetailTicketActivity : BaseActivity<ActivityThingToDoDetailTicket
         }
 
         mAdapter = TicketAvailableAdapter(mListTicket) {
-            mAdapter?.updateProductOrderCounter(it?.id ?: "")
+            mViewModel.setPriceTotal(mAdapter?.updateProductOrderCounter(it?.id ?: "") ?: 0.00, this)
         }
 
         mBinding.recyclerView.apply {
@@ -56,7 +62,7 @@ class ThingToDoDetailTicketActivity : BaseActivity<ActivityThingToDoDetailTicket
             adapter = mAdapter
         }
 
-        setVariable(BR.viewModel, mViewModel)
+        mViewModel.setPriceTotal(mAdapter?.updateProductOrderCounter(mListTicket[0].id ?: "") ?: 0.00, this)
     }
 
 }

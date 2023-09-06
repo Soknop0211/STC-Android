@@ -16,7 +16,8 @@
 
     <RelativeLayout
         android:id="@+id/mainLayout"
-        android:layout_margin="@dimen/padding_5"
+        android:layout_marginHorizontal="@dimen/margin_10"
+        android:layout_marginVertical="@dimen/padding_5"
         android:layout_width="match_parent"
         android:background="@drawable/card_view_shape"
         android:orientation="vertical"

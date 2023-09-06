@@ -1,6 +1,5 @@
 package com.eazy.stcbusiness.base
 
-import android.content.Context
 
 
 abstract class BaseViewModel<T : BaseView> : BaseViewModelObservation() {
