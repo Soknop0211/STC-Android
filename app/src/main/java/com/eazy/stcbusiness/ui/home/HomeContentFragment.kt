@@ -13,6 +13,7 @@ import com.eazy.stcbusiness.base.SampleBaseFragment
 import com.eazy.stcbusiness.base_dapter.MainHomeShowItemAdapter
 import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.model.CustomCategoryModel
+import com.eazy.stcbusiness.ui.todo_things.ThingToDoDetailActivity
 
 class HomeContentFragment : SampleBaseFragment() {
 
@@ -30,7 +31,9 @@ class HomeContentFragment : SampleBaseFragment() {
 
         item.findViewById<RecyclerView>(R.id.recyclerView).apply {
             layoutManager = LinearLayoutManager(mActivity)
-            adapter = mActivity?.let { MainHomeShowItemAdapter(initList() , it) }
+            adapter = mActivity?.let { MainHomeShowItemAdapter(initList() , it) {
+                ThingToDoDetailActivity.gotoSearchDestinationThingToDoActivity(mActivity!!)
+            } }
         }
 
         return item

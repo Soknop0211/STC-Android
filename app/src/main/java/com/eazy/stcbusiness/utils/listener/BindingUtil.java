@@ -4,9 +4,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.RequiresApi;
 import androidx.databinding.BindingAdapter;
+
+import com.eazy.stcbusiness.R;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -15,6 +18,14 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 
 public class BindingUtil {
+    @BindingAdapter("setSelectedOptionBackground")
+    public static void setSelectedOptionBackground(LinearLayout container, boolean isSelected) {
+        if (isSelected) {
+            container.setBackgroundResource(R.drawable.shape_border);
+        } else {
+            container.setBackground(null);
+        }
+    }
 
     @BindingAdapter({"setVisibility"})
     public final void setVisibility(@NotNull View view, boolean isVisible) {

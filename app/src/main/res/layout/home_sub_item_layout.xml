@@ -33,15 +33,6 @@
 
         </LinearLayout>
 
-<!--        <TextView-->
-<!--            android:visibility="gone"-->
-<!--            android:background="@drawable/card_corner_left"-->
-<!--            android:backgroundTint="@color/colorTick"-->
-<!--            android:layout_width="20dp"-->
-<!--            android:text="@string/app_name"-->
-<!--            android:rotation="-90"-->
-<!--            android:layout_height="match_parent"/>-->
-
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
@@ -49,6 +40,15 @@
             android:scaleType="fitXY"
             android:src="@drawable/discount_banner"
             android:contentDescription="@string/app_name" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/discount_banner"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:id="@+id/imageShape"
+            app:shapeAppearanceOverlay="@style/roundedImageView" />
 
     </LinearLayout>
 

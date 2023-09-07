@@ -12,9 +12,14 @@ import com.eazy.stcbusiness.ui.home.HomeContentFragment
 import com.eazy.stcbusiness.ui.todo_things.SearchDestinationThingsToDoActivity
 import com.eazy.stcbusiness.ui.todo_things.ThingToDoDetailActivity
 import com.eazy.stcbusiness.utils.initImage
+import com.eazy.stcbusiness.utils.listener.CustomResponseOnClickListener
+import com.eazy.stcbusiness.utils.listener.CustomSetOnClickViewListener
 import com.eazy.stcbusiness.utils.setTextStrikeStyle
 
-class HighlyRecommendAdapter(private val mType : String, private val mList: List<CustomCategoryModel>) : RecyclerView.Adapter<HighlyRecommendAdapter.ViewHolder>() {
+class HighlyRecommendAdapter(private val mType : String,
+                             private val mList: List<CustomCategoryModel>,
+                             private val mListener : (CustomCategoryModel) -> Unit
+) : RecyclerView.Adapter<HighlyRecommendAdapter.ViewHolder>() {
 
     companion object {
         const val HIGHLY_RECOMMEND = 0X002
@@ -48,9 +53,11 @@ class HighlyRecommendAdapter(private val mType : String, private val mList: List
 //        holder.txtDescription.text =  mItem.description
         holder.image.initImage(mItem.urlImage)
 
-        holder.itemView.setOnClickListener {
-            ThingToDoDetailActivity.gotoSearchDestinationThingToDoActivity(holder.image.context)
-        }
+        holder.itemView.setOnClickListener (CustomSetOnClickViewListener(object : CustomResponseOnClickListener {
+            override fun onClick(view: View) {
+                mListener.invoke(mItem)
+            }
+        }))
     }
 
     override fun getItemViewType(position: Int): Int {

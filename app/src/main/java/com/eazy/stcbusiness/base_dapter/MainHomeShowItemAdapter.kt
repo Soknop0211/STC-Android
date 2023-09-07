@@ -11,13 +11,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.model.CustomCategoryDataList
+import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
 import com.eazy.stcbusiness.ui.todo_things.adapter.HighlyRecommendAdapter
 import com.eazy.stcbusiness.utils.backgroundTint
 
 class MainHomeShowItemAdapter(
     private val mList: ArrayList<CustomCategoryDataList>,
-    private val context: Activity) :
+    private val context: Activity,
+    private val mListener : (CustomCategoryModel) -> Unit) :
     RecyclerView.Adapter<MainHomeShowItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -68,7 +70,9 @@ class MainHomeShowItemAdapter(
             HomeContentFragment.HIGHLY_RECOMMEND -> {
                 holder.recyclerView.apply {
                     layoutManager = GridLayoutManager(context, 2)
-                    adapter = HighlyRecommendAdapter(mItem.mainAction, mItem.data)
+                    adapter = HighlyRecommendAdapter(mItem.mainAction, mItem.data) {
+
+                    }
                     isNestedScrollingEnabled = true
                 }
 

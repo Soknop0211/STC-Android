@@ -97,7 +97,8 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_gravity="center"
                                                 android:gravity="start"
-                                                android:text="Klook"
+                                                android:text="@{viewModel.getName}"
+                                                tools:text="Klook"
                                                 android:fontFamily="@font/font_bold"
                                                 android:textColor="@color/black"
                                                 android:textSize="18dp"
@@ -256,6 +257,11 @@
                                         android:textColor="@color/black"
                                         tools:ignore="SpUsage" />
 
+                                    <View
+                                        android:layout_width="0.5dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/light_grey"/>
+
                                     <TextView
                                         android:layout_width="0dp"
                                         android:layout_weight="1"
@@ -289,6 +295,11 @@
                                         android:textColor="@color/black"
                                         tools:ignore="SpUsage" />
 
+                                    <View
+                                        android:layout_width="0.5dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/light_grey"/>
+
                                     <TextView
                                         android:layout_width="0dp"
                                         android:layout_weight="1"
@@ -321,6 +332,11 @@
                                         android:text="Pickup"
                                         android:textColor="@color/black"
                                         tools:ignore="SpUsage" />
+
+                                    <View
+                                        android:layout_width="0.5dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/light_grey"/>
 
                                     <TextView
                                         android:layout_width="0dp"
@@ -362,7 +378,7 @@
                                     android:layout_gravity="center"
                                     android:paddingHorizontal="10dp"
                                     android:layout_marginBottom="@dimen/margin_10"
-                                    android:text="Siem Reap is a cheerful city that embraces travelers like old friends. This region was the site of successive capitals of the Khmer Siem Reap is a cheerful city that embraces travelers like old friends. This region was the site of successive capitals of the Khmer"
+                                    android:text="@{viewModel.getDescription}"
                                     android:textColor="@color/black"
                                     tools:ignore="SpUsage" />
 
@@ -393,7 +409,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:paddingHorizontal="10dp"
-                                    android:text="Siem Reap is a cheerful city that embraces travelers like old friends. This region was the site of successive capitals of the Khmer"
+                                    android:text="@{viewModel.getTermCondition}"
                                     android:textColor="@color/black"
                                     android:layout_marginBottom="@dimen/margin_10"
                                     tools:ignore="SpUsage" />
@@ -408,80 +424,9 @@
 
             </androidx.core.widget.NestedScrollView>
 
-            <LinearLayout
-                android:id="@+id/menuItemTotal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/custom_line_above_light_gray">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:padding="5dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/totalTv"
-                        android:layout_width="wrap_content"
-                        android:textColor="@color/colorAccent"
-                        android:layout_height="wrap_content"
-                        android:text="Total"
-                        tools:ignore="RtlSymmetry" />
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:maxLines="1"
-                        android:gravity="center"
-                        tools:ignore="Suspicious0dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="80.00 USD /"
-                            android:id="@+id/totalItemTv"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"/>
-
-                        <TextView
-                            android:maxLines="1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Person"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_margin="@dimen/padding_8dp"
-                    android:layout_gravity="center">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:id="@+id/linear_card"
-                        android:foreground="?attr/selectableItemBackground"
-                        android:clickable="true"
-                        android:background="@drawable/card_view_shape"
-                        android:backgroundTint="@color/colorAppPrimary"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="@string/book_now"
-                        android:textSize="17sp"
-                        android:padding="@dimen/margin_10"
-                        android:textColor="@color/white"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
+            <include
+                app:viewModel="@{viewModel}"
+                layout="@layout/bottom_show_price_layout"/>
 
         </LinearLayout>
 

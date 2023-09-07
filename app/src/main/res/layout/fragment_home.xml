@@ -99,17 +99,13 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/large_text" />-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <RelativeLayout
+                android:background="@color/transparent"
                 android:layout_width="match_parent"
                 app:layout_collapseMode="parallax"
                 android:layout_height="wrap_content">
@@ -118,13 +114,57 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/stc_banner"
+                    android:src="@drawable/temple_main"
                     android:contentDescription="@string/app_name" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/people_temple_main"
+                    android:contentDescription="@string/app_name" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/welcome_to"
+                        android:padding="@dimen/padding_5"
+                        android:textColor="@color/colorAppPrimary"
+                        android:fontFamily="@font/font_bold"
+                        android:textSize="@dimen/size_18sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:paddingHorizontal="@dimen/padding_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/siem_reap_the_would"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/font_bold"
+                        android:textSize="@dimen/size_18sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:paddingHorizontal="@dimen/padding_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/culture_destination"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/font_bold"
+                        android:textSize="@dimen/size_18sp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
 
             </RelativeLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="-50dp"
+                android:layout_marginTop="-60dp"
                 android:background="@drawable/bottom_sheet_bg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

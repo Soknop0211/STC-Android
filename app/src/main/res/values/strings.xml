@@ -129,5 +129,10 @@
     <string name="children">Children</string>
     <string name="age_children">Age 16–17/y</string>
     <string name="max_people">Max People</string>
+    <string name="reset">Reset</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="siem_reap_the_would">Siem Reap the would</string>
+    <string name="culture_destination">culture destination</string>
+    <string name="apply">Apply</string>
 
 </resources>

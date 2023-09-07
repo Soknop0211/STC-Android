@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -12,37 +14,80 @@
     </data>
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/mainLayout"
         android:background="@color/white"
         android:orientation="vertical">
 
         <LinearLayout
-            android:padding="@dimen/padding_5"
+            android:visibility="@{viewModel.visible ? view.VISIBLE : view.GONE}"
+            android:paddingHorizontal="@dimen/margin_10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/card_view_shape"
-            android:backgroundTint="@color/light_grey"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:minWidth="80dp"
+            android:background="@{viewModel.getSelected ? @drawable/on_swipe_shape_color_app : @drawable/bg_swap_app_appbar_strok, default = @drawable/bg_swap_app_appbar_strok}"
             android:layout_margin="@dimen/size_5"
             android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/checkClick"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_star"
+                android:visibility="@{viewModel.visible ? view.VISIBLE : view.GONE}"
+                android:tint="@{viewModel.getSelected ? @color/white : @color/colorAppPrimary, default = @color/colorAppPrimary}" />
 
             <TextView
                 android:id="@+id/item_name"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:gravity="center|start"
+                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/margin_30"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="4dp"
                 android:layout_marginBottom="4dp"
                 android:text="@{viewModel.getTitle}"
-                android:textColor="@color/black"
+                tools:text="title test"
+                android:textColor="@{viewModel.getSelected ? @color/white : @color/black, default = @color/black}"
                 android:textSize="@dimen/size_16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="@{viewModel.visible ? view.GONE : view.VISIBLE}"
+            android:paddingHorizontal="@dimen/margin_10"
+            android:paddingVertical="@dimen/padding_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:minWidth="80dp"
+            android:backgroundTint="@color/colorAppPrimary"
+            android:background="@{viewModel.getSelected ? @drawable/card_view_shape : @drawable/shape_border, default = @drawable/shape_border}"
+            android:id="@+id/mainLayout"
+            android:layout_margin="@dimen/size_5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_margin="4dp"
+                android:text="@{viewModel.getTitle}"
+                tools:text="Traveller Ranking"
+                android:textColor="@{viewModel.getSelected ? @color/white : @color/black, default = @color/black}"
+                android:textSize="@dimen/size_14sp" />
 
         </LinearLayout>
 

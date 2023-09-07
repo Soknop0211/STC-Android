@@ -13,9 +13,12 @@ import com.eazy.stcbusiness.ui.home.HomeFragment
 import com.eazy.stcbusiness.ui.home.MapFragment
 import com.eazy.stcbusiness.ui.home.MyOrderFragment
 import com.eazy.stcbusiness.ui.home.ProfileFragment
+import com.eazy.stcbusiness.ui.todo_things.fragment.DestinationLocationBottomSheetFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class MainActivity : SampleBaseActivity() {
 
     companion object {
@@ -38,6 +41,10 @@ class MainActivity : SampleBaseActivity() {
         setContentView(R.layout.activity_main)
 
         initAction()
+
+//        val mDestinationBottomSheet = DestinationLocationBottomSheetFragment.newInstance("")
+//        mDestinationBottomSheet.show(supportFragmentManager, DestinationLocationBottomSheetFragment::class.java.name)
+
 
     }
 

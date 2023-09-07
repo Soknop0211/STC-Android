@@ -14,6 +14,7 @@ class CustomItemHomeAdapter(private val list: List<CustomCategoryModel>) : Recyc
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txtBgCorner: TextView = itemView.findViewById(R.id.txtBgCorner)
         val image: ImageView = itemView.findViewById(R.id.image)
+        val imageShape: ImageView = itemView.findViewById(R.id.imageShape)
         val txtTittle: TextView = itemView.findViewById(R.id.txtTittle)
 
     }
@@ -25,7 +26,8 @@ class CustomItemHomeAdapter(private val list: List<CustomCategoryModel>) : Recyc
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.txtBgCorner.visibility =  if (position == 0) View.VISIBLE else View.GONE
         holder.txtTittle.visibility =  if (position > 0) View.VISIBLE else View.GONE
-        val lastIndex = list.size - 1
+        holder.imageShape.visibility =  if (list.size - 1 == position) View.VISIBLE else View.GONE
+        holder.image.visibility =  if (list.size - 1 == position) View.GONE else View.VISIBLE
     }
 
     override fun getItemCount(): Int {

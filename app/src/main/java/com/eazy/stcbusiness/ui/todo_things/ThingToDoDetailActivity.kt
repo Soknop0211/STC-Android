@@ -9,11 +9,13 @@ import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseActivity
 import com.eazy.stcbusiness.databinding.ActivityThingToDoDetailBinding
 import com.eazy.stcbusiness.ui.todo_things.ThingToDoDetailTicketActivity.Companion.gotoSearchDestinationThingToDoTicketActivity
+import com.eazy.stcbusiness.view_model.OnDetailButtonListener
 import com.eazy.stcbusiness.view_model.ThingsToDoDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ThingToDoDetailActivity : BaseActivity<ActivityThingToDoDetailBinding, ThingsToDoDetailViewModel>() {
+class ThingToDoDetailActivity : BaseActivity<ActivityThingToDoDetailBinding, ThingsToDoDetailViewModel>(),
+    OnDetailButtonListener {
 
     override val layoutId: Int get() = R.layout.activity_thing_to_do_detail
     override val mViewModel: ThingsToDoDetailViewModel by viewModels()
@@ -28,12 +30,15 @@ class ThingToDoDetailActivity : BaseActivity<ActivityThingToDoDetailBinding, Thi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewModel.bind(this)
+        mViewModel.setContext(this)
 
-        mBinding.linearCard.setOnClickListener {
-            gotoSearchDestinationThingToDoTicketActivity(this)
-        }
+        mViewModel.setPriceTotal(8.00, this)
 
         setVariable(BR.viewModel, mViewModel)
+    }
+
+    override fun onBookNowClick() {
+        gotoSearchDestinationThingToDoTicketActivity(this)
     }
 
 }

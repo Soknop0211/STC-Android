@@ -11,8 +11,14 @@ import com.eazy.stcbusiness.view_model.DestinationLocationViewModel
 import com.eazy.stcbusiness.BR
 import com.eazy.stcbusiness.model.LocationModel
 import com.eazy.stcbusiness.ui.todo_things.adapter.SelectLocationAdapter
+import com.eazy.stcbusiness.view_model.OnClickListener
+import dagger.hilt.android.AndroidEntryPoint
 
-class DestinationLocationBottomSheetFragment : BaseBottomSheetDialogFragment<FragmentDestinationLocationBottomSheetBinding, DestinationLocationViewModel>() {
+@AndroidEntryPoint
+
+class DestinationLocationBottomSheetFragment :
+    BaseBottomSheetDialogFragment<FragmentDestinationLocationBottomSheetBinding, DestinationLocationViewModel>(),
+    OnClickListener {
 
     override val layoutResource: Int get() = R.layout.fragment_destination_location_bottom_sheet
     override val mViewModel: DestinationLocationViewModel by viewModels()
@@ -37,10 +43,20 @@ class DestinationLocationBottomSheetFragment : BaseBottomSheetDialogFragment<Fra
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mViewModel.bind(this)
+
         val mListLocation = ArrayList<LocationModel>()
-        for (i in 1..20){
-            mListLocation.add(LocationModel(i.toString(), "Location $i"))
-        }
+        mListLocation.add(LocationModel("1", "Siem Reap, Cambodia"))
+        mListLocation.add(LocationModel("1", "Battam Bong"))
+        mListLocation.add(LocationModel("1", "Sihanoukville, Cambodia"))
+        mListLocation.add(LocationModel("1", "Kampot, Cambodia"))
+        mListLocation.add(LocationModel("1", "Kep, Cambodia"))
+        mListLocation.add(LocationModel("1", "Koh Kong, Cambodia"))
+        mListLocation.add(LocationModel("1", "Mondulkiri, Cambodia"))
+        mListLocation.add(LocationModel("1", "Banteay Meanchey, Cambodia"))
+        mListLocation.add(LocationModel("1", "Kompng Cham, Cambodia"))
+        mListLocation.add(LocationModel("1", "Kampong Speu, Cambodia"))
+        mListLocation.add(LocationModel("1", "Kompong Thom, Cambodia"))
 
         mBinding.recyclerView.apply {
             layoutManager = LinearLayoutManager(mActivity)
@@ -50,9 +66,15 @@ class DestinationLocationBottomSheetFragment : BaseBottomSheetDialogFragment<Fra
                         // onClickAllAction.onClickSelectLocation(value)
 
                         val mDestinationBottomSheet = FilterByDestinationBottomSheetFragment.newInstance("")
+                        mDestinationBottomSheet.initListener(object : OnClickCallBackListener {
+                            override fun onClickSelectLocation() {
+                                dismiss()
+                            }
+
+                        })
                         mDestinationBottomSheet.show(childFragmentManager, mDestinationBottomSheet::class.java.name)
 
-                        dismiss()
+                        // dismiss()
                     }
 
                 })
@@ -66,6 +88,10 @@ class DestinationLocationBottomSheetFragment : BaseBottomSheetDialogFragment<Fra
     }
 
     interface OnClickCallBackListener {
-        fun onClickSelectLocation(titleHeader : LocationModel)
+        fun onClickSelectLocation()
+    }
+
+    override fun onClickListener() {
+
     }
 }

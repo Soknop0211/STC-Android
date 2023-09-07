@@ -13,6 +13,7 @@ import com.eazy.stcbusiness.base.SampleBaseFragment
 import com.eazy.stcbusiness.base_dapter.MainHomeShowItemAdapter
 import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.model.CustomCategoryModel
+import com.eazy.stcbusiness.ui.todo_things.ThingToDoDetailActivity
 
 class HomeFragment : SampleBaseFragment() {
 
@@ -22,7 +23,9 @@ class HomeFragment : SampleBaseFragment() {
 
         view.findViewById<RecyclerView>(R.id.recyclerView).apply {
           //  layoutManager = LinearLayoutManager(mActivity)
-            adapter = mActivity?.let { MainHomeShowItemAdapter(initList() , it) }
+            adapter = mActivity?.let { MainHomeShowItemAdapter(initList() , it) {
+                ThingToDoDetailActivity.gotoSearchDestinationThingToDoActivity(mActivity!!)
+            } }
         }
 
 
@@ -59,11 +62,11 @@ class HomeFragment : SampleBaseFragment() {
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.tours_guide, null)
         mListSubList.add(CustomCategoryModel(HomeContentFragment.MAIN_CATEGORY, "Tours Guide", drawable!!))
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.transportation, null)
-        mListSubList.add(CustomCategoryModel(HomeContentFragment.MAIN_CATEGORY, "Transportation", drawable!!))
+        mListSubList.add(CustomCategoryModel(HomeContentFragment.MAIN_CATEGORY, "Transportations", drawable!!))
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.restaurants, null)
-        mListSubList.add(CustomCategoryModel(HomeContentFragment.MAIN_CATEGORY, "Restaurant", drawable!!))
+        mListSubList.add(CustomCategoryModel(HomeContentFragment.MAIN_CATEGORY, "Restaurants", drawable!!))
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.hotel, null)
-        mListSubList.add(CustomCategoryModel(HomeContentFragment.MAIN_CATEGORY, "Hotel", drawable!!))
+        mListSubList.add(CustomCategoryModel(HomeContentFragment.MAIN_CATEGORY, "Hotels", drawable!!))
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.ticket, null)
         mListSubList.add(CustomCategoryModel(HomeContentFragment.MAIN_CATEGORY, "Tickets", drawable!!))
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.spa, null)

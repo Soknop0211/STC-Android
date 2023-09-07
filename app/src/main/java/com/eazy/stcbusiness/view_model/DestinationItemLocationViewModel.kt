@@ -16,6 +16,7 @@ class DestinationItemLocationViewModel (mSelectedId: String, mLocation : Locatio
     private fun initItem(mSelectedId : String, mLocation : LocationModel) {
         mTitle.set(mLocation.name)
         mIsVisibleLine.set(mSelectedId == mLocation.id)
+
     }
 
     fun getTitle(): ObservableField<String> {

@@ -26,6 +26,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="@dimen/size_20"
+                android:layout_height="@dimen/size_20"
+                android:layout_gravity="center"
+                android:src="@drawable/location"
+                android:contentDescription="@string/app_name" />
+
             <TextView
                 android:id="@+id/item_name"
                 android:layout_width="0dp"

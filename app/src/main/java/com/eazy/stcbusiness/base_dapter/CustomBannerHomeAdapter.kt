@@ -44,13 +44,6 @@ class CustomBannerHomeAdapter(private val mContext : Context, private val mType:
                 gotoThingToDoActivity(mContext)
             }
         }
-
-
-//        holder.txtHeaderTitle.text = if (!TextUtils.isEmpty(list[position].description)) (String.format("%s : ", list[position].description)) else ""
-//        holder.imageItem.initImage(if (list[position].icon != null) list[position].icon else "")
-//
-//        holder.txtHeaderTitle.visibility = if (!TextUtils.isEmpty(list[position].description)) View.VISIBLE else View.GONE
-//        holder.imageItem.visibility = if (!TextUtils.isEmpty(list[position].icon)) View.VISIBLE else View.GONE
     }
 
     override fun getItemCount(): Int {

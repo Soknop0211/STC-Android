@@ -14,8 +14,6 @@ interface OnClickListener : BaseView{
 @HiltViewModel
 class DestinationLocationViewModel @Inject constructor(mContext: Application) : BaseViewModel<OnClickListener>(){
 
-    fun initAction() {}
-
     override fun onClickBookNow() {
         mView?.onClickListener()
     }
@@ -24,5 +22,12 @@ class DestinationLocationViewModel @Inject constructor(mContext: Application) : 
         setPriceTotal(8.00, mContext)
     }
 
+    fun onClickApply() {
+        mView?.onClickListener()
+    }
+
+    fun onClickReset() {
+        mView?.onClickListener()
+    }
 
 }
