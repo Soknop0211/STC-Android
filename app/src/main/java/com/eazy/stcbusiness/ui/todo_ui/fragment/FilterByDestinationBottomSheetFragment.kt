@@ -1,18 +1,13 @@
 package com.eazy.stcbusiness.ui.todo_ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.DataBindingUtil.getBinding
-import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseBottomSheetDialogFragment
 import com.eazy.stcbusiness.databinding.FragmentFilterByDestinationBottomSheetBinding
-import com.eazy.stcbusiness.databinding.ListConciergeFilterProductCriteriaItemBinding
 import com.eazy.stcbusiness.model.LocationModel
 import com.eazy.stcbusiness.model.StarRatingModel
 import com.eazy.stcbusiness.ui.todo_ui.adapter.StarRatingAdapter
@@ -20,10 +15,8 @@ import com.eazy.stcbusiness.utils.AppLOGG
 import com.eazy.stcbusiness.utils.listener.CustomResponseOnClickListener
 import com.eazy.stcbusiness.utils.listener.CustomSetOnClickViewListener
 import com.eazy.stcbusiness.view_model.DestinationLocationViewModel
-import com.eazy.stcbusiness.view_model.FilterByDestinationViewModel
 import com.eazy.stcbusiness.view_model.OnClickListener
 import dagger.hilt.android.AndroidEntryPoint
-import java.math.BigDecimal
 
 @AndroidEntryPoint
 class FilterByDestinationBottomSheetFragment : BaseBottomSheetDialogFragment<FragmentFilterByDestinationBottomSheetBinding, DestinationLocationViewModel>(),

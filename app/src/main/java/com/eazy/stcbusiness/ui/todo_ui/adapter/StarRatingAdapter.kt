@@ -1,6 +1,5 @@
 package com.eazy.stcbusiness.ui.todo_ui.adapter
 
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

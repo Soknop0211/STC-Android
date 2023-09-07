@@ -10,7 +10,6 @@ import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
 import com.eazy.stcbusiness.ui.todo_ui.SearchDestinationThingsToDoActivity
-import com.eazy.stcbusiness.ui.todo_ui.ThingToDoDetailActivity
 import com.eazy.stcbusiness.utils.initImage
 import com.eazy.stcbusiness.utils.listener.CustomResponseOnClickListener
 import com.eazy.stcbusiness.utils.listener.CustomSetOnClickViewListener
