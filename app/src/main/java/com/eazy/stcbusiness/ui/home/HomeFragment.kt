@@ -13,7 +13,7 @@ import com.eazy.stcbusiness.base.SampleBaseFragment
 import com.eazy.stcbusiness.base_dapter.MainHomeShowItemAdapter
 import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.model.CustomCategoryModel
-import com.eazy.stcbusiness.ui.todo_things.ThingToDoDetailActivity
+import com.eazy.stcbusiness.ui.todo_ui.ThingToDoDetailActivity
 
 class HomeFragment : SampleBaseFragment() {
 

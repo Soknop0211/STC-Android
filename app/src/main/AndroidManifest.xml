@@ -18,16 +18,16 @@
         android:theme="@style/Theme.Stcbusiness"
         tools:targetApi="s">
         <activity
-            android:name=".ui.todo_things.ThingToDoDetailTicketActivity"
+            android:name=".ui.todo_ui.ThingToDoDetailTicketActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.todo_things.ThingToDoDetailActivity"
+            android:name=".ui.todo_ui.ThingToDoDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.todo_things.SearchDestinationThingsToDoActivity"
+            android:name=".ui.todo_ui.SearchDestinationThingsToDoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.todo_things.ThingToDoActivity"
+            android:name=".ui.todo_ui.ThingToDoActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"

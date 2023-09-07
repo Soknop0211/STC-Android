@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.todo_things.fragment
+package com.eazy.stcbusiness.ui.todo_ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +15,7 @@ import com.eazy.stcbusiness.databinding.FragmentFilterByDestinationBottomSheetBi
 import com.eazy.stcbusiness.databinding.ListConciergeFilterProductCriteriaItemBinding
 import com.eazy.stcbusiness.model.LocationModel
 import com.eazy.stcbusiness.model.StarRatingModel
-import com.eazy.stcbusiness.ui.todo_things.adapter.StarRatingAdapter
+import com.eazy.stcbusiness.ui.todo_ui.adapter.StarRatingAdapter
 import com.eazy.stcbusiness.utils.AppLOGG
 import com.eazy.stcbusiness.utils.listener.CustomResponseOnClickListener
 import com.eazy.stcbusiness.utils.listener.CustomSetOnClickViewListener

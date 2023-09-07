@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.todo_things.fragment
+package com.eazy.stcbusiness.ui.todo_ui.fragment
 
 import android.os.Bundle
 import android.view.View
@@ -10,7 +10,7 @@ import com.eazy.stcbusiness.databinding.FragmentDestinationLocationBottomSheetBi
 import com.eazy.stcbusiness.view_model.DestinationLocationViewModel
 import com.eazy.stcbusiness.BR
 import com.eazy.stcbusiness.model.LocationModel
-import com.eazy.stcbusiness.ui.todo_things.adapter.SelectLocationAdapter
+import com.eazy.stcbusiness.ui.todo_ui.adapter.SelectLocationAdapter
 import com.eazy.stcbusiness.view_model.OnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 

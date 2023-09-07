@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.todo_things.adapter
+package com.eazy.stcbusiness.ui.todo_ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

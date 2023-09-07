@@ -13,7 +13,7 @@ import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
-import com.eazy.stcbusiness.ui.todo_things.adapter.HighlyRecommendAdapter
+import com.eazy.stcbusiness.ui.todo_ui.adapter.HighlyRecommendAdapter
 import com.eazy.stcbusiness.utils.backgroundTint
 
 class MainHomeShowItemAdapter(

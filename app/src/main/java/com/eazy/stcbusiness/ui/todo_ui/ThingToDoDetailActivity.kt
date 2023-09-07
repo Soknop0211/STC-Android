@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.todo_things
+package com.eazy.stcbusiness.ui.todo_ui
 
 import android.content.Context
 import android.content.Intent
@@ -8,7 +8,7 @@ import com.eazy.stcbusiness.BR
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseActivity
 import com.eazy.stcbusiness.databinding.ActivityThingToDoDetailBinding
-import com.eazy.stcbusiness.ui.todo_things.ThingToDoDetailTicketActivity.Companion.gotoSearchDestinationThingToDoTicketActivity
+import com.eazy.stcbusiness.ui.todo_ui.ThingToDoDetailTicketActivity.Companion.gotoSearchDestinationThingToDoTicketActivity
 import com.eazy.stcbusiness.view_model.OnDetailButtonListener
 import com.eazy.stcbusiness.view_model.ThingsToDoDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint

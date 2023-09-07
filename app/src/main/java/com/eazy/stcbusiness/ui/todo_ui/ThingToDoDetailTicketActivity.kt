@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.todo_things
+package com.eazy.stcbusiness.ui.todo_ui
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,9 +11,9 @@ import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseActivity
 import com.eazy.stcbusiness.databinding.ActivityThingToDoDetailTicketBinding
 import com.eazy.stcbusiness.model.TicketAvailableModel
-import com.eazy.stcbusiness.ui.todo_things.adapter.TicketAvailableAdapter
-import com.eazy.stcbusiness.ui.todo_things.fragment.SelectNumberPeopleBottomSheetFragment
-import com.eazy.stcbusiness.ui.todo_things.fragment.SelectStartEndDateRangBottomSheet
+import com.eazy.stcbusiness.ui.todo_ui.adapter.TicketAvailableAdapter
+import com.eazy.stcbusiness.ui.todo_ui.fragment.SelectNumberPeopleBottomSheetFragment
+import com.eazy.stcbusiness.ui.todo_ui.fragment.SelectStartEndDateRangBottomSheet
 import com.eazy.stcbusiness.view_model.OnTicketListener
 import com.eazy.stcbusiness.view_model.ThingsToDoDetailTicketViewModel
 import dagger.hilt.android.AndroidEntryPoint

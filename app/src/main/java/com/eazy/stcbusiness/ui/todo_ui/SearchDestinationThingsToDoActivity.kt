@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.todo_things
+package com.eazy.stcbusiness.ui.todo_ui
 
 import android.content.Context
 import android.content.Intent
@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.eazy.stcbusiness.base.SampleBaseActivity
 import com.eazy.stcbusiness.databinding.ActivitySearchDestinationThingsToDoBinding
 import com.eazy.stcbusiness.model.CustomCategoryModel
-import com.eazy.stcbusiness.ui.todo_things.adapter.HighlyRecommendAdapter
-import com.eazy.stcbusiness.ui.todo_things.fragment.DestinationLocationBottomSheetFragment
+import com.eazy.stcbusiness.ui.todo_ui.adapter.HighlyRecommendAdapter
+import com.eazy.stcbusiness.ui.todo_ui.fragment.DestinationLocationBottomSheetFragment
 import com.eazy.stcbusiness.utils.listener.CustomResponseOnClickListener
 import com.eazy.stcbusiness.utils.listener.CustomSetOnClickViewListener
 import dagger.hilt.android.AndroidEntryPoint

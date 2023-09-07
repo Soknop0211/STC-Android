@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.todo_things.fragment
+package com.eazy.stcbusiness.ui.todo_ui.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,7 +11,7 @@ import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseBottomSheetDialogFragment
 import com.eazy.stcbusiness.databinding.SelectNumberOfPeopleLayoutBinding
 import com.eazy.stcbusiness.model.NumRoomBookingModel
-import com.eazy.stcbusiness.ui.todo_things.adapter.SelectNumRoomBookingAdapter
+import com.eazy.stcbusiness.ui.todo_ui.adapter.SelectNumRoomBookingAdapter
 import com.eazy.stcbusiness.view_model.DestinationLocationViewModel
 import com.eazy.stcbusiness.view_model.OnClickListener
 import dagger.hilt.android.AndroidEntryPoint

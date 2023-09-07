@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.todo_things.adapter
+package com.eazy.stcbusiness.ui.todo_ui.adapter
 
 import android.app.Activity
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.model.CustomCategoryModel
-import com.eazy.stcbusiness.ui.todo_things.SearchDestinationThingsToDoActivity.Companion.gotoSearchDestinationThingToDoActivity
+import com.eazy.stcbusiness.ui.todo_ui.SearchDestinationThingsToDoActivity.Companion.gotoSearchDestinationThingToDoActivity
 import com.eazy.stcbusiness.utils.getWidth
 import com.eazy.stcbusiness.utils.initImage
 

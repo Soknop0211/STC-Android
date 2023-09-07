@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.todo_things
+package com.eazy.stcbusiness.ui.todo_ui
 
 import android.content.Context
 import android.content.Intent
@@ -10,7 +10,7 @@ import com.eazy.stcbusiness.base_dapter.AbsoluteFitLayoutManager
 import com.eazy.stcbusiness.databinding.ActivityThingToDoBinding
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
-import com.eazy.stcbusiness.ui.todo_things.adapter.TodoDestinationAdapter
+import com.eazy.stcbusiness.ui.todo_ui.adapter.TodoDestinationAdapter
 
 class ThingToDoActivity : SampleBaseActivity()  {
 
