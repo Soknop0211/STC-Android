@@ -45,4 +45,9 @@
         <item name="cornerSizeTopRight">@dimen/size_20</item>
         <item name="cornerSizeBottomRight">@dimen/size_20</item>
     </style>
+
+    <style name="Widget.App.Tooltip" parent="Widget.MaterialComponents.Tooltip">
+        <item name="backgroundTint">@color/colorPrimaryDark</item>
+    </style>
+
 </resources>

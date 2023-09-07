@@ -16,7 +16,9 @@ import com.eazy.stcbusiness.utils.listener.CustomResponseOnClickListener
 import com.eazy.stcbusiness.utils.listener.CustomSetOnClickViewListener
 import com.eazy.stcbusiness.view_model.DestinationLocationViewModel
 import com.eazy.stcbusiness.view_model.OnClickListener
+import com.google.android.material.slider.LabelFormatter
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class FilterByDestinationBottomSheetFragment : BaseBottomSheetDialogFragment<FragmentFilterByDestinationBottomSheetBinding, DestinationLocationViewModel>(),
@@ -74,14 +76,15 @@ class FilterByDestinationBottomSheetFragment : BaseBottomSheetDialogFragment<Fra
         }
 
         if (minPrice == "" && maxPrice == ""){
-            minPrice = mBinding.rangePrice.valueFrom.toString()
-            maxPrice = mBinding.rangePrice.valueTo.toString()
+            minPrice = "18"
+            maxPrice = "40"
         }
 
         val list = ArrayList<Float>()
         list.add(minPrice.toFloat())
         list.add(maxPrice.toFloat())
-        mBinding.rangePrice.values = list
+        // mBinding.rangePrice.values = list
+        mBinding.rangePrice.setValues(18f,40f)
 
         mBinding.rangePrice.addOnChangeListener { _, _, _ ->
             val values = mBinding.rangePrice.values
@@ -89,6 +92,9 @@ class FilterByDestinationBottomSheetFragment : BaseBottomSheetDialogFragment<Fra
             maxPrice = values[1].toString()
             AppLOGG.d("Loginparicerang", String.format("%s : $ %s - $ %s", "From", minPrice, maxPrice))
         }
+
+        mBinding.rangePrice.setLabelFormatter { value -> "$" + value.toInt() }
+
 
         mBinding.applyTv.setOnClickListener (CustomSetOnClickViewListener (object : CustomResponseOnClickListener {
             override fun onClick(view: View) {
