@@ -149,9 +149,8 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
                                 android:maxLines="2"
                                 android:text="@string/where_do_you_destination"
                                 android:textColor="@color/black"
@@ -164,6 +163,40 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:text="@string/happening_now"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/font_regular"
+                                android:paddingVertical="@dimen/margin_10"
+                                android:textSize="16sp"/>
+
+                            <androidx.viewpager2.widget.ViewPager2
+                                android:id="@+id/viewPagerImageSlider"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                            <com.google.android.material.tabs.TabLayout
+                                android:id="@+id/tab_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/transparent"
+                                app:tabBackground="@drawable/tab_select"
+                                app:tabGravity="center"
+                                app:tabIndicatorHeight="0dp"
+                                app:tabTextColor="@android:color/transparent" />
 
                         </LinearLayout>
 

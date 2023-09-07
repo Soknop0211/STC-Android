@@ -52,6 +52,17 @@ fun Activity.getWidth(): Int {
     return displayMetrics.widthPixels
 }
 
+fun getScreenHeight(context: Context): Int {
+    val displayMetrics = context.resources.displayMetrics
+    val dpHeight = displayMetrics.heightPixels.toFloat()
+    return dpHeight.toInt()
+}
+
+fun Context.setHeightOfScreen(numberDivide: Double): Int {
+    val height: Int = getScreenHeight(this)
+    return (height / numberDivide).toInt()
+}
+
 // Convert Price
 fun Context.getDisplayPrice(currency : String, price: Double): String {
     val newPrice: Double = roundPriceValueAsDouble(price, 2)
