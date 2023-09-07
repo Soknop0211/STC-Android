@@ -54,8 +54,12 @@ class FilterByDestinationBottomSheetFragment : BaseBottomSheetDialogFragment<Fra
 
 
         val mStarRatingModel = ArrayList<LocationModel>()
+        var mModel = StarRatingModel()
+        mModel.id = "all"
+        mModel.name = "All"
+        mStarRatingModel.add(mModel)
         for (i in 1..5){
-            val mModel = StarRatingModel()
+            mModel = StarRatingModel()
             mModel.id = i.toString()
             mModel.name = (6 - i).toString()
             mStarRatingModel.add(mModel)
@@ -65,13 +69,7 @@ class FilterByDestinationBottomSheetFragment : BaseBottomSheetDialogFragment<Fra
             layoutManager = LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = StarRatingAdapter(mStarRatingModel, StarRatingAdapter.RATING_ITEM,
                 object : StarRatingAdapter.OnClickCallBackLister {
-                    override fun onClickCallBack(value: LocationModel) {
-//                        for (mItem in mStarRatingModel) {
-//                            mItem.isClicked = mItem.id == value.id
-//                        }
-//                        mBinding.recyclerView.adapter?.notifyDataSetChanged()
-                    }
-
+                    override fun onClickCallBack(value: LocationModel) {}
                 })
         }
 

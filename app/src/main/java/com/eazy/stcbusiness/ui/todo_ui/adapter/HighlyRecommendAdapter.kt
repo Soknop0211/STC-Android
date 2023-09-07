@@ -23,6 +23,7 @@ class HighlyRecommendAdapter(private val mType : String,
     companion object {
         const val HIGHLY_RECOMMEND = 0X002
         const val SEARCH_BY_DESTINATION = 0X001
+        const val HAPPENING_NOW_HOME = 0X003
     }
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val originalPrice: TextView = itemView.findViewById(R.id.originalPrice)
@@ -32,11 +33,11 @@ class HighlyRecommendAdapter(private val mType : String,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return if (viewType == HIGHLY_RECOMMEND) {
-            val rootView = LayoutInflater.from(parent.context).inflate(R.layout.highly_recommend_layout, parent, false)
-            ViewHolder(rootView)
-        } else {
+        return if (viewType == SEARCH_BY_DESTINATION) {
             val rootView = LayoutInflater.from(parent.context).inflate(R.layout.item_search_by_destination, parent, false)
+            ViewHolder(rootView)
+        }else {
+            val rootView = LayoutInflater.from(parent.context).inflate(R.layout.highly_recommend_layout, parent, false)
             ViewHolder(rootView)
         }
 
@@ -60,12 +61,18 @@ class HighlyRecommendAdapter(private val mType : String,
     }
 
     override fun getItemViewType(position: Int): Int {
-        if (mType == SearchDestinationThingsToDoActivity.SEARCH_BY_DESTINATION) {
-            return SEARCH_BY_DESTINATION
-        } else if (mType == HomeContentFragment.HIGHLY_RECOMMEND) {
-            return HIGHLY_RECOMMEND
+        return when (mType) {
+            SearchDestinationThingsToDoActivity.SEARCH_BY_DESTINATION -> {
+                SEARCH_BY_DESTINATION
+            }
+            HomeContentFragment.HIGHLY_RECOMMEND -> {
+                HIGHLY_RECOMMEND
+            }
+            HomeContentFragment.HAPPENING_NOW_HOME -> {
+                HAPPENING_NOW_HOME
+            }
+            else -> super.getItemViewType(position)
         }
-        return super.getItemViewType(position)
     }
 
     override fun getItemCount(): Int {

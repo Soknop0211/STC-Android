@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:id="@+id/mainLayout"
+    android:background="@color/transparent"
     android:layout_height="wrap_content">
 
     <LinearLayout
@@ -36,6 +37,23 @@
             android:maxLines="1"
             android:padding="@dimen/margin_10"
             android:text="@string/see_more_under_line"
+            android:textColor="@color/colorAppPrimary"
+            android:textSize="13sp" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/btnExploreMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/font_regular"
+            android:maxLines="1"
+            android:layout_marginHorizontal="@dimen/margin_10"
+            android:background="@drawable/bg_swap_app_appbar_strok"
+            android:backgroundTint="@color/colorAppPrimary"
+            android:paddingHorizontal="@dimen/margin_10"
+            android:paddingVertical="@dimen/padding_5"
+            android:text="@string/explore_more"
             android:textColor="@color/colorAppPrimary"
             android:textSize="13sp" />
 

@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Stcbusiness"
         tools:targetApi="s">
         <activity
+            android:name=".ui.happening_ui.HappeningNowActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.todo_ui.ThingToDoDetailTicketActivity"
             android:exported="false" />
         <activity

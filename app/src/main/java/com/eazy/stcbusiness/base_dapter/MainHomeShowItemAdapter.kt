@@ -76,10 +76,26 @@ class MainHomeShowItemAdapter(
                     isNestedScrollingEnabled = true
                 }
 
-                //
+                // Handle Background
                 holder.mainLayout.setBackgroundResource(R.drawable.bottom_sheet_bg)
                 holder.mainLayout.backgroundTint(R.color.light_white)
             }
+
+            HomeContentFragment.HAPPENING_NOW_HOME -> {
+                holder.recyclerView.apply {
+                    layoutManager = GridLayoutManager(context, 2)
+                    adapter = HighlyRecommendAdapter(mItem.mainAction, mItem.data) {
+
+                    }
+                    isNestedScrollingEnabled = true
+                }
+
+                holder.mainLayout.setBackgroundResource(R.color.transparent)
+
+                holder.btnExploreMore.visibility = View.VISIBLE
+                holder.btnSeeMore.visibility = View.GONE
+            }
+
         }
 
     }
@@ -93,6 +109,8 @@ class MainHomeShowItemAdapter(
         val headerTitleLayout: LinearLayout = itemView.findViewById(R.id.headerTitleLayout)
         val headerInfoTv: TextView = itemView.findViewById(R.id.headerInfoTv)
         val mainLayout: LinearLayout = itemView.findViewById(R.id.mainLayout)
+        val btnExploreMore: TextView = itemView.findViewById(R.id.btnExploreMore)
+        val btnSeeMore: TextView = itemView.findViewById(R.id.btnSeeMore)
     }
 
 }

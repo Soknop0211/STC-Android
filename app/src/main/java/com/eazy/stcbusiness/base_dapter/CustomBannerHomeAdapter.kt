@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.model.CustomCategoryModel
+import com.eazy.stcbusiness.ui.happening_ui.HappeningNowActivity.Companion.gotoHappeningNowActivity
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
 import com.eazy.stcbusiness.ui.todo_ui.ThingToDoActivity.Companion.gotoThingToDoActivity
 
@@ -39,10 +40,14 @@ class CustomBannerHomeAdapter(private val mContext : Context, private val mType:
         holder.imageItem2.visibility = if (mType == HomeContentFragment.ABOUT_SIEM_REAP) View.VISIBLE else View.GONE
         holder.imageItem.visibility =  if (mType == HomeContentFragment.ABOUT_SIEM_REAP) View.GONE else View.VISIBLE
 
-        if (mType == HomeContentFragment.CATEGORY && mItem.name.equals("Things To Do")) {
+        if (mType == HomeContentFragment.CATEGORY && mItem.name.equals(mContext.getString(R.string.things_to_do))) {
             holder.mainLayout.setOnClickListener {
                 gotoThingToDoActivity(mContext)
             }
+        } else if (mType == HomeContentFragment.CATEGORY && mItem.name.equals(mContext.getString(R.string.happening_now))) {
+                holder.mainLayout.setOnClickListener {
+                    gotoHappeningNowActivity(mContext)
+                }
         }
     }
 
