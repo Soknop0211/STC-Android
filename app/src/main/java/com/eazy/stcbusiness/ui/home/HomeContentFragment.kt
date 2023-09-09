@@ -12,6 +12,7 @@ import com.eazy.stcbusiness.base.SampleBaseFragment
 import com.eazy.stcbusiness.base_dapter.MainHomeShowItemAdapter
 import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.model.CustomCategoryModel
+import com.eazy.stcbusiness.ui.happening_ui.HappeningEventUpActivity
 import com.eazy.stcbusiness.ui.todo_ui.ThingToDoDetailActivity
 
 class HomeContentFragment : SampleBaseFragment() {
@@ -48,7 +49,9 @@ class HomeContentFragment : SampleBaseFragment() {
 
         item.findViewById<RecyclerView>(R.id.recyclerView).apply {
             layoutManager = LinearLayoutManager(mActivity)
-            adapter = mActivity?.let { MainHomeShowItemAdapter(initList(mActionType) , it) {
+            adapter = mActivity?.let { MainHomeShowItemAdapter(initList(mActionType) , it, {
+                HappeningEventUpActivity.gotoHappeningNowEventUpActivity(mActivity!!)
+            }) {
                 ThingToDoDetailActivity.gotoSearchDestinationThingToDoActivity(mActivity!!)
             } }
         }

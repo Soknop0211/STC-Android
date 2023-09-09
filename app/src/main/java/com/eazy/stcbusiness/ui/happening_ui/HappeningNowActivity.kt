@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -18,16 +17,16 @@ import com.eazy.stcbusiness.base_dapter.AbsoluteFitLayoutManager
 import com.eazy.stcbusiness.databinding.ActivityHappeningNowBinding
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.model.ItemImageSliderModel
+import com.eazy.stcbusiness.ui.happening_ui.HappeningEventUpActivity.Companion.gotoHappeningNowEventUpActivity
 import com.eazy.stcbusiness.ui.happening_ui.adapter.AdapterImageSlider
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
 import com.eazy.stcbusiness.ui.home.HomeContentFragment.Companion.HAPPENING_NOW_HOME
 import com.eazy.stcbusiness.ui.todo_ui.adapter.TodoDestinationAdapter
-import com.eazy.stcbusiness.utils.AppLOGG
-import com.eazy.stcbusiness.utils.CustomSliderImageClass
 import com.eazy.stcbusiness.view_model.HappeningNowViewModel
 import com.eazy.stcbusiness.view_model.OnItemListener
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class HappeningNowActivity : BaseActivity<ActivityHappeningNowBinding, HappeningNowViewModel>(),
@@ -45,6 +44,7 @@ class HappeningNowActivity : BaseActivity<ActivityHappeningNowBinding, Happening
 
     private val sliderHandler: Handler = Handler(Looper.getMainLooper())
 
+    val mListSlide = ArrayList<ItemImageSliderModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,9 +65,15 @@ class HappeningNowActivity : BaseActivity<ActivityHappeningNowBinding, Happening
     }
 
     private fun initData() {
+        // Init Body
+        mViewModel.itemList.observe(this) {
+            initRecyclerView(it)
+
+            replaceFragment()
+        }
+
         val imageList = listOf(
             "https://dev.booknow.asia/images/home_slider_1.jpg",
-            "https://dev.booknow.asia/images/home_slider_2.jpg",
             "https://dev.booknow.asia/images/home_slider_3.jpg",
             "https://dev.booknow.asia/images/home_slider_4.jpg",
             "https://dev.booknow.asia/images/home_slider_5.jpg",
@@ -75,20 +81,53 @@ class HappeningNowActivity : BaseActivity<ActivityHappeningNowBinding, Happening
         )
 
         val slideModels = ArrayList(imageList)
-        val mListSlide = ArrayList<ItemImageSliderModel>()
         for(item in slideModels) {
             mListSlide.add(ItemImageSliderModel(image = item))
         }
 
         //Slider Image
-        initImageSlideViewPager(15, mBinding.viewPagerImageSlider, sliderHandler, sliderRunnable, mListSlide)
+        // initImageSlideViewPager(15, mBinding.viewPagerImageSlider, sliderHandler, sliderRunnable, mListSlide)
 
+//
+//        val itemsPager_adapter = The_Slide_items_Pager_Adapter(this, mListSlide)
+//        mBinding.viewPagerImageSlider.setAdapter(itemsPager_adapter)
+//
+//        // The_slide_timer
+//        // The_slide_timer
+//        val timer = Timer()
+//        timer.scheduleAtFixedRate(object : TimerTask() {
+//            override fun run() {
+//                if (mBinding.viewPagerImageSlider.getCurrentItem()< mListSlide.size-1) {
+//                    mBinding.viewPagerImageSlider.setCurrentItem(mBinding.viewPagerImageSlider.getCurrentItem()+1);
+//                }
+//                else
+//                    mBinding.viewPagerImageSlider.setCurrentItem(0);
+//            }
+//
+//        }, 2000, 3000)
+//
+//        mBinding.tabLayout.setupWithViewPager(mBinding.viewPagerImageSlider, true)
 
-        // Init Body
-        mViewModel.itemList.observe(this) {
-            initRecyclerView(it)
+        val itemsPager_adapter = The_Slide_items_Pager_Adapter(this, mListSlide)
+        mBinding.viewPagerImageSlider.setAdapter(itemsPager_adapter)
 
-            replaceFragment()
+        // The_slide_timer
+
+        // The_slide_timer
+        val timer = Timer()
+        timer.scheduleAtFixedRate(The_slide_timer(), 2000, 3000)
+
+        mBinding.tabLayout.setupWithViewPager(mBinding.viewPagerImageSlider, true)
+
+    }
+
+    inner class The_slide_timer : TimerTask() {
+        override fun run() {
+            runOnUiThread {
+                if (mBinding.viewPagerImageSlider.getCurrentItem() < mListSlide.size - 1) {
+                    mBinding.viewPagerImageSlider.setCurrentItem(mBinding.viewPagerImageSlider.getCurrentItem() + 1)
+                } else mBinding.viewPagerImageSlider.setCurrentItem(0)
+            }
         }
     }
 

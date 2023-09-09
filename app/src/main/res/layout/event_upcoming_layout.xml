@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.eazy.stcbusiness.view_model.ItemCategoryViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:paddingHorizontal="@dimen/margin_10"
+            android:paddingVertical="@dimen/padding_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/colorAppPrimary"
+            android:background="@{viewModel.getSelected ? @drawable/card_view_shape : @drawable/shape_border, default = @drawable/shape_border}"
+            android:id="@+id/mainLayout"
+            android:layout_margin="@dimen/size_5"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{viewModel.getDay}"
+                tools:text="Sat"
+                android:layout_marginHorizontal="@dimen/margin_10"
+                android:textColor="@{viewModel.getSelected ? @color/white : @color/black, default = @color/black}"
+                android:textSize="@dimen/size_14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/margin_10"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{viewModel.getNumDay}"
+                tools:text="1"
+                android:textColor="@{viewModel.getSelected ? @color/white : @color/black, default = @color/black}"
+                android:textSize="@dimen/size_14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

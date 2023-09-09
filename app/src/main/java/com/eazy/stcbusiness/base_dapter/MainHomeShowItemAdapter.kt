@@ -15,10 +15,13 @@ import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
 import com.eazy.stcbusiness.ui.todo_ui.adapter.HighlyRecommendAdapter
 import com.eazy.stcbusiness.utils.backgroundTint
+import com.eazy.stcbusiness.utils.listener.CustomResponseOnClickListener
+import com.eazy.stcbusiness.utils.listener.CustomSetOnClickViewListener
 
 class MainHomeShowItemAdapter(
     private val mList: ArrayList<CustomCategoryDataList>,
     private val context: Activity,
+    private val mSeeAllListener: (String) -> Unit,
     private val mListener : (CustomCategoryModel) -> Unit) :
     RecyclerView.Adapter<MainHomeShowItemAdapter.ViewHolder>() {
 
@@ -94,6 +97,12 @@ class MainHomeShowItemAdapter(
 
                 holder.btnExploreMore.visibility = View.VISIBLE
                 holder.btnSeeMore.visibility = View.GONE
+
+                holder.btnExploreMore.setOnClickListener(CustomSetOnClickViewListener(object : CustomResponseOnClickListener {
+                    override fun onClick(view: View) {
+                        mSeeAllListener.invoke("SEE_ALL")
+                    }
+                }))
             }
 
         }

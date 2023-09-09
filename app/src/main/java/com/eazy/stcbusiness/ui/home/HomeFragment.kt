@@ -23,8 +23,11 @@ class HomeFragment : SampleBaseFragment() {
 
         view.findViewById<RecyclerView>(R.id.recyclerView).apply {
           //  layoutManager = LinearLayoutManager(mActivity)
-            adapter = mActivity?.let { MainHomeShowItemAdapter(initList() , it) {
-                ThingToDoDetailActivity.gotoSearchDestinationThingToDoActivity(mActivity!!)
+            adapter = mActivity?.let {
+                MainHomeShowItemAdapter(initList() , it, {
+
+                }) {
+                    ThingToDoDetailActivity.gotoSearchDestinationThingToDoActivity(mActivity!!)
             } }
         }
 

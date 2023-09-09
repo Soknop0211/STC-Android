@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="mViewModel"
+            type="com.eazy.stcbusiness.base.BaseViewModelObservation" />
+
+        <variable
+            name="viewModel"
+            type="com.eazy.stcbusiness.view_model.HappeningEventUpViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@drawable/custom_background_gradient_shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="pin"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                android:elevation="0dp"
+                app:elevation="0dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/size_5"
+                    android:layout_marginVertical="@dimen/margin_10"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iconBack"
+                        android:layout_width="@dimen/margin_30"
+                        android:layout_height="@dimen/margin_30"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/title_profile"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        app:delayClickListener="@{()-> viewModel.onDismissButton()}"
+                        android:src="@drawable/arrow_back_left"
+                        android:focusable="true"
+                        app:tint="@color/dark_gray" />
+
+                    <TextView
+                        android:id="@+id/titleToolbar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/padding_5"
+                        android:layout_marginEnd="@dimen/size_20"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="@string/up_comming_event"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        tools:ignore="SpUsage"
+                        android:textStyle="bold"/>
+
+                    <LinearLayout
+                        android:layout_marginHorizontal="@dimen/margin_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_background_border"
+                        android:backgroundTint="@color/colorAppPrimary"
+                        app:delayClickListener="@{()-> viewModel.onClickFilter()}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/margin_12">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_25"
+                            android:layout_height="@dimen/size_25"
+                            android:layout_gravity="center_vertical"
+                            android:contentDescription="@string/title_profile"
+                            android:src="@drawable/filter" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/margin_10"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/font_bold"
+                    android:maxLines="2"
+                    android:text="Explore \n up coming events"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/categoryRecycle"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_15"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:background="@drawable/bottom_sheet_bg"
+                android:padding="@dimen/margin_10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/font_bold"
+                    android:maxLines="2"
+                    android:paddingBottom="@dimen/margin_10"
+                    android:text="@string/popular_upcoming_event"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/itemRecycle"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

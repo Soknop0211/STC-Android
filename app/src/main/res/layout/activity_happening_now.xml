@@ -183,20 +183,48 @@
                                 android:paddingVertical="@dimen/margin_10"
                                 android:textSize="16sp"/>
 
-                            <androidx.viewpager2.widget.ViewPager2
-                                android:id="@+id/viewPagerImageSlider"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
+<!--                            <androidx.viewpager.widget.ViewPager-->
+<!--                                android:id="@+id/viewPagerImageSlider"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent" />-->
 
-                            <com.google.android.material.tabs.TabLayout
-                                android:id="@+id/tab_layout"
+<!--                            <com.google.android.material.tabs.TabLayout-->
+<!--                                android:id="@+id/tab_layout"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:background="@color/transparent"-->
+<!--                                app:tabBackground="@drawable/tab_select"-->
+<!--                                app:tabGravity="center"-->
+<!--                                app:tabIndicatorHeight="0dp"-->
+<!--                                app:tabTextColor="@android:color/transparent" />-->
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/transparent"
-                                app:tabBackground="@drawable/tab_select"
-                                app:tabGravity="center"
-                                app:tabIndicatorHeight="0dp"
-                                app:tabTextColor="@android:color/transparent" />
+                                android:layout_height="match_parent">
+
+                                <androidx.viewpager.widget.ViewPager
+                                    android:id="@+id/viewPagerImageSlider"
+                                    app:layout_constraintHorizontal_bias="0.0"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    android:layout_width="0dp"
+                                    android:layout_height="245dp"
+                                    app:layout_constraintStart_toStartOf="parent"/>
+
+                                <com.google.android.material.tabs.TabLayout
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:tabGravity="center"
+                                    android:id="@+id/tab_layout"
+                                    app:tabBackground="@drawable/tab_select"
+                                    app:tabIndicatorHeight="0dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/transparent"
+                                    app:layout_constraintTop_toBottomOf="@+id/viewPagerImageSlider">
+                                </com.google.android.material.tabs.TabLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
 
                         </LinearLayout>
 
