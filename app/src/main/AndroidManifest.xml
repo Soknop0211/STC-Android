@@ -18,6 +18,15 @@
         android:theme="@style/Theme.Stcbusiness"
         tools:targetApi="s">
         <activity
+            android:name=".ui.happening_ui.HappeningNowCheckOutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.happening_ui.HappeningNowDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.happening_ui.HappeningSearchPlaceActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.happening_ui.HappeningEventUpActivity"
             android:exported="false" />
         <activity

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.eazy.stcbusiness.view_model.ItemRecentSearchViewModel" />
+    </data>
+
+    <LinearLayout android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        app:delayClickListener="@{()-> viewModel.onClickListener()}"
+        android:layout_marginHorizontal="@dimen/margin_10"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Android"
+            android:maxLines="3"
+            android:padding="@dimen/size_5"
+            android:textColor="@color/black"
+            android:fontFamily="@font/font_bold"
+            android:textSize="@dimen/size_16sp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtTittle"
+            android:layout_width="match_parent"
+            android:text="sub android"
+            android:maxLines="3"
+            android:paddingHorizontal="@dimen/size_5"
+            android:fontFamily="@font/font_regular"
+            android:textSize="@dimen/size_14sp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</layout>

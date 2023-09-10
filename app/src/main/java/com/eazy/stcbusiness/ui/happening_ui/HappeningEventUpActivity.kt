@@ -19,6 +19,7 @@ import com.eazy.stcbusiness.databinding.ActivityHappeningNowBinding
 import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.model.ItemCategoryDateModel
+import com.eazy.stcbusiness.ui.happening_ui.HappeningSearchPlaceActivity.Companion.gotoHappeningNowSearchPlaceActivity
 import com.eazy.stcbusiness.ui.happening_ui.adapter.EventUpComingAdapter
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
 import com.eazy.stcbusiness.ui.todo_ui.ThingToDoDetailActivity
@@ -104,7 +105,7 @@ class HappeningEventUpActivity : BaseActivity<ActivityHappeningEventUpBinding, H
     }
 
     override fun onFilterClick() {
-        val mDestinationBottomSheet = FilterByDestinationBottomSheetFragment.newInstance("")
+        /*** val mDestinationBottomSheet = FilterByDestinationBottomSheetFragment.newInstance("")
         mDestinationBottomSheet.initListener(object :
             DestinationLocationBottomSheetFragment.OnClickCallBackListener {
             override fun onClickSelectLocation() {
@@ -112,7 +113,9 @@ class HappeningEventUpActivity : BaseActivity<ActivityHappeningEventUpBinding, H
             }
 
         })
-        mDestinationBottomSheet.show(supportFragmentManager, mDestinationBottomSheet::class.java.name)
+        mDestinationBottomSheet.show(supportFragmentManager, mDestinationBottomSheet::class.java.name) ***/
+
+        gotoHappeningNowSearchPlaceActivity(this)
 
     }
 }
