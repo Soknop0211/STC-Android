@@ -57,13 +57,6 @@ class ItemCategoryViewModel(
 
     private val mIsSelected = ObservableBoolean()
 
-    fun getIsSelected(): ObservableBoolean {
-        return mIsSelected
-    }
-
-    fun updateSelection(isSelected: Boolean) {
-        mIsSelected.set(isSelected)
-    }
     init {
         initItem(mLocation)
     }

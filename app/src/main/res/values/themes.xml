@@ -42,8 +42,8 @@
 
     <style name="roundedImageView" parent="">
         <item name="cornerFamilyTopRight">rounded</item>
-        <item name="cornerSizeTopRight">@dimen/size_20</item>
-        <item name="cornerSizeBottomRight">@dimen/size_20</item>
+        <item name="cornerSizeTopRight">@dimen/margin_10</item>
+        <item name="cornerSizeBottomRight">@dimen/margin_10</item>
     </style>
 
     <style name="Widget.App.Tooltip" parent="Widget.MaterialComponents.Tooltip">

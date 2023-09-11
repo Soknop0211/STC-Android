@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -12,32 +13,65 @@
     </data>
 
     <LinearLayout android:orientation="vertical"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
+        style="@style/SelectableItemBackground"
         app:delayClickListener="@{()-> viewModel.onClickListener()}"
         android:layout_marginHorizontal="@dimen/margin_10"
+        android:layout_marginVertical="@dimen/size_5"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:text="Android"
-            android:maxLines="3"
-            android:padding="@dimen/size_5"
-            android:textColor="@color/black"
-            android:fontFamily="@font/font_bold"
-            android:textSize="@dimen/size_16sp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/txtTittle"
+            <LinearLayout
+                android:layout_marginBottom="@dimen/margin_10"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    tools:text="Android"
+                    android:text="@{viewModel.name}"
+                    android:maxLines="3"
+                    android:padding="@dimen/size_5"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/font_bold"
+                    android:textSize="@dimen/size_16sp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/txtTittle"
+                    android:layout_width="match_parent"
+                    tools:text="Sub Android"
+                    android:text="@{viewModel.description}"
+                    android:maxLines="3"
+                    android:paddingHorizontal="@dimen/size_5"
+                    android:fontFamily="@font/font_regular"
+                    android:textSize="@dimen/size_14sp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_drop_down"
+                android:layout_gravity="center"
+                android:rotation="-90"
+                android:contentDescription="@string/content_image" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_marginHorizontal="@dimen/size_5"
             android:layout_width="match_parent"
-            android:text="sub android"
-            android:maxLines="3"
-            android:paddingHorizontal="@dimen/size_5"
-            android:fontFamily="@font/font_regular"
-            android:textSize="@dimen/size_14sp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="0.5dp"
+            android:background="@color/gray"/>
 
     </LinearLayout>
 

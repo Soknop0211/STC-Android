@@ -33,12 +33,19 @@ class HighlyRecommendAdapter(private val mType : String,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return if (viewType == SEARCH_BY_DESTINATION) {
-            val rootView = LayoutInflater.from(parent.context).inflate(R.layout.item_search_by_destination, parent, false)
-            ViewHolder(rootView)
-        }else {
-            val rootView = LayoutInflater.from(parent.context).inflate(R.layout.highly_recommend_layout, parent, false)
-            ViewHolder(rootView)
+        return when (viewType) {
+            SEARCH_BY_DESTINATION -> {
+                val rootView = LayoutInflater.from(parent.context).inflate(R.layout.item_search_by_destination, parent, false)
+                ViewHolder(rootView)
+            }
+            HAPPENING_NOW_HOME -> {
+                val rootView = LayoutInflater.from(parent.context).inflate(R.layout.upcoming_event_layout, parent, false)
+                ViewHolder(rootView)
+            }
+            else -> {
+                val rootView = LayoutInflater.from(parent.context).inflate(R.layout.highly_recommend_layout, parent, false)
+                ViewHolder(rootView)
+            }
         }
 
     }

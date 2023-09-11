@@ -49,9 +49,9 @@
                         android:layout_height="@dimen/margin_30"
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@string/title_profile"
-                        app:delayClickListener="@{()-> mViewModel.onDismissButton()}"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:clickable="true"
+                        app:delayClickListener="@{()-> viewModel.onDismissButton()}"
                         android:src="@drawable/arrow_back_left"
                         android:focusable="true"
                         app:tint="@color/dark_gray" />
@@ -204,12 +204,13 @@
 
                                 <androidx.viewpager.widget.ViewPager
                                     android:id="@+id/viewPagerImageSlider"
-                                    app:layout_constraintHorizontal_bias="0.0"
-                                    app:layout_constraintTop_toTopOf="parent"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:nestedScrollingEnabled="true"
+                                    app:layout_constraintDimensionRatio="16:13"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    android:layout_width="0dp"
-                                    android:layout_height="245dp"
-                                    app:layout_constraintStart_toStartOf="parent"/>
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
 
                                 <com.google.android.material.tabs.TabLayout
                                     app:layout_constraintEnd_toEndOf="parent"

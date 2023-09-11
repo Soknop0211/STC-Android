@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        android:background="@drawable/custom_background_gradient_shape">
+        android:background="@drawable/custom_background_white_primary_gradient_shape">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -108,7 +108,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/font_bold"
                     android:maxLines="2"
-                    android:text="Explore \n up coming events"
+                    android:text="Explore \n upcoming events"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -124,7 +124,6 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/margin_15"
-                android:layout_marginBottom="@dimen/margin_10"
                 android:background="@drawable/bottom_sheet_bg"
                 android:padding="@dimen/margin_10"
                 android:orientation="vertical">

@@ -88,7 +88,7 @@ class MainHomeShowItemAdapter(
                 holder.recyclerView.apply {
                     layoutManager = GridLayoutManager(context, 2)
                     adapter = HighlyRecommendAdapter(mItem.mainAction, mItem.data) {
-
+                        mListener.invoke(it)
                     }
                     isNestedScrollingEnabled = true
                 }

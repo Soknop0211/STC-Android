@@ -36,18 +36,30 @@
                         android:layout_height="match_parent"
                         tools:ignore="MissingConstraints">
 
-                        <ImageView
-                            android:id="@+id/image"
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/moto_cycle"
-                            android:contentDescription="@string/content_image" />
+                            android:id="@+id/imageLayout"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/image"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintDimensionRatio="16:13"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:src="@drawable/moto_cycle"
+                                android:contentDescription="@string/content_image" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/image"
+                            android:layout_below="@+id/imageLayout"
                             android:layout_gravity="center"
                             android:orientation="vertical"
                             app:cardElevation="0dp"
@@ -125,7 +137,8 @@
                                         android:layout_width="@dimen/size_20"
                                         android:layout_height="@dimen/size_20"
                                         android:src="@drawable/location"
-                                        android:contentDescription="@string/app_name" />
+                                        android:contentDescription="@string/app_name"
+                                        app:tint="@color/black" />
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
@@ -166,8 +179,9 @@
                                     <ImageView
                                         android:layout_width="@dimen/size_20"
                                         android:layout_height="@dimen/size_20"
-                                        android:src="@drawable/ic_user"
-                                        android:contentDescription="@string/app_name" />
+                                        android:src="@drawable/home_user"
+                                        android:contentDescription="@string/app_name"
+                                        app:tint="@color/black" />
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
@@ -212,28 +226,14 @@
                                         android:paddingVertical="@dimen/size_3dp"
                                         android:layout_gravity="center"
                                         android:textColor="@color/gray"
-                                        android:textSize="13sp"
+                                        android:textSize="14sp"
                                         android:layout_height="wrap_content"/>
 
-                                    <LinearLayout
+                                    <androidx.recyclerview.widget.RecyclerView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:id="@+id/numberOfPeople"
-                                        android:orientation="horizontal" >
-
-                                        <include layout="@layout/custom_image_circle_layout"/>
-
-                                        <include layout="@layout/custom_image_circle_layout"/>
-
-                                        <include layout="@layout/custom_image_circle_layout"/>
-
-                                        <include layout="@layout/custom_image_circle_layout"/>
-
-                                        <include layout="@layout/custom_image_circle_layout"/>
-
-                                        <include layout="@layout/custom_image_circle_layout"/>
-
-                                    </LinearLayout>
+                                        android:nestedScrollingEnabled="false"
+                                        android:id="@+id/recyclerView"/>
 
                                 </LinearLayout>
 
@@ -248,7 +248,7 @@
 
                                     <TextView
                                         android:layout_width="match_parent"
-                                        android:text="Event Sponsor"
+                                        android:text="@string/event_sponsor"
                                         android:maxLines="3"
                                         android:layout_margin="@dimen/margin_10"
                                         android:layout_gravity="center"
@@ -263,54 +263,24 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="horizontal">
 
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_weight="1"
-                                            android:layout_height="wrap_content">
-
-                                            <include layout="@layout/custom_image_circle_layout"/>
-
-                                        </LinearLayout>
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_weight="1"
-                                            android:layout_height="wrap_content">
-
-                                            <include layout="@layout/custom_image_circle_layout"/>
-
-                                        </LinearLayout>
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_weight="1"
-                                            android:layout_height="wrap_content">
-
-                                            <include layout="@layout/custom_image_circle_layout"/>
-
-                                        </LinearLayout>
-
-                                        <LinearLayout
-                                            android:layout_width="0dp"
-                                            android:layout_weight="1"
-                                            android:layout_height="wrap_content">
-
-                                            <include layout="@layout/custom_image_circle_layout"/>
-
-                                        </LinearLayout>
+                                        <androidx.recyclerview.widget.RecyclerView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:nestedScrollingEnabled="false"
+                                            android:id="@+id/recyclerViewSponsor"/>
 
                                     </LinearLayout>
 
                                     <TextView
-                                        android:layout_width="wrap_content"
+                                        android:layout_width="match_parent"
                                         android:text="@string/become_a_partner"
                                         android:maxLines="3"
                                         style="@style/SelectableItemBackground"
                                         android:padding="@dimen/margin_10"
                                         android:background="@drawable/shape_border"
                                         android:layout_margin="@dimen/margin_10"
-                                        android:layout_gravity="center"
-                                        android:textColor="@color/black"
+                                        android:gravity="center"
+                                        android:textColor="@color/colorAppPrimary"
                                         android:fontFamily="@font/font_bold"
                                         android:layout_height="wrap_content"/>
 
@@ -337,11 +307,11 @@
 
                                     <TextView
                                         android:layout_width="match_parent"
-                                        android:text="Friday Night with MINA at metropole Underground.\nFriday Night with MINA at metropole Underground.\nFriday Night with MINA at metropole Underground.\nFriday Night with MINA at metropole Underground.\nFriday Night with MINA at metropole Underground."
+                                        android:text="Our party girl is here! Special guest singer, Ms. Mina, takes the stage at Metropole Underground on Friday, 18 August for a special performance while you enjoy premium drinks, food, our Live Band  DJs beats. Friday, 18 August 2023From 5:00 PM onwards | Free EntryEntertainment: Metro Band"
                                         android:paddingVertical="@dimen/size_3dp"
                                         android:layout_marginHorizontal="@dimen/size_5"
                                         android:layout_gravity="center"
-                                        android:textColor="@color/gray"
+                                        android:textColor="@color/description"
                                         android:layout_height="wrap_content"/>
 
                                 </LinearLayout>
@@ -356,9 +326,78 @@
 
             </androidx.core.widget.NestedScrollView>
 
-            <include
-                app:viewModel="@{viewModel}"
-                layout="@layout/bottom_show_price_layout"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="@dimen/margin_10"
+                android:paddingHorizontal="@dimen/padding_5"
+                android:background="@drawable/custom_line_above_light_gray"
+                xmlns:tools="http://schemas.android.com/tools">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:maxLines="1"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        tools:ignore="Suspicious0dp">
+
+                        <TextView
+                            android:maxLines="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="@string/price"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text=" 80.00 USD"
+                            android:text="@{viewModel.mPriceTotal}"
+                            android:id="@+id/totalItemTv"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/padding_8dp"
+                    style="@style/SelectableItemBackground"
+                    android:clickable="true"
+                    android:layout_gravity="center"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:background="@drawable/card_view_shape"
+                        android:backgroundTint="@color/colorAppPrimary"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/confirm"
+                        android:textSize="17sp"
+                        android:paddingHorizontal="@dimen/margin_10"
+                        android:paddingVertical="@dimen/margin_15"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -2,37 +2,22 @@ package com.eazy.stcbusiness.ui.happening_ui
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
-import android.view.View
 import androidx.activity.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.eazy.stcbusiness.BR
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseActivity
 import com.eazy.stcbusiness.base_dapter.MainHomeShowItemAdapter
 import com.eazy.stcbusiness.databinding.ActivityHappeningEventUpBinding
-import com.eazy.stcbusiness.databinding.ActivityHappeningNowBinding
 import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.model.ItemCategoryDateModel
 import com.eazy.stcbusiness.ui.happening_ui.HappeningSearchPlaceActivity.Companion.gotoHappeningNowSearchPlaceActivity
 import com.eazy.stcbusiness.ui.happening_ui.adapter.EventUpComingAdapter
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
-import com.eazy.stcbusiness.ui.todo_ui.ThingToDoDetailActivity
-import com.eazy.stcbusiness.ui.todo_ui.adapter.HighlyRecommendAdapter
-import com.eazy.stcbusiness.ui.todo_ui.fragment.DestinationLocationBottomSheetFragment
-import com.eazy.stcbusiness.ui.todo_ui.fragment.FilterByDestinationBottomSheetFragment
-import com.eazy.stcbusiness.utils.Utils
-import com.eazy.stcbusiness.utils.listener.CustomResponseOnClickListener
-import com.eazy.stcbusiness.utils.listener.CustomSetOnClickViewListener
 import com.eazy.stcbusiness.view_model.HappeningEventUpViewModel
-import com.eazy.stcbusiness.view_model.HappeningNowViewModel
 import com.eazy.stcbusiness.view_model.OnItemClickListener
-import com.eazy.stcbusiness.view_model.OnItemListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -73,7 +58,7 @@ class HappeningEventUpActivity : BaseActivity<ActivityHappeningEventUpBinding, H
             adapter = MainHomeShowItemAdapter(initList() , this@HappeningEventUpActivity, {
 
             }) {
-                // ThingToDoDetailActivity.gotoSearchDestinationThingToDoActivity(this@HappeningEventUpActivity)
+                HappeningNowDetailActivity.gotoHappeningNowDetailActivity(this@HappeningEventUpActivity)
             }
         }
     }

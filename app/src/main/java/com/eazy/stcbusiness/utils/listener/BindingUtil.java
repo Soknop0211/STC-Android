@@ -1,5 +1,6 @@
 package com.eazy.stcbusiness.utils.listener;
 
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -154,6 +155,11 @@ public class BindingUtil {
 
             }
         }));
+    }
+
+    @BindingAdapter(value = {"setRoundImage", "setPlaceholder"}, requireAll = false)
+    public static void setRoundImage(ImageView imageView, String url, Drawable placeholder) {
+        GlideLoadUtil.loadCircle(imageView, url, placeholder);
     }
 
 }

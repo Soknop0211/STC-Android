@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorTick">#0EB345</color>
-    <color name="colorPrimary">#FFFFFF</color>
-    <color name="colorSecondaryPrimary">#FFFFFF</color>
-    <color name="colorAppPrimary">#005D8C</color>
+    <color name="colorPrimary">#1671A4</color>
+    <color name="colorSecondaryPrimary">#1671A4</color>
+    <color name="colorAppPrimary">#1671A4</color>
     <color name="colorPrimaryDark">#004d70</color>
     <color name="colorAccent">#99AFB8</color>
     <color name="colorAccentLight">#602B608A</color>
@@ -28,5 +28,7 @@
     <color name="top_gradient">#19ACFF</color>
     <color name="bottom_gradient">#FFFFFF</color>
     <color name="light_red">#F3837B</color>
+
+    <color name="description">#5F5F5F</color>
 
 </resources>

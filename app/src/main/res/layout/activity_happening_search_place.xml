@@ -10,7 +10,7 @@
 
         <variable
             name="viewModel"
-            type="com.eazy.stcbusiness.view_model.HappeningEventUpViewModel" />
+            type="com.eazy.stcbusiness.view_model.HappeningSearchPlaceViewModel" />
 
     </data>
 
@@ -89,23 +89,25 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/font_bold"
                     android:maxLines="2"
-                    android:text="Explore \n event nearby your place"
+                    android:padding="@dimen/size_5"
+                    android:text="Explore\nEvent nearby your place"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <LinearLayout
-                    android:background="@drawable/card_view_shape"
+                    android:background="@drawable/shape_border"
                     android:padding="@dimen/margin_12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_marginHorizontal="@dimen/margin_10"
+                    android:layout_marginVertical="@dimen/margin_12"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="@dimen/size_25"
-                        android:layout_height="@dimen/size_25"
+                        android:layout_width="@dimen/size_24"
+                        android:layout_height="@dimen/size_24"
                         android:layout_gravity="center_vertical"
-                        android:contentDescription="@string/title_profile"
+                        android:contentDescription="@string/content_image"
                         android:src="@drawable/search_icon"
                         app:tint="@color/dark_gray" />
 

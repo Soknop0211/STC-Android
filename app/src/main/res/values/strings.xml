@@ -77,5 +77,6 @@
     <string name="please_enter_the_email">Please enter the email</string>
     <string name="who_do_you_book_for">Who do you book for ?</string>
     <string name="something_went_wrong">Something went wrong</string>
+    <string name="event_sponsor">Event Sponsor</string>
 
 </resources>

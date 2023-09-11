@@ -16,7 +16,9 @@ interface OnListener : BaseView {
 
 @HiltViewModel
 class HappeningSearchPlaceViewModel @Inject constructor(private val mContext: Application) : BaseViewModel<OnListener>(){
+    init {
 
+    }
 }
 
 // Item Search
