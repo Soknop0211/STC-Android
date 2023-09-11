@@ -8,7 +8,6 @@ import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.eazy.stcbusiness.base.SampleBaseActivity
-import com.eazy.stcbusiness.ui.happening_ui.HappeningNowCheckOutActivity.Companion.gotoHappeningNowCheckOutActivity
 import com.eazy.stcbusiness.ui.home.HomeFragment
 import com.eazy.stcbusiness.ui.home.MapFragment
 import com.eazy.stcbusiness.ui.home.MyOrderFragment
@@ -40,8 +39,6 @@ class MainActivity : SampleBaseActivity() {
         setContentView(R.layout.activity_main)
 
         initAction()
-
-        gotoHappeningNowCheckOutActivity(this)
     }
 
     @SuppressLint("WrongViewCast")

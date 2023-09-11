@@ -9,7 +9,6 @@
     </data>
 
     <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:id="@+id/fragment_sheet"
         android:orientation="vertical"
@@ -18,158 +17,164 @@
         android:gravity="center"
         android:padding="5dp">
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
-
-                <View
-                    android:layout_width="@dimen/margin_30"
-                    android:layout_height="3dp"
-                    android:background="@color/light_grey" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_close_24"
-                    android:layout_margin="@dimen/size_5"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    app:tint="@color/black"
-                    android:focusable="true"
-                    android:contentDescription="@string/content_image" />
-
-                <TextView
-                    android:id="@+id/titleItem"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_10"
-                    android:gravity="center"
-                    android:text="@string/who_do_you_book_for"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/font_bold"
-                    android:textSize="@dimen/size_18sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/padding_5"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="@dimen/margin_10">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/size_5"
-                    android:text="@string/first_name"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/font_regular"
-                    android:textSize="@dimen/size_18sp"
-                    android:layout_marginBottom="@dimen/padding_5"/>
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/margin_15"
-                    android:hint="@string/please_enter_the_first_name"
-                    android:background="@drawable/custom_background_border"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/size_5"
-                    android:text="@string/last_name"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/font_regular"
-                    android:textSize="@dimen/size_18sp"
-                    android:layout_marginBottom="@dimen/padding_5"/>
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/margin_15"
-                    android:hint="@string/please_enter_the_last_name"
-                    android:background="@drawable/custom_background_border"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/size_5"
-                    android:text="@string/phone_number"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/font_regular"
-                    android:textSize="@dimen/size_18sp"
-                    android:layout_marginBottom="@dimen/padding_5"/>
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/margin_15"
-                    android:hint="@string/please_enter_the_phone_number"
-                    android:background="@drawable/custom_background_border"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/size_5"
-                    android:text="@string/email_optional"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/font_regular"
-                    android:textSize="@dimen/size_18sp"
-                    android:layout_marginBottom="@dimen/padding_5"/>
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/margin_15"
-                    android:hint="@string/please_enter_the_email"
-                    android:background="@drawable/custom_background_border"/>
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginVertical="@dimen/margin_10"
-                    style="@style/SelectableItemBackground"
-                    android:clickable="true"
-                    app:delayClickListener="@{()-> viewModel.onClickBookNow()}"
-                    android:layout_gravity="center"
-                    android:focusable="true">
+                    android:gravity="center">
+
+                    <View
+                        android:layout_width="@dimen/margin_30"
+                        android:layout_height="3dp"
+                        android:background="@color/light_grey" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_close_24"
+                        android:layout_margin="@dimen/size_5"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        app:tint="@color/black"
+                        android:focusable="true"
+                        android:contentDescription="@string/content_image" />
 
                     <TextView
-                        android:id="@+id/btnConfirm"
+                        android:id="@+id/titleItem"
                         android:layout_width="match_parent"
-                        android:background="@drawable/card_view_shape"
-                        android:backgroundTint="@color/colorAppPrimary"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_10"
                         android:gravity="center"
-                        android:text="@string/confirm"
-                        android:textSize="17sp"
+                        android:text="@string/who_do_you_book_for"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/font_bold"
+                        android:textSize="@dimen/size_18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="@dimen/padding_5"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/margin_10">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/size_5"
+                        android:text="@string/first_name"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/font_regular"
+                        android:textSize="@dimen/size_18sp"
+                        android:layout_marginBottom="@dimen/padding_5"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:padding="@dimen/margin_15"
-                        android:textColor="@color/white"/>
+                        android:hint="@string/please_enter_the_first_name"
+                        android:background="@drawable/custom_background_border"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/size_5"
+                        android:text="@string/last_name"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/font_regular"
+                        android:textSize="@dimen/size_18sp"
+                        android:layout_marginBottom="@dimen/padding_5"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/margin_15"
+                        android:hint="@string/please_enter_the_last_name"
+                        android:background="@drawable/custom_background_border"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/size_5"
+                        android:text="@string/phone_number"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/font_regular"
+                        android:textSize="@dimen/size_18sp"
+                        android:layout_marginBottom="@dimen/padding_5"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/margin_15"
+                        android:hint="@string/please_enter_the_phone_number"
+                        android:background="@drawable/custom_background_border"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/size_5"
+                        android:text="@string/email_optional"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/font_regular"
+                        android:textSize="@dimen/size_18sp"
+                        android:layout_marginBottom="@dimen/padding_5"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/margin_15"
+                        android:hint="@string/please_enter_the_email"
+                        android:background="@drawable/custom_background_border"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginVertical="@dimen/margin_10"
+                        style="@style/SelectableItemBackground"
+                        android:clickable="true"
+                        app:delayClickListener="@{()-> viewModel.onClickBookNow()}"
+                        android:layout_gravity="center"
+                        android:focusable="true">
+
+                        <TextView
+                            android:id="@+id/btnConfirm"
+                            android:layout_width="match_parent"
+                            android:background="@drawable/card_view_shape"
+                            android:backgroundTint="@color/colorAppPrimary"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/confirm"
+                            android:textSize="17sp"
+                            android:padding="@dimen/margin_15"
+                            android:textColor="@color/white"/>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
         <include
             android:visibility="gone"

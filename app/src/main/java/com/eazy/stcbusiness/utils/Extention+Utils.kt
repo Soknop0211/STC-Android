@@ -9,12 +9,17 @@ import android.util.DisplayMetrics
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.eazy.stcbusiness.R
 import java.math.BigDecimal
 import java.util.*
+
+fun Context.showToast(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
+    Toast.makeText(this, text, duration).show()
+}
 
 fun View.backgroundTint(color : Int) {
     this.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this.context, color))

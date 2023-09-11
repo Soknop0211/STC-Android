@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.eazy.stcbusiness.base.BaseView
 import com.eazy.stcbusiness.base.BaseViewModel
 import com.eazy.stcbusiness.model.CustomCategoryModel
+import com.eazy.stcbusiness.network_module.ApiRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -15,7 +16,10 @@ interface OnItemListener : BaseView {
 }
 
 @HiltViewModel
-class HappeningNowViewModel @Inject constructor(private val mContext: Application) : BaseViewModel<OnItemListener>(){
+class HappeningNowViewModel @Inject constructor(
+    private val mContext: Application,
+    private val apiRepository : ApiRepository
+) : BaseViewModel<OnItemListener>(){
 
     private val _itemList = MutableLiveData<ArrayList<CustomCategoryModel>>()
     val itemList: LiveData<ArrayList<CustomCategoryModel>> get() = _itemList
