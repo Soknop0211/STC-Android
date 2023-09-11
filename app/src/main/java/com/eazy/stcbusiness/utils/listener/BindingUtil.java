@@ -162,4 +162,9 @@ public class BindingUtil {
         GlideLoadUtil.loadCircle(imageView, url, placeholder);
     }
 
+    @BindingAdapter(value = {"setImageUrl", "setPlaceholder"}, requireAll = false)
+    public static void setImageUrl(ImageView imageView, String url, Drawable placeholder) {
+        GlideLoadUtil.loadImage(imageView, url, placeholder);
+    }
+
 }

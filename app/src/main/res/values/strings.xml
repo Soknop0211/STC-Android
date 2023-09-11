@@ -78,5 +78,7 @@
     <string name="who_do_you_book_for">Who do you book for ?</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="event_sponsor">Event Sponsor</string>
+    <string name="you_can_make_a_reservation_for_anyone_at_the_same_time">You can make a reservation for anyone at the same time.</string>
+    <string name="login_error_field_required">This field is required</string>
 
 </resources>

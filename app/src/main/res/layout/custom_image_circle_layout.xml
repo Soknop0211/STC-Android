@@ -37,6 +37,8 @@
             android:layout_gravity="center"
             android:padding="@dimen/size_5"
             app:civ_border_width="1dp"
+            app:setPlaceholder="@{@drawable/no_image}"
+            app:setRoundImage="@{viewModel.imageUrl}"
             android:layout_centerInParent="true"
             app:civ_border_color="@color/light_white"
             tools:ignore="TooDeepLayout"/>

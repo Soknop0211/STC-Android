@@ -148,6 +148,7 @@
                         android:gravity="end"
                         android:maxLines="2"
                         android:text="@string/clear_line_label"
+                        android:fontFamily="@font/font_regular"
                         android:textColor="@color/colorAppPrimary"
                         android:textSize="18sp" />
 

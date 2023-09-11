@@ -24,7 +24,7 @@ open class BaseViewModelObservation : ViewModel() {
 
     val mPriceTotal = ObservableField<String>()
 
-    fun setPriceTotal(mPrice : Double, mContext : Context) {
+    open fun setPriceTotal(mPrice : Double, mContext : Context) {
         mPriceTotal.set(mContext.getDisplayPrice("USD", mPrice).plus(" / "))
     }
 

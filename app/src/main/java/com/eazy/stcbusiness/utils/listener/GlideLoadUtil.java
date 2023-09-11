@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
 /**
@@ -22,6 +23,19 @@ public final class GlideLoadUtil {
                     .error(placeHolder)
                     .circleCrop()
                     .apply(RequestOptions.circleCropTransform())
+                    .into(imageView);
+        }
+    }
+
+    public static void loadImage(ImageView imageView, String url, Drawable placeHolder) {
+        if (isValidContext(imageView.getContext())) {
+            Glide.with(imageView)
+                    .load(url)
+                    .placeholder(placeHolder)
+                    .error(placeHolder)
+                    .centerCrop()
+                    .fitCenter()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(imageView);
         }
     }
