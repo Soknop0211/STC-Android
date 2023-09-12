@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/padding_5"
     android:background="@drawable/card_view_shape"
     android:backgroundTint="@color/light_white"
-    android:gravity="center"
-    android:text="@string/add_people"
-    android:textSize="17sp"
-    android:layout_margin="@dimen/padding_5"
-    android:padding="@dimen/margin_10"
-    android:id="@+id/txt"
-    android:textColor="@color/black"/>
+    android:id="@+id/mainLayout"
+    tools:context=".ui.todo_ui.ThingToDoDetailTicketActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:text="@string/add_people"
+        android:textSize="17sp"
+        android:padding="@dimen/margin_10"
+        android:id="@+id/txt"
+        android:textColor="@color/black"/>
+
+</RelativeLayout>

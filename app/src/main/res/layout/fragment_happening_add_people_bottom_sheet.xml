@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -47,6 +48,7 @@
                     android:layout_margin="@dimen/size_5"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
+                    app:delayClickListener="@{()-> viewModel.onDismissButton()}"
                     app:tint="@color/black"
                     android:focusable="true"
                     android:contentDescription="@string/content_image" />
@@ -107,6 +109,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/margin_15"
                     android:text="@={viewModel.mLastName}"
+                    app:addTextChangeListener="@{viewModel.onInputChangeListener()}"
                     android:hint="@string/please_enter_the_last_name"
                     android:background="@drawable/custom_background_border"/>
 
@@ -125,7 +128,9 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/margin_15"
                     android:text="@={viewModel.mPhoneNumber}"
+                    app:addTextChangeListener="@{viewModel.onInputChangeListener()}"
                     android:hint="@string/please_enter_the_phone_number"
+                    android:inputType="number"
                     android:background="@drawable/custom_background_border"/>
 
                 <TextView
@@ -143,7 +148,9 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/margin_15"
                     android:text="@={viewModel.mEmail}"
+                    app:addTextChangeListener="@{viewModel.onInputChangeListener()}"
                     android:hint="@string/please_enter_the_email"
+                    android:inputType="textEmailAddress"
                     android:background="@drawable/custom_background_border"/>
 
                 <LinearLayout
@@ -152,21 +159,22 @@
                     android:gravity="center"
                     android:layout_marginTop="@dimen/size_20"
                     android:layout_marginBottom="@dimen/margin_10"
-                    style="@style/SelectableItemBackground"
-                    android:clickable="true"
-                    app:delayClickListener="@{()-> viewModel.onClickButtonAdd()}"
-                    android:layout_gravity="center"
-                    android:focusable="true">
+                    android:layout_gravity="center">
 
                     <TextView
                         android:id="@+id/btnConfirm"
                         android:layout_width="match_parent"
-                        android:background="@drawable/card_view_shape"
-                        android:backgroundTint="@color/colorAppPrimary"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="@string/confirm"
                         android:textSize="17sp"
+                        style="@style/SelectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="@drawable/card_view_shape"
+                        android:backgroundTint="@{viewModel.mValidButton ? @color/colorAppPrimary : @color/gray, default = @color/gray}"
+                        android:enabled="@{viewModel.mValidButton}"
+                        app:delayClickListener="@{()-> viewModel.onClickButtonAdd()}"
                         android:padding="@dimen/margin_15"
                         android:textColor="@color/white"/>
 

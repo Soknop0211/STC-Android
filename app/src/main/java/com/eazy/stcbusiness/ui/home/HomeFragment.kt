@@ -26,7 +26,7 @@ class HomeFragment : SampleBaseFragment() {
             adapter = mActivity?.let {
                 MainHomeShowItemAdapter(initList() , it, {
 
-                }) {
+                }) { mModel, mString ->
                     ThingToDoDetailActivity.gotoSearchDestinationThingToDoActivity(mActivity!!)
             } }
         }

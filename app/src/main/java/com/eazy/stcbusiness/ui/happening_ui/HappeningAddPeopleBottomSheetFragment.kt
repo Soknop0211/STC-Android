@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.fragment.app.viewModels
+import com.eazy.stcbusiness.BR
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseBottomSheetDialogFragment
 import com.eazy.stcbusiness.base.BaseView
@@ -26,7 +27,12 @@ class HappeningAddPeopleBottomSheetFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         mViewModel.bind(this)
+
+        mViewModel.setContext(mActivity!!)
+
+        setVariable(BR.viewModel, mViewModel)
 
         if(dialog != null &&  dialog?.window != null) {
             activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
@@ -47,7 +53,12 @@ class HappeningAddPeopleBottomSheetFragment :
     override fun onClickCallBack(model: UserPeopleModel) {
         if (onClickAllAction != null) {
             onClickAllAction?.onClickSelectLocation(model)
+            dismiss()
         }
+    }
+
+    override fun onDismissButton() {
+        dismiss()
     }
 
 }

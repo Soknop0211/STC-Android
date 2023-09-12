@@ -22,7 +22,7 @@ class MainHomeShowItemAdapter(
     private val mList: ArrayList<CustomCategoryDataList>,
     private val context: Activity,
     private val mSeeAllListener: (String) -> Unit,
-    private val mListener : (CustomCategoryModel) -> Unit) :
+    private val mListener : (CustomCategoryModel, String) -> Unit) :
     RecyclerView.Adapter<MainHomeShowItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -88,7 +88,7 @@ class MainHomeShowItemAdapter(
                 holder.recyclerView.apply {
                     layoutManager = GridLayoutManager(context, 2)
                     adapter = HighlyRecommendAdapter(mItem.mainAction, mItem.data) {
-                        mListener.invoke(it)
+                        mListener.invoke(it, HomeContentFragment.HAPPENING_NOW_HOME)
                     }
                     isNestedScrollingEnabled = true
                 }

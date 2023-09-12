@@ -11,12 +11,12 @@ import com.eazy.stcbusiness.base.BaseViewModel
 import com.eazy.stcbusiness.model.UserPeopleModel
 import com.eazy.stcbusiness.utils.Utils
 import com.eazy.stcbusiness.utils.listener.BaseEdittextListener
-import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 interface OnButtonListener : BaseView {
     fun onClickCallBack(model: UserPeopleModel)
+    fun onDismissButton()
 }
 
 @HiltViewModel
@@ -37,14 +37,18 @@ class AddPeopleViewModel @Inject constructor(private val mContext: Application) 
         mView?.onClickCallBack(mModel)
     }
 
+    override fun onDismissButton() {
+        mView?.onDismissButton()
+    }
+
     fun onInputChangeListener(): TextWatcher {
         return object : BaseEdittextListener() {
             override fun afterTextChangedNotEmpty(editable: Editable) {
-
+                checkToEnableActionButton()
             }
 
             override fun afterTextChangedIsEmpty() {
-
+                checkToEnableActionButton()
             }
 
         }
@@ -52,17 +56,24 @@ class AddPeopleViewModel @Inject constructor(private val mContext: Application) 
 
     private fun checkToEnableActionButton() {
         if (shouldEnableActionButton()) {
-            if (!mValidButton.get()) mValidButton.set(true)
+            mValidButton.set(true)
         } else {
-            if (mValidButton.get()) mValidButton.set(false)
+            mValidButton.set(false)
         }
     }
 
     private fun shouldEnableActionButton(): Boolean {
-        return (!TextUtils.isEmpty(mFirstName.get())
-                && !TextUtils.isEmpty(mLastName.get())
-                && !Utils.isEmailAddress(mEmail.get()))
-                && !Utils.phoneNumberValidate(mPhoneNumber.get())
+        return if (TextUtils.isEmpty(mEmail.get())) {
+            (!TextUtils.isEmpty(mFirstName.get())
+                    && !TextUtils.isEmpty(mLastName.get())
+                    && !TextUtils.isEmpty(mPhoneNumber.get()))
+        } else {
+            (!TextUtils.isEmpty(mFirstName.get())
+                    && !TextUtils.isEmpty(mLastName.get())
+                    && !TextUtils.isEmpty(mPhoneNumber.get())
+                    && Utils.isEmailAddress(mEmail.get()))
+        }
+
     }
 
 }

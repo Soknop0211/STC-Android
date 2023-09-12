@@ -57,7 +57,7 @@ class HappeningEventUpActivity : BaseActivity<ActivityHappeningEventUpBinding, H
             layoutManager = LinearLayoutManager(this@HappeningEventUpActivity)
             adapter = MainHomeShowItemAdapter(initList() , this@HappeningEventUpActivity, {
 
-            }) {
+            })  { mModel, mString ->
                 HappeningNowDetailActivity.gotoHappeningNowDetailActivity(this@HappeningEventUpActivity)
             }
         }

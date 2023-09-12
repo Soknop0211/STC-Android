@@ -1,11 +1,13 @@
 package com.eazy.stcbusiness.ui.happening_ui
 
+import android.R.attr.left
+import android.R.attr.right
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.TextView
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import androidx.activity.viewModels
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +22,7 @@ import com.eazy.stcbusiness.ui.happening_ui.adapter.LocalPaymentMethodAdapter
 import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import com.eazy.stcbusiness.view_model.HappeningNowCheckOutViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class HappeningNowCheckOutActivity : BaseActivity<ActivityHappeningNowCheckOutBinding, HappeningNowCheckOutViewModel>(),
@@ -86,14 +89,18 @@ class HappeningNowCheckOutActivity : BaseActivity<ActivityHappeningNowCheckOutBi
             }
         }
 
-        // Add People
-        addPeople(UserPeopleModel(firstName = "Dara", lastName = "Peseth"), this)
     }
 
     private fun addPeople(mUserPeopleModel : UserPeopleModel, mContext: Context){
         val binding: CustomTextViewLayoutBinding = CustomTextViewLayoutBinding
             .inflate(LayoutInflater.from(mContext))
         binding.txt.text = String.format("%s %s", mUserPeopleModel.firstName, mUserPeopleModel.lastName)
+        val lp = RelativeLayout.LayoutParams(
+            RelativeLayout.LayoutParams.WRAP_CONTENT,
+            RelativeLayout.LayoutParams.WRAP_CONTENT
+        )
+        lp.setMargins(10, 0, 10, 0)
+        binding.mainLayout.layoutParams = lp
         mBinding.peopleAdded.addView(binding.root)
     }
 
