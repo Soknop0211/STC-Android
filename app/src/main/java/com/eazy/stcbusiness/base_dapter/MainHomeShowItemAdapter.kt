@@ -14,6 +14,8 @@ import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
 import com.eazy.stcbusiness.ui.todo_ui.adapter.HighlyRecommendAdapter
+import com.eazy.stcbusiness.ui.transportation.adapter.TaxiLookingForAdapter
+import com.eazy.stcbusiness.ui.transportation.adapter.TaxiRecommendAdapter
 import com.eazy.stcbusiness.utils.backgroundTint
 import com.eazy.stcbusiness.utils.listener.CustomResponseOnClickListener
 import com.eazy.stcbusiness.utils.listener.CustomSetOnClickViewListener
@@ -66,7 +68,9 @@ class MainHomeShowItemAdapter(
             HomeContentFragment.MAIN_CATEGORY -> {
                 holder.recyclerView.apply {
                     layoutManager = GridLayoutManager(context, 3)
-                    adapter = CustomCategoryHomeAdapter(mItem.data)
+                    adapter = CustomCategoryHomeAdapter(mItem.data) {
+                        mListener.invoke(it, HomeContentFragment.MAIN_CATEGORY)
+                    }
                     isNestedScrollingEnabled = true
                 }
             }
@@ -103,6 +107,39 @@ class MainHomeShowItemAdapter(
                         mSeeAllListener.invoke("SEE_ALL")
                     }
                 }))
+            }
+
+
+            // Transportation
+            HomeContentFragment.TRANSPORTATION_FOR_YOU -> {
+                holder.recyclerView.apply {
+                    layoutManager = LinearLayoutManager(
+                        context,
+                        RecyclerView.HORIZONTAL,
+                        false)
+                    adapter = TaxiRecommendAdapter(mItem.data)
+                    isNestedScrollingEnabled = true
+                }
+
+            }
+
+            HomeContentFragment.TRANSPORTATION_LOOKING_FOR -> {
+                holder.recyclerView.apply {
+                    layoutManager = LinearLayoutManager(
+                        context,
+                        RecyclerView.HORIZONTAL,
+                        false)
+                    adapter = TaxiLookingForAdapter(mItem.data) {
+                        mListener.invoke(it, HomeContentFragment.TRANSPORTATION_LOOKING_FOR)
+                    }
+                    isNestedScrollingEnabled = true
+                }
+
+                holder.btnSeeMore.visibility = View.GONE
+
+                // Handle Background
+                holder.mainLayout.setBackgroundResource(R.drawable.bottom_sheet_bg)
+                holder.mainLayout.backgroundTint(R.color.white)
             }
 
         }

@@ -13,7 +13,9 @@ import com.eazy.stcbusiness.base.SampleBaseFragment
 import com.eazy.stcbusiness.base_dapter.MainHomeShowItemAdapter
 import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.model.CustomCategoryModel
+import com.eazy.stcbusiness.ui.home.HomeContentFragment.Companion.MAIN_CATEGORY
 import com.eazy.stcbusiness.ui.todo_ui.ThingToDoDetailActivity
+import com.eazy.stcbusiness.ui.transportation.TransportationMainActivity
 
 class HomeFragment : SampleBaseFragment() {
 
@@ -27,7 +29,11 @@ class HomeFragment : SampleBaseFragment() {
                 MainHomeShowItemAdapter(initList() , it, {
 
                 }) { mModel, mString ->
-                    ThingToDoDetailActivity.gotoSearchDestinationThingToDoActivity(mActivity!!)
+                    if (mString == MAIN_CATEGORY) {
+                        TransportationMainActivity.gotoTransportationMainActivity(mActivity!!)
+                    } else {
+                        ThingToDoDetailActivity.gotoSearchDestinationThingToDoActivity(mActivity!!)
+                    }
             } }
         }
 

@@ -18,6 +18,12 @@
         android:theme="@style/Theme.Stcbusiness"
         tools:targetApi="s">
         <activity
+            android:name=".ui.transportation.TransportationBookNowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.transportation.TransportationMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.happening_ui.HappeningNowCheckOutActivity"
             android:exported="false" />
         <activity

@@ -28,6 +28,9 @@ class HomeContentFragment : SampleBaseFragment() {
         private const val ACTION_TYPE = "ACTION_TYPE"
         const val HAPPENING_NOW_HOME = "HAPPENING_NOW_HOME"
 
+        const val TRANSPORTATION_FOR_YOU = "TRANSPORTATION_FOR_YOU"
+        const val TRANSPORTATION_LOOKING_FOR = "TRANSPORTATION_LOOKING_FOR"
+
         @JvmStatic
         fun newInstance(mAction : String) =
             HomeContentFragment().apply {
@@ -68,7 +71,7 @@ class HomeContentFragment : SampleBaseFragment() {
         val mList = ArrayList<CustomCategoryDataList>()
 
         /**** Happening Now ***/
-        if (!TextUtils.isEmpty(mActionType)) {
+        if (!TextUtils.isEmpty(mActionType) && mActionType == HAPPENING_NOW_HOME) {
             val mListSubList = ArrayList<CustomCategoryModel>()
             mListSubList.add(CustomCategoryModel(HAPPENING_NOW_HOME, "Phnom Penh", "10 Activities", "https://dev.booknow.asia/images/home_slider_1.jpg"))
             mListSubList.add(CustomCategoryModel(HAPPENING_NOW_HOME, "Siem Reap", "11 Activities", "https://dev.booknow.asia/images/home_slider_2.jpg"))
@@ -114,7 +117,6 @@ class HomeContentFragment : SampleBaseFragment() {
 
         return mList
     }
-
 
 
 }

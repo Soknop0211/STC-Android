@@ -30,8 +30,12 @@
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
                 android:elevation="@dimen/size_5"
+                style="@style/SelectableItemBackgroundCircle"
+                android:clickable="true"
+                android:id="@+id/itemLayout"
                 app:cardBackgroundColor="@color/light_white"
-                app:cardCornerRadius="50dp">
+                app:cardCornerRadius="50dp"
+                android:focusable="true">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/imageLayout"

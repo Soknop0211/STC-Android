@@ -30,6 +30,12 @@
         <!-- <item name="android:theme">@style/SelectableItemTheme</item> -->
     </style>
 
+    <style name="SelectableItemBackgroundCircle">
+        <!--        <item name="android:colorControlHighlight">#5677FC</item>-->
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <!-- <item name="android:theme">@style/SelectableItemTheme</item> -->
+    </style>
+
     <style name="SelectableItemTheme">
         <item name="colorControlHighlight">@color/colorAccent</item>
     </style>
@@ -44,6 +50,14 @@
         <item name="cornerFamilyTopRight">rounded</item>
         <item name="cornerSizeTopRight">@dimen/margin_10</item>
         <item name="cornerSizeBottomRight">@dimen/margin_10</item>
+    </style>
+
+    <style name="cornerImageView" parent="">
+        <item name="shapeCornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">@dimen/margin_10</item>
+        <item name="cornerSizeBottomRight">@dimen/margin_10</item>
+        <item name="cornerSizeTopLeft">@dimen/margin_10</item>
+        <item name="cornerSizeBottomLeft">@dimen/margin_10</item>
     </style>
 
     <style name="Widget.App.Tooltip" parent="Widget.MaterialComponents.Tooltip">

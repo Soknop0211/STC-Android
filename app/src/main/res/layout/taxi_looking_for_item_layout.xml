@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <import type="android.text.TextUtils"/>
+
+        <variable
+            name="viewModel"
+            type="com.eazy.stcbusiness.view_model.ItemImageViewModel" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/transparent"
+        style="@style/SelectableItemBackground"
+        app:delayClickListener="@{()-> viewModel.onClickCallBack()}"
+        android:elevation="0dp"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="@dimen/padding_5"
+        android:layout_margin="@dimen/margin_10">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/taxi_item_background"
+            android:padding="@dimen/padding_5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.mTitle}"
+                android:paddingVertical="@dimen/padding_5"
+                android:fontFamily="@font/font_regular"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_below="@+id/mTitle"
+                android:id="@+id/txtTittle"
+                android:layout_width="wrap_content"
+                android:text="@{viewModel.mStatus}"
+                android:textColor="@color/white"
+                android:visibility="@{TextUtils.isEmpty(viewModel.mStatus) ? view.GONE : view.VISIBLE}"
+                android:paddingVertical="@dimen/size_3dp"
+                android:paddingHorizontal="@dimen/margin_10"
+                android:backgroundTint="@color/light_red"
+                android:background="@drawable/custom_background_gradient_corner"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/image"
+            android:padding="@dimen/size_5"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_margin="@dimen/padding_5"
+            android:layout_gravity="end|bottom"
+            android:src="@{viewModel.mUrl, default = @drawable/airport}" />
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
