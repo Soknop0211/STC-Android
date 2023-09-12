@@ -6,6 +6,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id "kotlin-android"
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -76,6 +77,13 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
     implementation "androidx.multidex:multidex:2.0.1"
+
+    // Map
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'com.google.maps.android:android-maps-utils:1.2.1'
+    // Location
+    implementation "com.google.android.gms:play-services-location:17.1.0"
+
 
     // View Model
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'

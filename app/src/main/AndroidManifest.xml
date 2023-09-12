@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.eazy.stcbusiness">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -17,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stcbusiness"
         tools:targetApi="s">
+        <activity
+            android:name=".ui.transportation.TransportationDestinationActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.transportation.TransportationBookNowActivity"
             android:exported="false" />
@@ -52,6 +57,9 @@
             android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.eazy.stcbusiness.ui.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,6 +70,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
+        <meta-data
+            android:name="google_analytics_adid_collection_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>

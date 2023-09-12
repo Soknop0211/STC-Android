@@ -21,6 +21,7 @@ import com.eazy.stcbusiness.ui.happening_ui.HappeningEventUpActivity
 import com.eazy.stcbusiness.ui.happening_ui.HappeningNowDetailActivity
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
 import com.eazy.stcbusiness.ui.todo_ui.ThingToDoDetailActivity
+import com.eazy.stcbusiness.ui.transportation.TransportationBookNowActivity.Companion.gotoTransportationBookNowActivity
 import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import com.eazy.stcbusiness.view_model.HappeningNowViewModel
 import com.eazy.stcbusiness.view_model.OnItemListener
@@ -53,7 +54,7 @@ class TransportationMainActivity : BaseActivity<ActivityTransportationMainBindin
                 layoutManager = LinearLayoutManager(this@TransportationMainActivity)
                 adapter = MainHomeShowItemAdapter(it , this@TransportationMainActivity, {
                 }, { mModel, mString -> // On Item Click
-                    gotoTransportationMainActivity(this@TransportationMainActivity)
+                    gotoTransportationBookNowActivity(this@TransportationMainActivity)
                 } ) }
         }
 

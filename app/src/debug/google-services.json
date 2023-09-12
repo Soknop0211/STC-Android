@@ -1,0 +1,276 @@
+{
+  "project_info": {
+    "project_number": "796518016434",
+    "project_id": "skillful-hope-295108",
+    "storage_bucket": "skillful-hope-295108.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796518016434:android:91bf29b2cd15c800a130ab",
+        "android_client_info": {
+          "package_name": "com.eazy.booknow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796518016434-57fd6kcgnr57buqi73jbp9qpkef6qbh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ6J7t2jrnuqbrLeSLbWN34_lFi0RU7iQ"
+        },
+        {
+          "current_key": "AIzaSyDfER5ebLPUnyNORq39Bg9bRuD6ai8q3sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796518016434-4s8s871k643cs4m910jsuhhmbr2iao9i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "796518016434-3cr8k3pii90aa6l7aornnifn9tq1tkml.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eazy.booknow"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796518016434:android:1f4e1d027292fdbea130ab",
+        "android_client_info": {
+          "package_name": "com.eazy.daikou"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796518016434-659c15ha0nvucv2fvq5lopdifcv17mt6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eazy.daikou",
+            "certificate_hash": "db9ecbac943cd24256d6212c86941abdf6f7ba09"
+          }
+        },
+        {
+          "client_id": "796518016434-57fd6kcgnr57buqi73jbp9qpkef6qbh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ6J7t2jrnuqbrLeSLbWN34_lFi0RU7iQ"
+        },
+        {
+          "current_key": "AIzaSyDfER5ebLPUnyNORq39Bg9bRuD6ai8q3sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796518016434-4s8s871k643cs4m910jsuhhmbr2iao9i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "796518016434-3cr8k3pii90aa6l7aornnifn9tq1tkml.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eazy.booknow"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796518016434:android:107eae735671685ca130ab",
+        "android_client_info": {
+          "package_name": "com.eazy.daikou.miniparkingdaikou"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796518016434-57fd6kcgnr57buqi73jbp9qpkef6qbh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ6J7t2jrnuqbrLeSLbWN34_lFi0RU7iQ"
+        },
+        {
+          "current_key": "AIzaSyDfER5ebLPUnyNORq39Bg9bRuD6ai8q3sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796518016434-4s8s871k643cs4m910jsuhhmbr2iao9i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "796518016434-3cr8k3pii90aa6l7aornnifn9tq1tkml.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eazy.booknow"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796518016434:android:635f991aab5ea8b3a130ab",
+        "android_client_info": {
+          "package_name": "com.eazy.daikoudev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796518016434-15us7p98nsiaoin16s1nin2oiq38un0j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eazy.daikoudev",
+            "certificate_hash": "db9ecbac943cd24256d6212c86941abdf6f7ba09"
+          }
+        },
+        {
+          "client_id": "796518016434-57fd6kcgnr57buqi73jbp9qpkef6qbh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ6J7t2jrnuqbrLeSLbWN34_lFi0RU7iQ"
+        },
+        {
+          "current_key": "AIzaSyDfER5ebLPUnyNORq39Bg9bRuD6ai8q3sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796518016434-4s8s871k643cs4m910jsuhhmbr2iao9i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "796518016434-3cr8k3pii90aa6l7aornnifn9tq1tkml.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eazy.booknow"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796518016434:android:577a99ffe0ca0309a130ab",
+        "android_client_info": {
+          "package_name": "com.eazy.stc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796518016434-1r8c7p2g2anjsu0k8algeat60d6v66h7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eazy.stc",
+            "certificate_hash": "783c5390d65f301cd6078a699d4e9cc4a1fb0456"
+          }
+        },
+        {
+          "client_id": "796518016434-57fd6kcgnr57buqi73jbp9qpkef6qbh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ6J7t2jrnuqbrLeSLbWN34_lFi0RU7iQ"
+        },
+        {
+          "current_key": "AIzaSyDfER5ebLPUnyNORq39Bg9bRuD6ai8q3sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796518016434-4s8s871k643cs4m910jsuhhmbr2iao9i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "796518016434-3cr8k3pii90aa6l7aornnifn9tq1tkml.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eazy.booknow"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796518016434:android:af51f2bcebe021eba130ab",
+        "android_client_info": {
+          "package_name": "com.eazy.stcbusiness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796518016434-p7fla50oi5jv55pu3tdfod3p2v1dr2nb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eazy.stcbusiness",
+            "certificate_hash": "783c5390d65f301cd6078a699d4e9cc4a1fb0456"
+          }
+        },
+        {
+          "client_id": "796518016434-57fd6kcgnr57buqi73jbp9qpkef6qbh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ6J7t2jrnuqbrLeSLbWN34_lFi0RU7iQ"
+        },
+        {
+          "current_key": "AIzaSyDfER5ebLPUnyNORq39Bg9bRuD6ai8q3sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796518016434-4s8s871k643cs4m910jsuhhmbr2iao9i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "796518016434-3cr8k3pii90aa6l7aornnifn9tq1tkml.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eazy.booknow"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

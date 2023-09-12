@@ -87,5 +87,12 @@
     <string name="taxi">Taxi</string>
     <string name="hot_promotion">Hot Promotion</string>
     <string name="now">Now</string>
+    <string name="confirm_booking">Confirm Booking</string>
+    <string name="pick_up">Pick-Up</string>
+    <string name="destination">Destination</string>
+    <string name="where_to">Where to?</string>
+    <string name="choose_map">Choose map</string>
+    <string name="search_data">Search Data</string>
+    <string name="saved_place">Saved Place</string>
 
 </resources>
