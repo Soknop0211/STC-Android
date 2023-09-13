@@ -18,7 +18,11 @@ import org.jetbrains.annotations.Nullable;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 
-public class BindingUtil {
+public final class BindingUtil {
+
+    private BindingUtil() {
+    }
+
     @BindingAdapter("setSelectedOptionBackground")
     public static void setSelectedOptionBackground(LinearLayout container, boolean isSelected) {
         if (isSelected) {
@@ -26,34 +30,6 @@ public class BindingUtil {
         } else {
             container.setBackground(null);
         }
-    }
-
-    @BindingAdapter({"setVisibility"})
-    public final void setVisibility(@NotNull View view, boolean isVisible) {
-        Intrinsics.checkNotNullParameter(view, "view");
-        if (isVisible) {
-            view.setVisibility(View.VISIBLE);
-        } else {
-            view.setVisibility(View.GONE);
-        }
-
-    }
-
-    @BindingAdapter({"setVisibility"})
-    public final void setVisibility(@NotNull View view, int visibility) {
-        Intrinsics.checkNotNullParameter(view, "view");
-        view.setVisibility(visibility);
-    }
-
-    @BindingAdapter({"android:visibility"})
-    public final void visibility(@NotNull View view, boolean isVisible) {
-        Intrinsics.checkNotNullParameter(view, "view");
-        if (isVisible) {
-            view.setVisibility(View.VISIBLE);
-        } else {
-            view.setVisibility(View.GONE);
-        }
-
     }
 
     @BindingAdapter({"android:src"})
@@ -165,6 +141,34 @@ public class BindingUtil {
     @BindingAdapter(value = {"setImageUrl", "setPlaceholder"}, requireAll = false)
     public static void setImageUrl(ImageView imageView, String url, Drawable placeholder) {
         GlideLoadUtil.loadImage(imageView, url, placeholder);
+    }
+
+    @BindingAdapter({"setVisibility"})
+    public void setVisibility(@NotNull View view, boolean isVisible) {
+        Intrinsics.checkNotNullParameter(view, "view");
+        if (isVisible) {
+            view.setVisibility(View.VISIBLE);
+        } else {
+            view.setVisibility(View.GONE);
+        }
+
+    }
+
+    @BindingAdapter({"setVisibility"})
+    public void setVisibility(@NotNull View view, int visibility) {
+        Intrinsics.checkNotNullParameter(view, "view");
+        view.setVisibility(visibility);
+    }
+
+    @BindingAdapter({"android:visibility"})
+    public void visibility(@NotNull View view, boolean isVisible) {
+        Intrinsics.checkNotNullParameter(view, "view");
+        if (isVisible) {
+            view.setVisibility(View.VISIBLE);
+        } else {
+            view.setVisibility(View.GONE);
+        }
+
     }
 
 }

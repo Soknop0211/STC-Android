@@ -1,6 +1,7 @@
 package com.eazy.stcbusiness.base
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -29,5 +30,11 @@ open class SampleBaseActivity : AppCompatActivity() {
         }
     }
 
+    open fun getStringExtra(key: String, context: Activity) : String {
+        if (context.intent != null && context.intent.hasExtra(key)) {
+            return context.intent.getStringExtra(key).toString()
+        }
+        return ""
+    }
 
 }

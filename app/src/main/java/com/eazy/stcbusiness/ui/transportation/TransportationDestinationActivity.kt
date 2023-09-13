@@ -1,26 +1,26 @@
 package com.eazy.stcbusiness.ui.transportation
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
+import androidx.activity.result.ActivityResult
 import androidx.activity.viewModels
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eazy.stcbusiness.BR
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseActivity
+import com.eazy.stcbusiness.base.BetterActivityResult
+import com.eazy.stcbusiness.base.SampleBaseActivity
 import com.eazy.stcbusiness.databinding.ActivityTransportationDestinataionBinding
 import com.eazy.stcbusiness.databinding.CustomTextViewLayoutBinding
-import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.model.ItemRecentSearchModel
 import com.eazy.stcbusiness.model.SavePlaceModel
-import com.eazy.stcbusiness.model.UserPeopleModel
 import com.eazy.stcbusiness.ui.happening_ui.adapter.HappeningItemRecentSearchAdapter
-import com.eazy.stcbusiness.ui.home.HomeContentFragment
+import com.eazy.stcbusiness.ui.transportation.TransportationBookNowActivity.Companion.ACTION
 import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import com.eazy.stcbusiness.view_model.TransportationDestinationViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +37,22 @@ class TransportationDestinationActivity : BaseActivity<ActivityTransportationDes
             val intent = Intent(activity, TransportationDestinationActivity::class.java)
             activity.startActivity(intent)
         }
+
+        fun gotoTransportationDestinationActivity(
+            activity: Activity,
+            activityResult: BetterActivityResult.OnActivityResult<ActivityResult>,
+        ) {
+            val intent = Intent(activity, TransportationDestinationActivity::class.java)
+            if (activity is SampleBaseActivity) {
+                activityResult.let {
+                    activity.activityLauncher.launch(intent, activityResult)
+                }
+            }
+        }
+
+        var LATITUDE = "LATITUDE"
+        var LONGITUDE = "LONGITUDE"
+        var ADDRESS = "ADDRESS"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -97,6 +113,23 @@ class TransportationDestinationActivity : BaseActivity<ActivityTransportationDes
     }
 
     override fun onClickCallBack() {
+        TransportationBookNowActivity.gotoTransportationBookNowActivity(this,
+            ACTION,
+            object : BetterActivityResult.OnActivityResult<ActivityResult> {
+                override fun onActivityResult(result: ActivityResult) {
+                    if (result.resultCode == RESULT_OK) {
+                        val intent = result.data
+                        if (intent != null && intent.hasExtra(LATITUDE)) {
+                            val mIntent = Intent()
+                            mIntent.putExtra(LATITUDE,  intent.getDoubleExtra(LATITUDE, 0.0))
+                            mIntent.putExtra(LONGITUDE,  intent.getDoubleExtra(LONGITUDE, 0.0))
+                            mIntent.putExtra(ADDRESS,  intent.getStringExtra(ADDRESS) ?: "")
+                            setResult(RESULT_OK, mIntent)
+                            finish()
+                        }
+                    }
+                }
 
+            })
     }
 }

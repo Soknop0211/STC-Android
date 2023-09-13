@@ -1,6 +1,7 @@
 package com.eazy.stcbusiness.ui.transportation
 
 import android.Manifest
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -8,15 +9,25 @@ import android.graphics.Point
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.activity.result.ActivityResult
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import com.eazy.stcbusiness.BR
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseActivity
+import com.eazy.stcbusiness.base.BetterActivityResult
+import com.eazy.stcbusiness.base.SampleBaseActivity
 import com.eazy.stcbusiness.databinding.ActivityTransportationBookNowBinding
+import com.eazy.stcbusiness.ui.transportation.TransportationDestinationActivity.Companion.ADDRESS
+import com.eazy.stcbusiness.ui.transportation.TransportationDestinationActivity.Companion.LATITUDE
+import com.eazy.stcbusiness.ui.transportation.TransportationDestinationActivity.Companion.LONGITUDE
+import com.eazy.stcbusiness.utils.Utils
 import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import com.eazy.stcbusiness.utils.maps.GPSTracker
+import com.eazy.stcbusiness.view_model.OnClickBackListener
 import com.eazy.stcbusiness.view_model.TransportationBookingNowViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -29,7 +40,7 @@ import java.util.*
 
 @AndroidEntryPoint
 class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNowBinding, TransportationBookingNowViewModel>(),
-    OnClickCallBackListener, OnMapReadyCallback {
+    OnClickBackListener, OnMapReadyCallback {
 
     override val layoutId = R.layout.activity_transportation_book_now
     override val mViewModel: TransportationBookingNowViewModel by viewModels()
@@ -39,13 +50,28 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
             val intent = Intent(activity, TransportationBookNowActivity::class.java)
             activity.startActivity(intent)
         }
+
+        fun gotoTransportationBookNowActivity(
+            activity: Activity,
+            action : String,
+            activityResult: BetterActivityResult.OnActivityResult<ActivityResult>,
+        ) {
+            val intent = Intent(activity, TransportationBookNowActivity::class.java)
+            intent.putExtra(ACTION, action)
+            if (activity is SampleBaseActivity) {
+                activityResult.let {
+                    activity.activityLauncher.launch(intent, activityResult)
+                }
+            }
+        }
+
+        const val ACTION = "ACTION"
     }
 
     private lateinit var mMap: GoogleMap
     private lateinit var geocoder: Geocoder
-    private var saveLat = 0.0
-    private  var saveLng = 0.0
-    private  var fullAddress  = ""
+    private var mGetLatLng : LatLng ?= null
+    private var mAddress : String ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +87,7 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
         callLocation()
 
         geocoder = Geocoder(this, Locale.getDefault())
+
     }
 
     private fun initViewModel() {
@@ -69,6 +96,11 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
         mViewModel.setContext(this)
 
         setVariable(BR.viewModel, mViewModel)
+
+        // Define Screen Confirm or only destination
+        mViewModel.setIsDestinationAction(!TextUtils.isEmpty(getStringExtra(ACTION, this)))
+
+        mViewModel.mValidButton.set(!TextUtils.isEmpty(getStringExtra(ACTION, this)))
     }
 
     private fun callLocation() {
@@ -81,8 +113,43 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
         }
     }
 
+    override fun onClickCurrentLocation() {
+        zoomMap(latitude, longitude)
+    }
+
+    override fun onClickConfirmButton(isDestinationAction: Boolean) {
+        // Confirm for set destination
+        if (isDestinationAction) {
+            val mIntent = Intent()
+            mIntent.putExtra(LATITUDE,  mGetLatLng?.latitude ?: 0.0)
+            mIntent.putExtra(LONGITUDE,  mGetLatLng?.longitude ?: 0.0)
+            mIntent.putExtra(ADDRESS,  mAddress ?: "")
+            setResult(RESULT_OK, mIntent)
+            finish()
+        }
+        // Select type
+        else {
+
+        }
+    }
+
     override fun onClickCallBack() {
-        TransportationDestinationActivity.gotoTransportationDestinationActivity(this)
+        TransportationDestinationActivity.gotoTransportationDestinationActivity(this,
+            object : BetterActivityResult.OnActivityResult<ActivityResult> {
+                override fun onActivityResult(result: ActivityResult) {
+                    if (result.resultCode == RESULT_OK) {
+                        val intent = result.data
+                        if (intent != null && intent.hasExtra(LATITUDE)) {
+                            mViewModel.mLatDestination.set(intent.getDoubleExtra(LATITUDE, 0.0))
+                            mViewModel.mLongDestination.set(intent.getDoubleExtra(LONGITUDE, 0.0))
+                            mViewModel.mAddressDestination.set(intent.getStringExtra(ADDRESS))
+
+                            mViewModel.mValidButton.set(true)
+                        }
+                    }
+                }
+
+            })
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -106,14 +173,33 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
             // for ActivityCompat#requestPermissions for more details.
             return
         }
+
         mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
-        mMap.isMyLocationEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = false
-        mMap.uiSettings.isMyLocationButtonEnabled = true
         mMap.uiSettings.isCompassEnabled = false //hide compass
+        // mMap.isMyLocationEnabled = true
+        // mMap.uiSettings.isMyLocationButtonEnabled = true
 
         mMap.setOnCameraIdleListener {
-            displayAddressByImageCenter()
+            val w = mBinding.containerMap.width
+            val h = mBinding.containerMap.height
+            val hMarker: Int = mBinding.centerImage.height
+
+            val xCenter = w / 2
+            val yCenter = h / 2
+            val markerCenter = hMarker / 2
+
+            val mLatLng = mMap.projection.fromScreenLocation(Point(xCenter, yCenter + markerCenter))
+
+            mGetLatLng = LatLng(mLatLng.latitude, mLatLng.longitude)
+
+            mAddress = Utils.getStringAddress(
+                this,
+                mLatLng.latitude, mLatLng.longitude
+            )
+
+            mViewModel.mAddressPickUp.set(String.format("%s", mAddress))
+
         }
     }
 
@@ -121,47 +207,4 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(lat, lng), 15f))
     }
 
-    private lateinit var centerImage : ImageView
-    private fun displayAddressByImageCenter(): String {
-        centerImage = mBinding.centerImage
-
-        val mMainLayout = mBinding.mainLayout
-        try {
-//            val h = centerImage.height
-//            val w = centerImage.width / 2
-//            val x = centerImage.x.toInt() + w
-//            val y = centerImage.y.toInt() + h / 2
-
-            val w =mMainLayout.width
-            val h = mMainLayout.height
-            val hMarker: Int = centerImage.height
-
-            val xCenter = w / 2
-            val yCenter = h / 2
-            val markerCenter = hMarker / 2
-
-            val ll = mMap.projection.fromScreenLocation(Point(xCenter, yCenter))
-
-            val addresses = geocoder.getFromLocation(ll.latitude, ll.longitude, 1)
-            saveLat = ll.latitude
-            saveLng = ll.longitude
-
-            if (addresses != null) {
-                val fullAdd: String = getFullAddress(addresses)
-                mViewModel.mTitle.set(String.format("%s", fullAdd))
-                fullAddress = fullAdd
-                return fullAdd
-            }
-
-
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-        return ""
-    }
-    private fun getFullAddress(addresses: List<Address>): String {
-        return if (addresses.isNotEmpty()) {
-            addresses[0].getAddressLine(0)
-        } else ""
-    }
 }

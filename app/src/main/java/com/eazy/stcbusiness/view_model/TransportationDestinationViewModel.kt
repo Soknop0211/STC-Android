@@ -40,4 +40,8 @@ class TransportationDestinationViewModel  @Inject constructor(
         _itemList.value = mListSubList
 
     }
+
+    fun onClickChooseMap() {
+        mView?.onClickCallBack()
+    }
 }
