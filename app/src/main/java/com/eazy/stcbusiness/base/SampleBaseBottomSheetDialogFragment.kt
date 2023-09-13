@@ -9,18 +9,19 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.eazy.stcbusiness.BR
 import com.eazy.stcbusiness.R
-import com.eazy.stcbusiness.network_module.ErrorResponse
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-abstract class BaseBottomSheetDialogFragment<T : ViewDataBinding, VM : BaseViewModel<*>> : BottomSheetDialogFragment(), BaseView {
-
-    abstract val layoutResource: Int
-    abstract val mViewModel : VM
-    protected lateinit var mBinding: T
+abstract class SampleBaseBottomSheetDialogFragment<T : ViewDataBinding> : BottomSheetDialogFragment() {
 
     var mActivity: Activity? = null
+    protected lateinit var mBinding: T
+    abstract val layoutResource: Int
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NO_FRAME, R.style.CustomBottomSheetDialogFragment)
+    }
 
     fun setKeyboardWithEditText() {
         if(dialog != null &&  dialog?.window != null) {
@@ -28,11 +29,6 @@ abstract class BaseBottomSheetDialogFragment<T : ViewDataBinding, VM : BaseViewM
             dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         }
 
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setStyle(STYLE_NO_FRAME, R.style.CustomBottomSheetDialogFragment)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -47,31 +43,4 @@ abstract class BaseBottomSheetDialogFragment<T : ViewDataBinding, VM : BaseViewM
         }
     }
 
-    open fun setVariable(id: Int, value: Any) {
-        mBinding.setVariable(id, value)
-    }
-
-    override fun showProgress() {
-
-    }
-
-    override fun hideProgress() {
-
-    }
-
-    override fun showKeyboard() {
-
-    }
-
-    override fun showKeyboard(view: View) {
-
-    }
-
-    override fun hideKeyboard() {
-
-    }
-
-    override fun onError(errorResponse: ErrorResponse) {
-
-    }
 }

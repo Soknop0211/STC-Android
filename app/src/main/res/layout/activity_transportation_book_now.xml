@@ -78,6 +78,8 @@
                         android:visibility="@{viewModel.getIsDestinationAction ? view.VISIBLE : view.GONE}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_bold"
+                        android:textSize="@dimen/size_18sp"
                         android:text="@{!viewModel.mIsDestinationAction ? @string/pick_up : @string/destination, default = @string/pick_up}"
                         android:textAllCaps="false"
                         android:layout_gravity="center"

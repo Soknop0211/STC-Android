@@ -34,10 +34,7 @@ class HappeningAddPeopleBottomSheetFragment :
 
         setVariable(BR.viewModel, mViewModel)
 
-        if(dialog != null &&  dialog?.window != null) {
-            activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-            dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-        }
+        setKeyboardWithEditText()
 
     }
 

@@ -21,12 +21,14 @@ import com.eazy.stcbusiness.base.BaseActivity
 import com.eazy.stcbusiness.base.BetterActivityResult
 import com.eazy.stcbusiness.base.SampleBaseActivity
 import com.eazy.stcbusiness.databinding.ActivityTransportationBookNowBinding
+import com.eazy.stcbusiness.model.TransportationTypeModel
 import com.eazy.stcbusiness.ui.transportation.TransportationDestinationActivity.Companion.ADDRESS
 import com.eazy.stcbusiness.ui.transportation.TransportationDestinationActivity.Companion.LATITUDE
 import com.eazy.stcbusiness.ui.transportation.TransportationDestinationActivity.Companion.LONGITUDE
 import com.eazy.stcbusiness.utils.Utils
 import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import com.eazy.stcbusiness.utils.maps.GPSTracker
+import com.eazy.stcbusiness.utils.showToast
 import com.eazy.stcbusiness.view_model.OnClickBackListener
 import com.eazy.stcbusiness.view_model.TransportationBookingNowViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -129,7 +131,14 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
         }
         // Select type
         else {
+            val mTransportationSelectTypeBottomSheetFragment = TransportationSelectTypeBottomSheetFragment()
+            mTransportationSelectTypeBottomSheetFragment.initListener(object : TransportationSelectTypeBottomSheetFragment.OnClickCallBackListener {
+                override fun onCallBackItemListener(mTransportationTypeModel: TransportationTypeModel) {
+                    TransportationConfirmCheckOutActivity.gotoTransportationConfirmCheckOutActivity(this@TransportationBookNowActivity)
+                }
 
+            })
+            mTransportationSelectTypeBottomSheetFragment.show(supportFragmentManager, TransportationSelectTypeBottomSheetFragment::class.java.name)
         }
     }
 

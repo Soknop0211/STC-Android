@@ -84,6 +84,20 @@ fun Context.getDisplayPrice(currency : String, price: Double): String {
     )
 }
 
+fun Context.getDisplayPrice(price: Double, currency : String): String {
+    val newPrice: Double = roundPriceValueAsDouble(price, 2)
+    //Currently we manage with "$" currency format display only
+    //Ex: $10.78
+    return this.getString(
+        R.string.concierge_price_display_format,
+        currency,
+        String.format(
+            Locale.ENGLISH,
+            "%.2f",
+            newPrice
+        )
+    )
+}
 fun roundPriceValueAsDouble(value: Double, precious: Int): Double {
     return BigDecimal(value).setScale(precious, BigDecimal.ROUND_HALF_EVEN).toDouble()
 }

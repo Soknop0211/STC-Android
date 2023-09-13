@@ -75,7 +75,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/size_5"
                         android:layout_marginVertical="@dimen/margin_10"
-                        style="@style/SelectableItemBackground"
                         android:clickable="true"
                         android:focusable="true"
                         app:delayClickListener="@{()-> viewModel.onClickChooseMap()}"
@@ -86,7 +85,6 @@
                             android:layout_height="@dimen/size_20"
                             android:layout_gravity="center_vertical"
                             android:contentDescription="@string/title_profile"
-                            android:background="?attr/selectableItemBackgroundBorderless"
                             android:src="@drawable/location_v2"
                             app:tint="@color/colorAppPrimary" />
 

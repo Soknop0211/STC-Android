@@ -20,6 +20,9 @@
         android:theme="@style/Theme.Stcbusiness"
         tools:targetApi="s">
         <activity
+            android:name=".ui.transportation.TransportationConfirmCheckOutActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.transportation.TransportationDestinationActivity"
             android:exported="false" />
         <activity

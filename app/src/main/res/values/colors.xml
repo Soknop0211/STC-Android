@@ -30,5 +30,7 @@
     <color name="light_red">#F3837B</color>
 
     <color name="description">#5F5F5F</color>
+    <color name="item_type_color">#F7F8FA</color>
+
 
 </resources>

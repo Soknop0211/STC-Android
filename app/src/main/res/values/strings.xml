@@ -94,5 +94,10 @@
     <string name="choose_map">Choose map</string>
     <string name="search_data">Search Data</string>
     <string name="saved_place">Saved Place</string>
+    <string name="select_type">Select Type</string>
+    <string name="suggested_rides">Suggested Rides</string>
+    <string name="add_note">Add Note</string>
+    <string name="note_driver">Note Driver</string>
+    <string name="summary">Summary</string>
 
 </resources>

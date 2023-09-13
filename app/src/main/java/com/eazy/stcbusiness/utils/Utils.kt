@@ -3,6 +3,7 @@ package com.eazy.stcbusiness.utils
 import android.content.Context
 import android.location.Address
 import android.location.Geocoder
+import android.net.Uri
 import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
@@ -24,6 +25,10 @@ class Utils {
 
         fun phoneNumberValidate(phone: String?): Boolean {
             return !TextUtils.isEmpty(phone) && Patterns.PHONE.matcher(phone).matches()
+        }
+
+        fun getUrlFromResource(resourceId: Int, packetName: String): String {
+            return Uri.parse("android.resource://$packetName/$resourceId").toString()
         }
 
         // Location
