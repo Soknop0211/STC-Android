@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.transportation
+package com.eazy.stcbusiness.ui.transportation.booknow
 
 import android.os.Bundle
 import android.view.View
@@ -10,7 +10,6 @@ import com.eazy.stcbusiness.base.BaseBottomSheetDialogFragment
 import com.eazy.stcbusiness.databinding.FragmentTransportationSelectTypeBottomSheetBinding
 import com.eazy.stcbusiness.model.TransportationTypeModel
 import com.eazy.stcbusiness.ui.transportation.adapter.TransportationTypeAdapter
-import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import com.eazy.stcbusiness.view_model.OnClickConfirmItemType
 import com.eazy.stcbusiness.view_model.TransportationSelectTypeBottomSheetViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,7 +21,7 @@ class TransportationSelectTypeBottomSheetFragment : BaseBottomSheetDialogFragmen
     override val layoutResource = R.layout.fragment_transportation_select_type_bottom_sheet
     override val mViewModel: TransportationSelectTypeBottomSheetViewModel by viewModels()
 
-    private var mOnClickCallBackListener : OnClickCallBackListener ?= null
+    private var mOnClickCallBackListener : OnClickCallBackListener?= null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -1,18 +1,15 @@
-package com.eazy.stcbusiness.ui.transportation
+package com.eazy.stcbusiness.ui.transportation.booknow
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.activity.viewModels
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eazy.stcbusiness.BR
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseActivity
-import com.eazy.stcbusiness.databinding.ActivityHappeningNowCheckOutBinding
 import com.eazy.stcbusiness.databinding.ActivityTrasportationConfirmCheckOutBinding
-import com.eazy.stcbusiness.databinding.ListConciergeFilterProductCriteriaItemBinding
 import com.eazy.stcbusiness.databinding.TransportationItemTypeLayoutBinding
 import com.eazy.stcbusiness.model.LocalPaymentModel
 import com.eazy.stcbusiness.model.TransportationTypeModel

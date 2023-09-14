@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.transportation
+package com.eazy.stcbusiness.ui.transportation.booknow
 
 import android.os.Bundle
 import android.text.Editable

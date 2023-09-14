@@ -15,7 +15,7 @@ import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.ui.home.HomeContentFragment.Companion.MAIN_CATEGORY
 import com.eazy.stcbusiness.ui.todo_ui.ThingToDoDetailActivity
-import com.eazy.stcbusiness.ui.transportation.TransportationMainActivity
+import com.eazy.stcbusiness.ui.transportation.booknow.TransportationMainActivity
 
 class HomeFragment : SampleBaseFragment() {
 

@@ -130,7 +130,7 @@ class MainHomeShowItemAdapter(
                         RecyclerView.HORIZONTAL,
                         false)
                     adapter = TaxiLookingForAdapter(mItem.data) {
-                        mListener.invoke(it, HomeContentFragment.TRANSPORTATION_LOOKING_FOR)
+                        mListener.invoke(it, mItem.mainAction)
                     }
                     isNestedScrollingEnabled = true
                 }

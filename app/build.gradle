@@ -104,5 +104,6 @@ dependencies {
     // Date Range
     implementation 'io.github.architshah248.calendar:awesome-calendar:2.0.0'
 
+    implementation 'com.github.florent37:singledateandtimepicker:2.2.7'
 
 }

@@ -43,13 +43,13 @@ class TransportationViewModel @Inject constructor(
 
         mListSubList = ArrayList()
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.transportation, null)
-        mListSubList.add(CustomCategoryModel(HomeContentFragment.TRANSPORTATION_LOOKING_FOR, "Book Now", drawable!!))
+        mListSubList.add(CustomCategoryModel("book_now", "Book Now", drawable!!))
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.transportation, null)
-        mListSubList.add(CustomCategoryModel(HomeContentFragment.TRANSPORTATION_LOOKING_FOR, "Schedule\nBook", drawable!!))
+        mListSubList.add(CustomCategoryModel("book_schedule", "Schedule\nBook", drawable!!))
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.transport_rent, null)
-        mListSubList.add(CustomCategoryModel(HomeContentFragment.TRANSPORTATION_LOOKING_FOR, "Transportation\nRental", drawable!!))
+        mListSubList.add(CustomCategoryModel("transportation_rental", "Transportation\nRental", drawable!!))
         drawable = ResourcesCompat.getDrawable(resources, R.drawable.airport, null)
-        mListSubList.add(CustomCategoryModel(HomeContentFragment.TRANSPORTATION_LOOKING_FOR, "Airport\nTransfer", drawable!!))
+        mListSubList.add(CustomCategoryModel("airport_transfer", "Airport\nTransfer", drawable!!))
         mList.add(CustomCategoryDataList(HomeContentFragment.TRANSPORTATION_LOOKING_FOR, resources.getString(R.string.what_are_you_looking_for), mListSubList, true))
 
         _itemList.value = mList

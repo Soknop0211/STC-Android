@@ -20,16 +20,16 @@
         android:theme="@style/Theme.Stcbusiness"
         tools:targetApi="s">
         <activity
-            android:name=".ui.transportation.TransportationConfirmCheckOutActivity"
+            android:name=".ui.transportation.booknow.TransportationConfirmCheckOutActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.transportation.TransportationDestinationActivity"
+            android:name=".ui.transportation.booknow.TransportationDestinationActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.transportation.TransportationBookNowActivity"
+            android:name=".ui.transportation.booknow.TransportationBookNowActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.transportation.TransportationMainActivity"
+            android:name=".ui.transportation.booknow.TransportationMainActivity"
             android:exported="false" />
         <activity
             android:name=".ui.happening_ui.HappeningNowCheckOutActivity"

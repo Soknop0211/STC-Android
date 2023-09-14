@@ -13,6 +13,7 @@ import javax.inject.Inject
 interface OnClickBackListener : OnClickCallBackListener {
     fun onClickCurrentLocation()
     fun onClickConfirmButton(isDestinationAction : Boolean)
+    fun onClickSchedule()
 }
 
 @HiltViewModel
@@ -31,8 +32,22 @@ class TransportationBookingNowViewModel @Inject constructor(
     val mIsDestinationAction = ObservableBoolean(true)
     val mValidButton = ObservableBoolean(false)
 
+    val mTitle = ObservableField<String>()
+
+
+    // Book Schedule
+    val mIsShowSchedule = ObservableBoolean(false)
+
+    val mScheduleTxt = ObservableField<String>()
+
+    fun onClickSchedule() {
+        mView?.onClickSchedule()
+    }
+
+
     init {
         mAddressDestination.set(mContext.getString(R.string.where_to))
+        mScheduleTxt.set(mContext.getString(R.string.when_trip))
     }
 
     fun getIsDestinationAction() : ObservableBoolean {

@@ -32,5 +32,6 @@
     <color name="description">#5F5F5F</color>
     <color name="item_type_color">#F7F8FA</color>
 
+    <color name="book_yellow">#FF7900</color>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.transportation
+package com.eazy.stcbusiness.ui.transportation.booknow
 
 import android.app.Activity
 import android.content.Context
@@ -20,7 +20,7 @@ import com.eazy.stcbusiness.databinding.CustomTextViewLayoutBinding
 import com.eazy.stcbusiness.model.ItemRecentSearchModel
 import com.eazy.stcbusiness.model.SavePlaceModel
 import com.eazy.stcbusiness.ui.happening_ui.adapter.HappeningItemRecentSearchAdapter
-import com.eazy.stcbusiness.ui.transportation.TransportationBookNowActivity.Companion.ACTION
+import com.eazy.stcbusiness.ui.transportation.booknow.TransportationBookNowActivity.Companion.ACTION
 import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import com.eazy.stcbusiness.view_model.TransportationDestinationViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -121,9 +121,9 @@ class TransportationDestinationActivity : BaseActivity<ActivityTransportationDes
                         val intent = result.data
                         if (intent != null && intent.hasExtra(LATITUDE)) {
                             val mIntent = Intent()
-                            mIntent.putExtra(LATITUDE,  intent.getDoubleExtra(LATITUDE, 0.0))
-                            mIntent.putExtra(LONGITUDE,  intent.getDoubleExtra(LONGITUDE, 0.0))
-                            mIntent.putExtra(ADDRESS,  intent.getStringExtra(ADDRESS) ?: "")
+                            mIntent.putExtra(LATITUDE, intent.getDoubleExtra(LATITUDE, 0.0))
+                            mIntent.putExtra(LONGITUDE, intent.getDoubleExtra(LONGITUDE, 0.0))
+                            mIntent.putExtra(ADDRESS, intent.getStringExtra(ADDRESS) ?: "")
                             setResult(RESULT_OK, mIntent)
                             finish()
                         }

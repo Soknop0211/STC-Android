@@ -1,4 +1,4 @@
-package com.eazy.stcbusiness.ui.transportation
+package com.eazy.stcbusiness.ui.transportation.booknow
 
 import android.Manifest
 import android.app.Activity
@@ -6,12 +6,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Point
-import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
 import android.text.TextUtils
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
@@ -22,13 +19,12 @@ import com.eazy.stcbusiness.base.BetterActivityResult
 import com.eazy.stcbusiness.base.SampleBaseActivity
 import com.eazy.stcbusiness.databinding.ActivityTransportationBookNowBinding
 import com.eazy.stcbusiness.model.TransportationTypeModel
-import com.eazy.stcbusiness.ui.transportation.TransportationDestinationActivity.Companion.ADDRESS
-import com.eazy.stcbusiness.ui.transportation.TransportationDestinationActivity.Companion.LATITUDE
-import com.eazy.stcbusiness.ui.transportation.TransportationDestinationActivity.Companion.LONGITUDE
+import com.eazy.stcbusiness.ui.transportation.booknow.TransportationDestinationActivity.Companion.ADDRESS
+import com.eazy.stcbusiness.ui.transportation.booknow.TransportationDestinationActivity.Companion.LATITUDE
+import com.eazy.stcbusiness.ui.transportation.booknow.TransportationDestinationActivity.Companion.LONGITUDE
+import com.eazy.stcbusiness.ui.transportation.bookschedule.DateBottomSheetDialogFragment
 import com.eazy.stcbusiness.utils.Utils
-import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import com.eazy.stcbusiness.utils.maps.GPSTracker
-import com.eazy.stcbusiness.utils.showToast
 import com.eazy.stcbusiness.view_model.OnClickBackListener
 import com.eazy.stcbusiness.view_model.TransportationBookingNowViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -37,7 +33,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
-import java.io.IOException
+import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
@@ -48,8 +44,15 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
     override val mViewModel: TransportationBookingNowViewModel by viewModels()
 
     companion object {
+
         fun gotoTransportationBookNowActivity(activity: Context){
             val intent = Intent(activity, TransportationBookNowActivity::class.java)
+            activity.startActivity(intent)
+        }
+
+        fun gotoTransportationBookNowActivity(activity: Context, mAction : String){
+            val intent = Intent(activity, TransportationBookNowActivity::class.java)
+            intent.putExtra(ACTION_TYPE, mAction)
             activity.startActivity(intent)
         }
 
@@ -68,12 +71,15 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
         }
 
         const val ACTION = "ACTION"
+
+        const val ACTION_TYPE = "ACTION_TYPE"
     }
 
     private lateinit var mMap: GoogleMap
     private lateinit var geocoder: Geocoder
     private var mGetLatLng : LatLng ?= null
     private var mAddress : String ?= null
+    private var mDate : Date? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,6 +109,14 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
         mViewModel.setIsDestinationAction(!TextUtils.isEmpty(getStringExtra(ACTION, this)))
 
         mViewModel.mValidButton.set(!TextUtils.isEmpty(getStringExtra(ACTION, this)))
+
+        // Type
+        mViewModel.mIsShowSchedule.set(!TextUtils.isEmpty(getStringExtra(ACTION_TYPE, this)))
+
+        mViewModel.mTitle.set(if (!TextUtils.isEmpty(getStringExtra(ACTION_TYPE, this)))
+            resources.getString(R.string.book_schedule) else resources.getString(R.string.book_now))
+
+        mDate = Date()
     }
 
     private fun callLocation() {
@@ -132,14 +146,30 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
         // Select type
         else {
             val mTransportationSelectTypeBottomSheetFragment = TransportationSelectTypeBottomSheetFragment()
-            mTransportationSelectTypeBottomSheetFragment.initListener(object : TransportationSelectTypeBottomSheetFragment.OnClickCallBackListener {
+            mTransportationSelectTypeBottomSheetFragment.initListener(object :
+                TransportationSelectTypeBottomSheetFragment.OnClickCallBackListener {
                 override fun onCallBackItemListener(mTransportationTypeModel: TransportationTypeModel) {
-                    TransportationConfirmCheckOutActivity.gotoTransportationConfirmCheckOutActivity(this@TransportationBookNowActivity)
+                    TransportationConfirmCheckOutActivity.gotoTransportationConfirmCheckOutActivity(
+                        this@TransportationBookNowActivity
+                    )
                 }
 
             })
             mTransportationSelectTypeBottomSheetFragment.show(supportFragmentManager, TransportationSelectTypeBottomSheetFragment::class.java.name)
         }
+    }
+
+    override fun onClickSchedule() {
+        val fmt = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val timeFmt = SimpleDateFormat("hh:mm a", Locale.getDefault())
+        DateBottomSheetDialogFragment.newInstance(mDate ?: Date(), object :
+            DateBottomSheetDialogFragment.SelectDateListener {
+            override fun selectDateListener(date: Date) {
+                mDate = date
+                mViewModel.mScheduleTxt.set(String.format("%s (%s)", fmt.format(date), timeFmt.format(date)))
+            }
+
+        }).show(supportFragmentManager, DateBottomSheetDialogFragment::class.java.name)
     }
 
     override fun onClickCallBack() {
