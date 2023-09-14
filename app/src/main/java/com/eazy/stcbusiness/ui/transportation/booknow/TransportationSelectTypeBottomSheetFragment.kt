@@ -57,6 +57,7 @@ class TransportationSelectTypeBottomSheetFragment : BaseBottomSheetDialogFragmen
     override fun onClickCallBack() {
         if (mOnClickCallBackListener != null && mViewModel.getTransportationTypeModel() != null) {
             mOnClickCallBackListener?.onCallBackItemListener(mViewModel.getTransportationTypeModel()!!)
+            dismiss()
         }
     }
 

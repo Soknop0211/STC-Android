@@ -218,7 +218,7 @@
                                 android:layout_height="@dimen/size_50"
                                 android:layout_gravity="center"
                                 android:contentDescription="@string/content_image"
-                                android:background="@drawable/transportation_bg_more"
+                                android:background="@drawable/circle_background_tranportation_v2"
                                 android:padding="@dimen/margin_10"
                                 android:src="@drawable/transportation_support" />
 
@@ -245,7 +245,7 @@
                                 android:layout_height="@dimen/size_50"
                                 android:layout_gravity="center"
                                 android:contentDescription="@string/content_image"
-                                android:background="@drawable/transportation_bg_more"
+                                android:background="@drawable/circle_background_tranportation_v2"
                                 android:padding="@dimen/margin_10"
                                 android:src="@drawable/transportation_more" />
 

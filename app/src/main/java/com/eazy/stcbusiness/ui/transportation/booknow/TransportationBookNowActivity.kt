@@ -80,6 +80,7 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
     private var mGetLatLng : LatLng ?= null
     private var mAddress : String ?= null
     private var mDate : Date? = null
+    private var mIsBookSchedule = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,9 +112,10 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
         mViewModel.mValidButton.set(!TextUtils.isEmpty(getStringExtra(ACTION, this)))
 
         // Type
-        mViewModel.mIsShowSchedule.set(!TextUtils.isEmpty(getStringExtra(ACTION_TYPE, this)))
+        mIsBookSchedule = !TextUtils.isEmpty(getStringExtra(ACTION_TYPE, this))
+        mViewModel.mIsShowSchedule.set(mIsBookSchedule)
 
-        mViewModel.mTitle.set(if (!TextUtils.isEmpty(getStringExtra(ACTION_TYPE, this)))
+        mViewModel.mTitle.set(if (mIsBookSchedule)
             resources.getString(R.string.book_schedule) else resources.getString(R.string.book_now))
 
         mDate = Date()
@@ -167,6 +169,9 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
             override fun selectDateListener(date: Date) {
                 mDate = date
                 mViewModel.mScheduleTxt.set(String.format("%s (%s)", fmt.format(date), timeFmt.format(date)))
+
+                // Enable button
+                mViewModel.mValidButton.set(!TextUtils.isEmpty(mViewModel.mAddressDestination.get()) && !mViewModel.mAddressDestination.get().equals(resources.getString(R.string.where_to)))
             }
 
         }).show(supportFragmentManager, DateBottomSheetDialogFragment::class.java.name)
@@ -183,7 +188,12 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
                             mViewModel.mLongDestination.set(intent.getDoubleExtra(LONGITUDE, 0.0))
                             mViewModel.mAddressDestination.set(intent.getStringExtra(ADDRESS))
 
-                            mViewModel.mValidButton.set(true)
+                            if (mIsBookSchedule) {
+                                mViewModel.mValidButton.set(!TextUtils.isEmpty(mViewModel.mScheduleTxt.get()) &&
+                                        !mViewModel.mScheduleTxt.get().equals(resources.getString(R.string.when_trip)))
+                            } else {
+                                mViewModel.mValidButton.set(true)
+                            }
                         }
                     }
                 }

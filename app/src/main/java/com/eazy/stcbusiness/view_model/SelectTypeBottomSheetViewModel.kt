@@ -89,6 +89,7 @@ class SelectTypeBottomSheetViewModel (
     private fun initItem(mTransportationTypeModel : TransportationTypeModel) {
         mTitle.set(mTransportationTypeModel.name)
         mDescription.set(mTransportationTypeModel.description)
+        mStatus.set(mTransportationTypeModel.status)
         mPrice.set(mContext.getDisplayPrice(mTransportationTypeModel.price ?: 0.0, "USD"))
 
         if (mTransportationTypeModel.image != null) {
