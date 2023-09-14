@@ -30,7 +30,6 @@ import com.eazy.stcbusiness.view_model.TransportationBookingNowViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
@@ -87,11 +86,12 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
 
         initViewModel()
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapFragment = (supportFragmentManager
-            .findFragmentById(R.id.google_map) as SupportMapFragment?)!!
+//        val mapFragment = (supportFragmentManager
+//            .findFragmentById(R.id.google_map) as SupportMapFragment?)!!
+//        mapFragment.getMapAsync(this)
 
-        mapFragment.getMapAsync(this)
+
+        initGoogleMap(savedInstanceState)
 
         callLocation()
 
@@ -99,6 +99,32 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
 
     }
 
+    private fun initGoogleMap(savedInstanceState: Bundle?) {
+        mBinding.mapview.onCreate(savedInstanceState)
+        mBinding.mapview.onResume()
+        mBinding.mapview.getMapAsync(this)
+    }
+
+    override fun onResume() {
+        mBinding.mapview.onResume()
+        super.onResume()
+    }
+
+
+    override fun onPause() {
+        super.onPause()
+        mBinding.mapview.onPause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mBinding.mapview.onDestroy()
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        mBinding.mapview.onLowMemory()
+    }
     private fun initViewModel() {
         mViewModel.bind(this)
 

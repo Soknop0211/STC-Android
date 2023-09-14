@@ -37,11 +37,18 @@
                 android:layout_height="match_parent"
                 tools:ignore="UselessParent">
 
-                <fragment
-                    android:id="@+id/google_map"
-                    class="com.google.android.gms.maps.SupportMapFragment"
+<!--                <fragment-->
+<!--                    android:id="@+id/google_map"-->
+<!--                    class="com.google.android.gms.maps.SupportMapFragment"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent" />-->
+
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/mapview"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:apiKey="@string/google_api_key"
+                    android:enabled="true" />
 
                 <ImageView
                     android:id="@+id/center_image"
