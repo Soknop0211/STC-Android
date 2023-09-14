@@ -210,6 +210,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:layout_margin="@dimen/padding_8dp"
+                    app:delayClickListener="@{()-> viewModel.onClickBookNow()}"
                     style="@style/SelectableItemBackground"
                     android:clickable="true"
                     android:layout_gravity="center"

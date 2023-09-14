@@ -103,5 +103,7 @@
     <string name="book_schedule">Book Schedule</string>
     <string name="select_schedule">Select Schedule</string>
     <string name="confirm_schedule">Confirm Schedule</string>
+    <string name="support">Support</string>
+    <string name="cancel_label">Cancel</string>
 
 </resources>

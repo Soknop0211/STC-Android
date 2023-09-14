@@ -15,6 +15,7 @@ import com.eazy.stcbusiness.model.LocalPaymentModel
 import com.eazy.stcbusiness.model.TransportationTypeModel
 import com.eazy.stcbusiness.ui.happening_ui.HappeningAddPeopleBottomSheetFragment
 import com.eazy.stcbusiness.ui.happening_ui.adapter.LocalPaymentMethodAdapter
+import com.eazy.stcbusiness.ui.transportation.bookschedule.TransportationWaitingActivity
 import com.eazy.stcbusiness.view_model.HappeningNowCheckOutViewModel
 import com.eazy.stcbusiness.view_model.OnCheckOutCallBackListener
 import com.eazy.stcbusiness.view_model.SelectTypeBottomSheetViewModel
@@ -165,7 +166,7 @@ class TransportationConfirmCheckOutActivity : BaseActivity<ActivityTrasportation
     }
 
     override fun onClickCallBack() {
-
+        TransportationWaitingActivity.gotoTransportationWaitingActivity(this)
     }
 
 }
