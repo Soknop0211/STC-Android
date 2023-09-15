@@ -4,6 +4,9 @@
 
     <data>
         <variable
+            name="view"
+            type="android.view.View" />
+        <variable
             name="viewModel"
             type="com.eazy.stcbusiness.base.BaseViewModelObservation" />
     </data>
@@ -19,6 +22,45 @@
         xmlns:tools="http://schemas.android.com/tools">
 
         <LinearLayout
+            android:visibility="@{viewModel.getIsShowPriceOnly ? view.VISIBLE : view.GONE}"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:maxLines="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                tools:ignore="Suspicious0dp">
+
+                <TextView
+                    android:maxLines="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/price"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text=" 80.00 USD"
+                    android:text="@{viewModel.mPriceTotal}"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="@{viewModel.getIsShowPriceOnly ? view.GONE : view.VISIBLE}"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:padding="5dp"
@@ -88,5 +130,6 @@
         </LinearLayout>
 
     </LinearLayout>
+
 
 </layout>

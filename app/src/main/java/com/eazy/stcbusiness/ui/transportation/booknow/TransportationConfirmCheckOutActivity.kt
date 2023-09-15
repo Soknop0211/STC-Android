@@ -30,10 +30,13 @@ class TransportationConfirmCheckOutActivity : BaseActivity<ActivityTrasportation
     override val mViewModel: HappeningNowCheckOutViewModel by viewModels()
 
     companion object {
-        fun gotoTransportationConfirmCheckOutActivity(activity: Context){
+        fun gotoTransportationConfirmCheckOutActivity(activity: Context, mTransportationTypeModel: TransportationTypeModel){
             val intent = Intent(activity, TransportationConfirmCheckOutActivity::class.java)
+            intent.putExtra(TRANSPORTATION_DATA, mTransportationTypeModel)
             activity.startActivity(intent)
         }
+
+            private const val TRANSPORTATION_DATA = "TRANSPORTATION_DATA"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,10 +54,11 @@ class TransportationConfirmCheckOutActivity : BaseActivity<ActivityTrasportation
 
         setVariable(BR.viewModel, mViewModel)
 
-        val mItem = TransportationTypeModel(name = "Tuk tuk", description = "Traditional motorbike trailer 1-4 seats", price = 120.50, iconDrawable = R.drawable.transportation_tuktuk)
+
+        val mItem = getDataFromModelClass<TransportationTypeModel>(TRANSPORTATION_DATA, this)
 
         val mItemBinding : TransportationItemTypeLayoutBinding = mBinding.itemLayoutTaxi
-        val viewModel = SelectTypeBottomSheetViewModel(this, mItem) {}
+        val viewModel = SelectTypeBottomSheetViewModel(this, mItem ?: TransportationTypeModel()) {}
         mItemBinding.setVariable(BR.viewModel, viewModel)
 
         // Handle Layout
@@ -65,6 +69,7 @@ class TransportationConfirmCheckOutActivity : BaseActivity<ActivityTrasportation
         val mList = getListOnlinePayment(this@TransportationConfirmCheckOutActivity, false)
         val mListCard = getListOnlinePayment(this@TransportationConfirmCheckOutActivity, true)
 
+        if (mList.isNotEmpty()) mList[0].isClick = true
         mBinding.recyclerView.apply {
             isNestedScrollingEnabled = false
             layoutManager = LinearLayoutManager(this@TransportationConfirmCheckOutActivity)

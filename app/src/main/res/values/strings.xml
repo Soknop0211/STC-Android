@@ -105,5 +105,11 @@
     <string name="confirm_schedule">Confirm Schedule</string>
     <string name="support">Support</string>
     <string name="cancel_label">Cancel</string>
+    <string name="car_renal">Car Rental</string>
+    <string name="recommend_rental">Recommend Rental</string>
+    <string name="suggested_ride">Suggested Ride</string>
+    <string name="per_day">Per Day</string>
+    <string name="detail">Detail</string>
+    <string name="feature_in_car">Feature In Car</string>
 
 </resources>

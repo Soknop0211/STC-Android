@@ -24,8 +24,18 @@ open class BaseViewModelObservation : ViewModel() {
 
     val mPriceTotal = ObservableField<String>()
 
+    val mIsShowPriceOnly : ObservableBoolean = ObservableBoolean(false)
+
     open fun setPriceTotal(mPrice : Double, mContext : Context) {
         mPriceTotal.set(mContext.getDisplayPrice("USD", mPrice).plus(" / "))
+    }
+
+    open fun setIsShowPriceOnly(isShowPriceOnly : Boolean) {
+        mIsShowPriceOnly.set(isShowPriceOnly)
+    }
+
+    fun getIsShowPriceOnly() : ObservableBoolean {
+        return mIsShowPriceOnly
     }
 
     fun setContext(context: Context) {

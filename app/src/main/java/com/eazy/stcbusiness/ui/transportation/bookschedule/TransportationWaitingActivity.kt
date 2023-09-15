@@ -1,6 +1,7 @@
 package com.eazy.stcbusiness.ui.transportation.bookschedule
 
 import android.Manifest
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -31,9 +32,10 @@ class TransportationWaitingActivity : BaseActivity<ActivityTransportationWaiting
     OnClickCallBackListener, OnMapReadyCallback {
 
     companion object {
-        fun gotoTransportationWaitingActivity(activity: Context){
+        fun gotoTransportationWaitingActivity(activity: Activity){
             val intent = Intent(activity, TransportationWaitingActivity::class.java)
             activity.startActivity(intent)
+            activity.finish()
         }
     }
 

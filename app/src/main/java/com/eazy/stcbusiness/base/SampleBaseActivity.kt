@@ -37,4 +37,17 @@ open class SampleBaseActivity : AppCompatActivity() {
         return ""
     }
 
+    open fun <T> getDataFromModelClass(key: String, context: Activity) : T? {
+        if (context.intent != null && context.intent.hasExtra(key)) {
+            return context.intent.getSerializableExtra(key) as T
+        }
+        return null
+    }
+
+    open fun <T> getDataFromListModelClass(key: String, context: Activity): ArrayList<T> {
+        if (context.intent != null && context.intent.hasExtra(key)) {
+            return context.intent.getSerializableExtra(key) as ArrayList<T>
+        }
+        return ArrayList()
+    }
 }

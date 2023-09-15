@@ -178,7 +178,7 @@ class TransportationBookNowActivity : BaseActivity<ActivityTransportationBookNow
                 TransportationSelectTypeBottomSheetFragment.OnClickCallBackListener {
                 override fun onCallBackItemListener(mTransportationTypeModel: TransportationTypeModel) {
                     TransportationConfirmCheckOutActivity.gotoTransportationConfirmCheckOutActivity(
-                        this@TransportationBookNowActivity
+                        this@TransportationBookNowActivity, mTransportationTypeModel
                     )
                 }
 

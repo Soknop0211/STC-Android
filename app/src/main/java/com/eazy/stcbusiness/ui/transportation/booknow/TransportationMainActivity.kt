@@ -11,6 +11,7 @@ import com.eazy.stcbusiness.base.BaseActivity
 import com.eazy.stcbusiness.base_dapter.MainHomeShowItemAdapter
 import com.eazy.stcbusiness.databinding.ActivityTransportationMainBinding
 import com.eazy.stcbusiness.ui.transportation.booknow.TransportationBookNowActivity.Companion.gotoTransportationBookNowActivity
+import com.eazy.stcbusiness.ui.transportation.car_rental.TransportationMainCarRentalActivity.Companion.gotoTransportationMainCarRentalActivity
 import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import com.eazy.stcbusiness.view_model.TransportationViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,10 +42,16 @@ class TransportationMainActivity : BaseActivity<ActivityTransportationMainBindin
                 layoutManager = LinearLayoutManager(this@TransportationMainActivity)
                 adapter = MainHomeShowItemAdapter(it , this@TransportationMainActivity, {
                 }, { mModel, mString -> // On Item Click
-                    if (mModel.id == "book_schedule") {
-                        gotoTransportationBookNowActivity(this@TransportationMainActivity, mString)
-                    } else if (mModel.id == "book_now"){
-                        gotoTransportationBookNowActivity(this@TransportationMainActivity)
+                    when (mModel.id) {
+                        "book_schedule" -> {
+                            gotoTransportationBookNowActivity(this@TransportationMainActivity, mString)
+                        }
+                        "book_now" -> {
+                            gotoTransportationBookNowActivity(this@TransportationMainActivity)
+                        }
+                        "transportation_rental" -> {
+                            gotoTransportationMainCarRentalActivity(this@TransportationMainActivity)
+                        }
                     }
                 } ) }
         }

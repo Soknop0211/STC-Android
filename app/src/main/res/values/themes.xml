@@ -27,6 +27,8 @@
     <style name="SelectableItemBackground">
 <!--        <item name="android:colorControlHighlight">#5677FC</item>-->
         <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
         <!-- <item name="android:theme">@style/SelectableItemTheme</item> -->
     </style>
 
