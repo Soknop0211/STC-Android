@@ -1,9 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.transportation.car_rental.TransportationSummaryRentalActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="viewModel"
+            type="com.eazy.stcbusiness.view_model.TransportationSummaryRentalViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@drawable/custom_background_main"
+        android:backgroundTint="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                app:viewModel="@{viewModel}"
+                android:id="@+id/toolbar"
+                layout="@layout/custom_toolbar"/>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_marginVertical="@dimen/padding_5"
+                        android:padding="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_margin="@dimen/margin_10"
+                            android:layout_width="match_parent"
+                            android:text="@string/pick_up"
+                            android:maxLines="3"
+                            android:textSize="@dimen/size_16sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/font_bold"
+                            android:layout_height="wrap_content"/>
+
+                        <LinearLayout
+                            style="@style/SelectableItemBackground"
+                            android:layout_marginHorizontal="@dimen/padding_8dp"
+                            android:background="@drawable/custom_background_card_item_type"
+                            android:padding="@dimen/margin_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="@string/app_name"
+                                    android:fontFamily="@font/font_bold"
+                                    android:text="@string/pick_up"
+                                    android:paddingVertical="@dimen/size_3dp"
+                                    android:textColor="@color/black" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="@string/app_name"
+                                    android:fontFamily="@font/font_regular"
+                                    android:text="@{viewModel.getAddressPickUp}"
+                                    android:textSize="@dimen/size_14sp"
+                                    tools:text="Funmall, Strees 203 Sangkat Toul Kok" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:contentDescription="@string/content_image"
+                                android:rotation="-90"
+                                android:src="@drawable/ic_drop_down" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:padding="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_margin="@dimen/margin_10"
+                            android:layout_width="match_parent"
+                            android:text="@string/transportation"
+                            android:maxLines="3"
+                            android:textSize="@dimen/size_16sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/font_bold"
+                            android:layout_height="wrap_content"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_marginHorizontal="@dimen/padding_5"
+                            android:layout_height="wrap_content">
+
+                            <include
+                                android:id="@+id/mDataTaxi"
+                                layout="@layout/suggested_ride_car_rental_layout"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:padding="@dimen/padding_5"
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_marginHorizontal="@dimen/margin_10"
+                            android:layout_width="match_parent"
+                            android:text="@string/add_on_service_optional"
+                            android:maxLines="3"
+                            android:textSize="@dimen/size_16sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/font_bold"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_marginHorizontal="@dimen/margin_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="@dimen/margin_10"
+                            android:fontFamily="@font/font_regular"
+                            android:text="@string/message_summary_car_rental"
+                            android:textSize="@dimen/size_14sp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:listitem="@layout/car_rental_option_service_layout"
+                            android:id="@+id/recyclerView"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <include
+                app:viewModel="@{viewModel}"
+                layout="@layout/bottom_show_price_layout"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

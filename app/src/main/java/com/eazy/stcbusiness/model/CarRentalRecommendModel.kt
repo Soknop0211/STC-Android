@@ -5,4 +5,5 @@ data class CarRentalRecommendModel (
     var name : String? = null,
     var description : String?= null,
     var price : Double ?= null,
+    var isSelectedItem : Boolean ?= false
     ) : BaseModel()

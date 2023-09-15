@@ -15,10 +15,6 @@ import com.eazy.stcbusiness.view_model.SuggestedRideCarRentalViewModel
 class CarRentalSuggestedAdapter(private val list : ArrayList<CarRentalSuggestedRideModel>,
                                 private val mOnClick: (CarRentalSuggestedRideModel) -> Unit) : RecyclerView.Adapter<BindingViewHolder>(){
 
-    private val mViewModel: HashMap<String, SelectTypeBottomSheetViewModel> = HashMap()
-    private var mSelectedPaymentIndex = 0
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingViewHolder {
         return BindingViewHolder.Builder(parent, R.layout.suggested_ride_car_rental_layout).build();
     }
@@ -40,28 +36,6 @@ class CarRentalSuggestedAdapter(private val list : ArrayList<CarRentalSuggestedR
 
         })
         holder.setVariable(BR.viewModel, viewModel)
-
-//        holder.binding.root.setOnClickListener {
-//            viewModel.setSelected(true)
-//            unselectOption(mItem.id ?: "")
-//
-//            mOnClick.invoke(mItem)
-//        }
-//
-//        mViewModel[mItem.id ?: ""] = viewModel
-//
-//        if (position == mSelectedPaymentIndex) {
-//            holder.binding.root.performClick()
-//            mSelectedPaymentIndex = -1
-//        }
-    }
-
-    private fun unselectOption(excludeCheckingId: String) {
-        for ((key, value) in mViewModel) {
-            if (key != excludeCheckingId) {
-                value.setSelected(false)
-            }
-        }
     }
 
     override fun getItemCount(): Int {

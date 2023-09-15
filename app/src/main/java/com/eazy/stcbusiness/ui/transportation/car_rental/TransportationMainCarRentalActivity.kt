@@ -50,7 +50,9 @@ class TransportationMainCarRentalActivity : BaseActivity<ActivityTransportationM
             mBinding.recyclerViewSuggest.apply {
                 layoutManager = LinearLayoutManager(this@TransportationMainCarRentalActivity)
                 adapter = CarRentalSuggestedAdapter(it) {
-
+                    TransportationSummaryRentalActivity.gotoTransportationSummaryRentalActivity(
+                        this@TransportationMainCarRentalActivity, it
+                    )
                 }
             }
         }

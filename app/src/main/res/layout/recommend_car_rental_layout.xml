@@ -78,7 +78,7 @@
 
                     <LinearLayout
                         android:padding="@dimen/padding_5"
-                        android:background="@drawable/custom_background__car_rental_gradient"
+                        android:background="@drawable/custom_background_car_rental_gradient"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">

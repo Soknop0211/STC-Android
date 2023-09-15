@@ -14,6 +14,7 @@ import com.eazy.stcbusiness.databinding.CustomTextViewLayoutBinding
 import com.eazy.stcbusiness.databinding.FragmentTrasportationRecommendDetailBottomSheetBinding
 import com.eazy.stcbusiness.model.CarRentalRecommendModel
 import com.eazy.stcbusiness.model.SavePlaceModel
+import com.eazy.stcbusiness.ui.transportation.car_rental.TransportationSummaryRentalActivity.Companion.gotoTransportationSummaryRentalActivity
 import com.eazy.stcbusiness.view_model.OnClickRecommendListener
 import com.eazy.stcbusiness.view_model.TransportationRecommendDetailBottomSheetViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -87,6 +88,6 @@ class TransportationRecommendDetailBottomSheetFragment : BaseBottomSheetDialogFr
     }
 
     override fun onClickCallBack() {
-
+        gotoTransportationSummaryRentalActivity(mActivity!!)
     }
 }

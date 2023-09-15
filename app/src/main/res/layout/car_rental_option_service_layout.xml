@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.eazy.stcbusiness.view_model.CarRentalServiceOptionItemViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_marginHorizontal="@dimen/margin_10"
+        android:layout_marginVertical="@dimen/padding_5"
+        android:layout_width="match_parent"
+        android:background="@drawable/custom_background_border"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:padding="@dimen/margin_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_margin="@dimen/size_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="5dp"
+                        android:drawableTint="@color/white"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:paddingTop="2dp"
+                        android:text="@{viewModel.title}"
+                        tools:text="Half Day-Premium"
+                        android:textSize="@dimen/size_17sp"
+                        android:textColor="@color/black"
+                        tools:ignore="NestedWeights,UseCompatTextViewDrawableXml" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:onClick="@{() -> viewModel.onButtonClick()}"
+                            android:layout_width="@dimen/size_25"
+                            android:layout_height="@dimen/size_25"
+                            android:layout_gravity="center|start"
+                            android:src="@{viewModel.getSelected ?  @drawable/selected_button : @drawable/un_selected_button, default = @drawable/un_selected_button}" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginHorizontal="@dimen/size_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="5dp"
+                        android:ellipsize="end"
+                        android:gravity="center|start"
+                        android:maxLines="3"
+                        android:padding="3dp"
+                        android:text="@{viewModel.description}"
+                        tools:text="Siem Reap is a cheerful city that embraces travelers like old friends. This region was."
+                        android:textColor="@color/gray" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:gravity="end"
+                    android:layout_margin="@dimen/size_5"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/eventTitleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableTint="@color/white"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        tools:text="80.00 USD"
+                        android:text="@{viewModel.getTotalPrice}"
+                        android:padding="3dp"
+                        android:textSize="@dimen/size_16sp"
+                        android:fontFamily="@font/font_bold"
+                        android:textColor="@color/colorAppPrimary"
+                        tools:ignore="NestedWeights,UseCompatTextViewDrawableXml" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>
