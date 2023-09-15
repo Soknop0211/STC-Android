@@ -20,6 +20,9 @@
         android:theme="@style/Theme.Stcbusiness"
         tools:targetApi="s">
         <activity
+            android:name=".ui.transportation.car_rental.TransportationPickUpLocationActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.transportation.car_rental.TransportationSummaryRentalActivity"
             android:exported="false" />
         <activity

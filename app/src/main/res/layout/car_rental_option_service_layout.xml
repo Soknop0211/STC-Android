@@ -60,7 +60,6 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:onClick="@{() -> viewModel.onButtonClick()}"
                             android:layout_width="@dimen/size_25"
                             android:layout_height="@dimen/size_25"
                             android:layout_gravity="center|start"

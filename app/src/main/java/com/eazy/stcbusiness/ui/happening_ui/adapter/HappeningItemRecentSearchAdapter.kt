@@ -17,7 +17,11 @@ class HappeningItemRecentSearchAdapter(private val list : List<ItemRecentSearchM
     override fun onBindViewHolder(holder: BindingViewHolder, position: Int) {
         val mItem = list[position]
         val viewModel = ItemRecentSearchViewModel(mItem) {
-            mListener.invoke(it)
+           //  mListener.invoke(it)
+        }
+
+        holder.binding.root.setOnClickListener {
+            mListener.invoke(mItem)
         }
         holder.setVariable(BR.viewModel, viewModel)
     }

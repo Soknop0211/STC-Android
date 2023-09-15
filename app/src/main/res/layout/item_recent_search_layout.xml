@@ -15,11 +15,9 @@
     <LinearLayout android:orientation="vertical"
         android:layout_width="match_parent"
         style="@style/SelectableItemBackground"
-        app:delayClickListener="@{()-> viewModel.onClickListener()}"
         android:layout_marginHorizontal="@dimen/margin_10"
         android:layout_marginVertical="@dimen/size_5"
-        android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"

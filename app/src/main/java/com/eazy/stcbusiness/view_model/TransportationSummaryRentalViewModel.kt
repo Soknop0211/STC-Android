@@ -24,16 +24,26 @@ import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+interface OnClickListenerSummeryRental : OnClickCallBackListener {
+    fun onClickPickUpLocationCallBack()
+}
+
 @HiltViewModel
 class TransportationSummaryRentalViewModel @Inject constructor(
     private val mContext: Application,
     private val apiRepository : ApiRepository
-) : BaseViewModel<OnClickCallBackListener>(){
+) : BaseViewModel<OnClickListenerSummeryRental>(){
 
     private val mAddressPickUp = ObservableField<String>()
 
+    val mLatPickUp = ObservableField<Double>()
+    val mLongPickUP = ObservableField<Double>()
     fun getAddressPickUp() : ObservableField<String> {
         return mAddressPickUp
+    }
+
+    fun setAddressPickUp(mAddressPickUp : String) {
+        this.mAddressPickUp.set(mAddressPickUp)
     }
 
     init {
@@ -74,6 +84,7 @@ class TransportationSummaryRentalViewModel @Inject constructor(
 
     }
 
+    /*** Init Data Taxi **/
     fun initDataCarTaxi(mContext: Context,
                         mItemBinding : SuggestedRideCarRentalLayoutBinding,
                         mDataTaxi : CarRentalSuggestedRideModel,
@@ -96,10 +107,6 @@ class TransportationSummaryRentalViewModel @Inject constructor(
         mItemBinding.setVariable(BR.viewModel, viewModel)
     }
 
-    override fun onClickBookNow() {
-        mView?.onClickCallBack()
-    }
-
     private val mPriceBeforeExtra = ObservableField<Double>(0.0)
 
     fun getPriceBeforeExtra() : ObservableField<Double> {
@@ -119,8 +126,18 @@ class TransportationSummaryRentalViewModel @Inject constructor(
         mPriceTotal.set(String.format(" %s %s", total, "USD"))
     }
 
+    override fun onClickBookNow() {
+        mView?.onClickCallBack()
+    }
+
+    fun onClickPickUpLocationCallBack() {
+        mView?.onClickPickUpLocationCallBack()
+    }
+
 }
 
+
+/*** Item Car Service Option **/
 class CarRentalServiceOptionItemViewModel(mContext : Context,
                                           mCarRentalRecommendModel : CarRentalRecommendModel,
                                           private val mOnClickListener : (CarRentalRecommendModel) -> Unit) {

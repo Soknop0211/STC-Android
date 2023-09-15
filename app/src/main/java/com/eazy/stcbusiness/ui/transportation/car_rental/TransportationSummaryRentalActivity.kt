@@ -4,12 +4,15 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eazy.stcbusiness.BR
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseActivity
+import com.eazy.stcbusiness.base.BetterActivityResult
 import com.eazy.stcbusiness.databinding.ActivityTransportationMainCarRentalBinding
 import com.eazy.stcbusiness.databinding.ActivityTransportationSummaryRentalBinding
 import com.eazy.stcbusiness.databinding.SuggestedRideCarRentalLayoutBinding
@@ -20,6 +23,8 @@ import com.eazy.stcbusiness.model.TicketAvailableModel
 import com.eazy.stcbusiness.model.TransportationTypeModel
 import com.eazy.stcbusiness.ui.todo_ui.adapter.TicketAvailableAdapter
 import com.eazy.stcbusiness.ui.transportation.adapter.TaxiServiceOptionItemAdapter
+import com.eazy.stcbusiness.ui.transportation.booknow.TransportationBookNowActivity
+import com.eazy.stcbusiness.ui.transportation.booknow.TransportationDestinationActivity
 import com.eazy.stcbusiness.utils.AppLOGG
 import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import com.eazy.stcbusiness.view_model.*
@@ -27,7 +32,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class TransportationSummaryRentalActivity : BaseActivity<ActivityTransportationSummaryRentalBinding, TransportationSummaryRentalViewModel>(),
-    OnClickCallBackListener {
+    OnClickListenerSummeryRental {
 
 
     companion object {
@@ -100,9 +105,25 @@ class TransportationSummaryRentalActivity : BaseActivity<ActivityTransportationS
         }
     }
 
-    private fun updateTotalPrice(priceBeforeExtra: Double) {
-        // Update Price
-        mViewModel.updateTotalPrice(priceBeforeExtra, mServiceOptionList) // Calculate Price
+    override fun onClickPickUpLocationCallBack() {
+        TransportationPickUpLocationActivity.gotoTransportationPickUpLocationActivity(this,
+            object : BetterActivityResult.OnActivityResult<ActivityResult> {
+                override fun onActivityResult(result: ActivityResult) {
+                    if (result.resultCode == RESULT_OK) {
+                        val intent = result.data
+                        if (intent != null && intent.hasExtra(TransportationDestinationActivity.LATITUDE)) {
+                            mViewModel.mLatPickUp.set(intent.getDoubleExtra(
+                                TransportationDestinationActivity.LATITUDE, 0.0))
+                            mViewModel.mLongPickUP.set(intent.getDoubleExtra(
+                                TransportationDestinationActivity.LONGITUDE, 0.0))
+                            mViewModel.setAddressPickUp(intent.getStringExtra(
+                                TransportationDestinationActivity.ADDRESS
+                            ) ?: "")
+                        }
+                    }
+                }
+
+            })
     }
 
     override fun onClickCallBack() {

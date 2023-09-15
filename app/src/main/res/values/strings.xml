@@ -114,5 +114,6 @@
     <string name="transportation">Transportation</string>
     <string name="add_on_service_optional">Add on service (Optional)</string>
     <string name="message_summary_car_rental">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard</string>
+    <string name="save">Save</string>
 
 </resources>

@@ -57,6 +57,7 @@
                             android:layout_height="wrap_content"/>
 
                         <LinearLayout
+                            app:delayClickListener="@{()-> viewModel.onClickPickUpLocationCallBack()}"
                             style="@style/SelectableItemBackground"
                             android:layout_marginHorizontal="@dimen/padding_8dp"
                             android:background="@drawable/custom_background_card_item_type"
