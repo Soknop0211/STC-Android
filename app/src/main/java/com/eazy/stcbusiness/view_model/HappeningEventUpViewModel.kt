@@ -9,7 +9,6 @@ import com.eazy.stcbusiness.base.BaseView
 import com.eazy.stcbusiness.base.BaseViewModel
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.model.ItemCategoryDateModel
-import com.eazy.stcbusiness.model.LocationModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

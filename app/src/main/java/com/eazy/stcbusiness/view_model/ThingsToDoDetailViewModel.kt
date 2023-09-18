@@ -1,12 +1,18 @@
 package com.eazy.stcbusiness.view_model
 
 import androidx.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.eazy.stcbusiness.base.BaseView
 import com.eazy.stcbusiness.base.BaseViewModel
-import com.eazy.stcbusiness.model.ToDoDetailModel
-import com.eazy.stcbusiness.model.YouWillKnow
-import com.google.gson.annotations.SerializedName
+import com.eazy.stcbusiness.base.NetworkResult
+import com.eazy.stcbusiness.model.LocationItemModel
+import com.eazy.stcbusiness.network_module.ApiRepository
+import com.eazy.stcbusiness.utils.AppLOGG
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 interface OnDetailButtonListener : BaseView {
@@ -14,7 +20,9 @@ interface OnDetailButtonListener : BaseView {
 }
 
 @HiltViewModel
-class ThingsToDoDetailViewModel @Inject constructor() : BaseViewModel<OnDetailButtonListener>(){
+class ThingsToDoDetailViewModel @Inject constructor(
+    val repository: ApiRepository
+) : BaseViewModel<OnDetailButtonListener>(){
 
     private val mName = ObservableField<String>()
     private val mDescription = ObservableField<String>()
@@ -43,6 +51,40 @@ class ThingsToDoDetailViewModel @Inject constructor() : BaseViewModel<OnDetailBu
     override fun onClickBookNow() {
         if (mView != null) {
             mView?.onBookNowClick()
+        }
+    }
+
+    private val _loading = MutableLiveData<Boolean>()
+    private val _dataListAll =
+        MutableLiveData<ArrayList<LocationItemModel>>()
+
+    val loading: MutableLiveData<Boolean> get() = _loading
+    val dataListAll: MutableLiveData<ArrayList<LocationItemModel>> get() = _dataListAll
+
+    fun getBindingList () {
+        viewModelScope.launch(Dispatchers.IO) {
+            withContext(Dispatchers.Main) {
+                setLoading(true)
+                when  (val resultRes = repository.fetchLocation()) {
+                    is NetworkResult.ApiSuccess -> {
+                        _dataListAll.postValue(resultRes.data.data!!)
+                        setLoading(false)
+                    }
+                    is NetworkResult.ApiError -> {
+                        // errorFlow.emit("${resultRes.code} ${resultRes.message}")
+                        val error = "${resultRes.code} ${resultRes.message}"
+                        AppLOGG.d("jeeeeeeeeeeeeeeeeeeeeee", error)
+                        setLoading(false)
+                    }
+                    is NetworkResult.ApiException -> {
+                        // errorFlow.emit("${resultRes.e.message}")
+                        val error = "${resultRes.e.message}"
+                        AppLOGG.d("jeeeeeeeeeeeeeeeeeeeeee", error)
+                        setLoading(false)
+                    }
+                }
+
+            }
         }
     }
 

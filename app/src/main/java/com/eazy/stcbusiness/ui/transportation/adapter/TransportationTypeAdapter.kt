@@ -4,10 +4,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.eazy.stcbusiness.BR
 import com.eazy.stcbusiness.R
-import com.eazy.stcbusiness.model.LocationModel
 import com.eazy.stcbusiness.model.TransportationTypeModel
 import com.eazy.stcbusiness.ui.todo_ui.adapter.BindingViewHolder
-import com.eazy.stcbusiness.view_model.ItemCategoryViewModel
 import com.eazy.stcbusiness.view_model.SelectTypeBottomSheetViewModel
 
 

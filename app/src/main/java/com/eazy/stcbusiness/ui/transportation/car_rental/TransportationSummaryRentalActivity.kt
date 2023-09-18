@@ -129,7 +129,7 @@ class TransportationSummaryRentalActivity : BaseActivity<ActivityTransportationS
     override fun onClickCallBack() {
         mServiceOptionList.forEach {
             if(it.isSelectedItem == true) {
-                AppLOGG.d("keeeeeeeeeeeeeeeeeee", it.name ?: "")
+                // AppLOGG.d("keeeeeeeeeeeeeeeeeee", it.name ?: "")
             }
         }
     }
