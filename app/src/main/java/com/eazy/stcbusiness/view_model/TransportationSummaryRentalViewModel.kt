@@ -104,10 +104,17 @@ class TransportationSummaryRentalViewModel @Inject constructor(
 
         })
 
+        // Gone button View Detail
+        viewModel.setIsCanViewDetail(false)
+
+        // Set Background Card
+        viewModel.setIsCardBackground(true)
+
+
         mItemBinding.setVariable(BR.viewModel, viewModel)
     }
 
-    private val mPriceBeforeExtra = ObservableField<Double>(0.0)
+    private val mPriceBeforeExtra = ObservableField(0.0)
 
     fun getPriceBeforeExtra() : ObservableField<Double> {
         return mPriceBeforeExtra
@@ -123,7 +130,7 @@ class TransportationSummaryRentalViewModel @Inject constructor(
             }
         }
 
-        mPriceTotal.set(String.format(" %s %s", total, "USD"))
+        mPriceTotal.set(FormatPriceHelper.getDisplayPrice(mContext, "USD", total))
     }
 
     override fun onClickBookNow() {

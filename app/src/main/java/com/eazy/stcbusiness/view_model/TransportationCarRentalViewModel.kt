@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.res.Resources
 import androidx.core.content.res.ResourcesCompat
+import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -131,6 +132,44 @@ class SuggestedRideCarRentalViewModel (mContext : Context, mCarRentalSuggestedRi
     private var mCarRentalSuggestedRideModel : CarRentalSuggestedRideModel ?= null
     private var mOnClick : OnClickItemCallBackListener
     private var mContext : Context ?= null
+
+    // Validate option
+    private val mIsCanAdd = ObservableBoolean(true)
+    private val mIsCanMinus = ObservableBoolean(true)
+    private val mIsCanViewDetail = ObservableBoolean(true)
+    private val mIsCardBackground = ObservableBoolean(false)
+
+    fun getIsCanAdd() : ObservableBoolean {
+        return mIsCanAdd
+    }
+
+    fun setIsIsCanAdd(mIsCanAdd : Boolean) {
+        this.mIsCanAdd.set(mIsCanAdd)
+    }
+
+    fun getIsCanMinus() : ObservableBoolean {
+        return mIsCanMinus
+    }
+
+    fun setIsIsCanMinus(mIsCanMinus : Boolean) {
+        this.mIsCanMinus.set(mIsCanMinus)
+    }
+
+    fun getIsCanViewDetail() : ObservableBoolean {
+        return mIsCanViewDetail
+    }
+
+    fun setIsCanViewDetail(mIsCanViewDetail : Boolean) {
+        this.mIsCanViewDetail.set(mIsCanViewDetail)
+    }
+
+    fun getIsCardBackground() : ObservableBoolean {
+        return mIsCardBackground
+    }
+
+    fun setIsCardBackground(mIsCardBackground : Boolean) {
+        this.mIsCardBackground.set(mIsCardBackground)
+    }
 
     init {
         mUrl.set(mCarRentalSuggestedRideModel.image)

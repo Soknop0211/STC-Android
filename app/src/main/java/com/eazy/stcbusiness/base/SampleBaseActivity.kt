@@ -44,7 +44,14 @@ open class SampleBaseActivity : AppCompatActivity() {
         return null
     }
 
-    open fun <T> getDataFromListModelClass(key: String, context: Activity): ArrayList<T> {
+    open fun getIntentDouble(key: String, context: Activity) : Double {
+        if (context.intent != null && context.intent.hasExtra(key)) {
+            return context.intent.getDoubleExtra(key, 0.0)
+        }
+        return 0.0
+    }
+
+    open fun <T> getIntentList(key: String, context: Activity): ArrayList<T> {
         if (context.intent != null && context.intent.hasExtra(key)) {
             return context.intent.getSerializableExtra(key) as ArrayList<T>
         }

@@ -1,14 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.transportation.car_rental.TransportationAskQuestionBottomSheetFragment">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/fragment_sheet"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:padding="@dimen/margin_10">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_marginHorizontal="@dimen/padding_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <View
+                    android:layout_width="@dimen/margin_30"
+                    android:layout_height="3dp"
+                    android:background="@color/light_grey" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/tour_guide_service"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/font_bold"
+                    android:textSize="@dimen/size_18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="@dimen/padding_5"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard"
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/font_regular"
+                    android:textSize="@dimen/size_18sp"
+                    android:layout_marginBottom="@dimen/padding_5"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnYes"
+                style="@style/SelectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/padding_5"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:padding="@dimen/margin_15"
+                android:gravity="center"
+                android:background="@drawable/custom_background_border"
+                android:backgroundTint="@color/colorAppPrimary"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/yes_label"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:elevation="4dp" />
+
+            <TextView
+                android:id="@+id/btnSkip"
+                style="@style/SelectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_5"
+                android:padding="@dimen/margin_15"
+                android:gravity="center"
+                android:background="@drawable/shape_border"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/skip_label"
+                android:textAllCaps="false"
+                android:textColor="@color/colorAppPrimary"
+                app:elevation="4dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

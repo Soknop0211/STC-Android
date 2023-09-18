@@ -61,6 +61,13 @@ abstract class BaseBottomSheetDialogFragment<T : ViewDataBinding, VM : BaseViewM
         return null
     }
 
+    open fun <T> getArgumentsList(key: String, arguments: Bundle?): ArrayList<T> {
+        if (arguments != null && arguments.containsKey(key)) {
+            return arguments.getSerializable(key) as ArrayList<T>
+        }
+        return ArrayList()
+    }
+
     open fun setVariable(id: Int, value: Any) {
         mBinding.setVariable(id, value)
     }

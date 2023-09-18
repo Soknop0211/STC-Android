@@ -15,14 +15,13 @@ xmlns:tools="http://schemas.android.com/tools">
         type="com.eazy.stcbusiness.view_model.SuggestedRideCarRentalViewModel" />
 </data>
 
-
 <LinearLayout
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/padding_5"
     android:padding="@dimen/padding_5"
-    android:background="@drawable/custom_background_card_item_type"
+    android:background="@{viewModel.isCardBackground ? @drawable/custom_background_border : @drawable/custom_background_card_item_type, default = @drawable/custom_background_card_item_type}"
     android:orientation="horizontal">
 
     <ImageView
@@ -81,6 +80,7 @@ xmlns:tools="http://schemas.android.com/tools">
                 android:layout_height="wrap_content">
 
                 <LinearLayout
+                    android:visibility="@{viewModel.isCanMinus ? view.VISIBLE : view.GONE}"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -116,6 +116,7 @@ xmlns:tools="http://schemas.android.com/tools">
                     android:gravity="center" />
 
                 <LinearLayout
+                    android:visibility="@{viewModel.isCanAdd ? view.VISIBLE : view.GONE}"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content">
@@ -158,6 +159,7 @@ xmlns:tools="http://schemas.android.com/tools">
             android:orientation="horizontal">
 
             <TextView
+                android:visibility="@{viewModel.isCanViewDetail ? view.VISIBLE : view.GONE}"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textSize="13sp"

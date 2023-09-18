@@ -17,7 +17,7 @@ class FormatPriceHelper {
         fun getDisplayPrice(mContext: Context, currency : String, price: Double): String {
             val newPrice: Double = roundPriceValueAsDouble(price, 2)
             //Currently we manage with "$" currency format display only
-            //Ex: $10.78
+            //Ex: 10.78$
             return mContext.getString(
                 R.string.concierge_price_display_format,
                 String.format(

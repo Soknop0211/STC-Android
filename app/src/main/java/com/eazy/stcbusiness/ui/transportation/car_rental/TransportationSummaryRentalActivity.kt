@@ -54,7 +54,7 @@ class TransportationSummaryRentalActivity : BaseActivity<ActivityTransportationS
     override val mViewModel: TransportationSummaryRentalViewModel by viewModels()
 
     private var mServiceOptionList: ArrayList<CarRentalRecommendModel> = ArrayList()
-
+    private var mDataTaxi : CarRentalSuggestedRideModel ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,16 +91,16 @@ class TransportationSummaryRentalActivity : BaseActivity<ActivityTransportationS
         setVariable(BR.viewModel, mViewModel)
 
         // init data
-        val mDataTaxi = getDataFromModelClass<CarRentalSuggestedRideModel>(DATA, this)
+        mDataTaxi = getDataFromModelClass<CarRentalSuggestedRideModel>(DATA, this)
         val mItemBinding : SuggestedRideCarRentalLayoutBinding = mBinding.mDataTaxi
 
         if (mDataTaxi != null) {
             // Update Price
-            mViewModel.updateTotalPrice(mDataTaxi.price ?: 0.0, mServiceOptionList) // Calculate Price
+            mViewModel.updateTotalPrice(mDataTaxi?.price ?: 0.0, mServiceOptionList) // Calculate Price
 
-            mViewModel.initDataCarTaxi(this, mItemBinding, mDataTaxi) {
+            mViewModel.initDataCarTaxi(this, mItemBinding, mDataTaxi!!) {
                 // Update Price
-                mViewModel.updateTotalPrice(mDataTaxi.price ?: 0.0, mServiceOptionList) // Calculate Price
+                mViewModel.updateTotalPrice(mDataTaxi?.price ?: 0.0, mServiceOptionList) // Calculate Price
             }
         }
     }
@@ -127,10 +127,20 @@ class TransportationSummaryRentalActivity : BaseActivity<ActivityTransportationS
     }
 
     override fun onClickCallBack() {
+        val mListAddService : ArrayList<CarRentalRecommendModel> = ArrayList()
         mServiceOptionList.forEach {
             if(it.isSelectedItem == true) {
-                // AppLOGG.d("keeeeeeeeeeeeeeeeeee", it.name ?: "")
+                mListAddService.add(it)
             }
+        }
+
+        // go to alert screen
+        if (mDataTaxi != null) {
+            TransportationAskQuestionBottomSheetFragment.gotoAskQuestionPopupBottomSheet(
+                supportFragmentManager,
+                mDataTaxi!!,
+                mListAddService
+            )
         }
     }
 

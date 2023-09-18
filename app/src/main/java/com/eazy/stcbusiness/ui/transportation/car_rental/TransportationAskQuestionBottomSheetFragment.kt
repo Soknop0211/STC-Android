@@ -1,64 +1,82 @@
 package com.eazy.stcbusiness.ui.transportation.car_rental
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import com.eazy.stcbusiness.R
+import com.eazy.stcbusiness.base.SampleBaseBottomSheetDialogFragment
+import com.eazy.stcbusiness.databinding.FragmentTransportationAskQuestionBottomSheetBinding
+import com.eazy.stcbusiness.model.CarRentalRecommendModel
+import com.eazy.stcbusiness.model.CarRentalSuggestedRideModel
+import com.eazy.stcbusiness.ui.happening_ui.HappeningAddPeopleBottomSheetFragment
+import com.eazy.stcbusiness.ui.transportation.booknow.AddNoteBottomSheetFragment
+import com.eazy.stcbusiness.ui.transportation.booknow.TransportationConfirmCheckOutActivity
+import com.eazy.stcbusiness.utils.listener.CustomResponseOnClickListener
+import com.eazy.stcbusiness.utils.listener.CustomSetOnClickViewListener
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TransportationAskQuestionBottomSheetFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class TransportationAskQuestionBottomSheetFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class TransportationAskQuestionBottomSheetFragment : SampleBaseBottomSheetDialogFragment<FragmentTransportationAskQuestionBottomSheetBinding>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override val layoutResource: Int = R.layout.fragment_transportation_ask_question_bottom_sheet
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Init Data
+        val mItem : CarRentalSuggestedRideModel = getDataFromModelClass(
+            CAR_RENTAL_DATA, arguments) ?: CarRentalSuggestedRideModel()
+
+        val mItemOptionList : ArrayList<CarRentalRecommendModel> = getArgumentsList(
+            ADD_OPTION_SERVICE, arguments)
+
+        val mTotalPrice : Double = getArgumentsDouble(
+            TOTAL_PRICE, arguments)
+
+        // Init Action
+        mBinding.btnYes.setOnClickListener(CustomSetOnClickViewListener (object : CustomResponseOnClickListener {
+            override fun onClick(view: View) {
+                dismiss()
+            }
+
+        }))
+
+        mBinding.btnSkip.setOnClickListener(CustomSetOnClickViewListener (object : CustomResponseOnClickListener {
+            override fun onClick(view: View) {
+                TransportationConfirmCheckOutActivity.gotoTransportationConfirmCheckOutActivity(
+                    mActivity!!, mItem, mItemOptionList
+                )
+               dismiss()
+            }
+
+        }))
+
+    }
+
+
+
+    companion object {
+
+        const val CAR_RENTAL_DATA = "CAR_RENTAL_DATA"
+        const val TOTAL_PRICE = "TOTAL_PRICE"
+        const val ADD_OPTION_SERVICE = "ADD_OPTION_SERVICE"
+
+        @JvmStatic
+        fun newInstance(mDataTaxi : CarRentalSuggestedRideModel,
+                        mServiceOptionList: ArrayList<CarRentalRecommendModel>) =
+            TransportationAskQuestionBottomSheetFragment().apply {
+                arguments = Bundle().apply {
+                    putSerializable(CAR_RENTAL_DATA, mDataTaxi)
+                    putSerializable(ADD_OPTION_SERVICE, mServiceOptionList)
+                }
+            }
+
+        fun gotoAskQuestionPopupBottomSheet(supportFragmentManager : FragmentManager,
+                                            mDataTaxi : CarRentalSuggestedRideModel,
+                                            mServiceOptionList: ArrayList<CarRentalRecommendModel>) {
+            val mDialog = newInstance(mDataTaxi, mServiceOptionList)
+            mDialog.show(supportFragmentManager, TransportationAskQuestionBottomSheetFragment::class.java.name)
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(
-            R.layout.fragment_transportation_ask_question_bottom_sheet,
-            container,
-            false
-        )
-    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TransportationAskQuestionBottomSheetFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TransportationAskQuestionBottomSheetFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

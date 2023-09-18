@@ -10,6 +10,10 @@
         <import type="android.view.Gravity" />
 
         <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
             name="viewModel"
             type="com.eazy.stcbusiness.view_model.HappeningNowCheckOutViewModel" />
 
@@ -42,7 +46,9 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <!-- BOOK NOW & BOOK SCHEDULE -->
                     <LinearLayout
+                        android:visibility="@{viewModel.isCarRental ? view.GONE : view.VISIBLE}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="@dimen/margin_10"
@@ -62,6 +68,107 @@
                         <include
                             android:id="@+id/itemLayoutTaxi"
                             layout="@layout/transportation_item_type_layout"/>
+
+                    </LinearLayout>
+
+                    <!-- CAR RENTAL -->
+                    <LinearLayout
+                        android:visibility="@{viewModel.isCarRental ? view.VISIBLE : view.GONE}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_10"
+                        android:paddingHorizontal="@dimen/padding_5"
+                        android:paddingTop="@dimen/padding_5"
+                        android:paddingBottom="@dimen/margin_15"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_margin="@dimen/size_5"
+                            android:layout_width="match_parent"
+                            android:text="@string/transportation"
+                            android:fontFamily="@font/font_bold"
+                            android:maxLines="3"
+                            android:textSize="@dimen/size_16sp"
+                            android:layout_height="wrap_content"/>
+
+                        <LinearLayout
+                            android:padding="@dimen/padding_5"
+                            android:background="@drawable/custom_background_border"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <include
+                                android:id="@+id/itemLayoutCarRental"
+                                layout="@layout/suggested_ride_car_rental_layout"/>
+
+                            <LinearLayout
+                                android:visibility="@{viewModel.isHaveAddOnService ? view.VISIBLE : view.GONE}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/padding_5"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:textSize="15sp"
+                                    android:layout_width="wrap_content"
+                                    android:text="@string/extra_charge"
+                                    android:textColor="@color/colorAppPrimary"
+                                    android:layout_height="match_parent" />
+
+                                <LinearLayout
+                                    android:id="@+id/optionPrice"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical" />
+
+                                <View
+                                    android:layout_marginTop="@dimen/padding_5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/light_grey"/>
+
+                                <LinearLayout
+                                    android:paddingVertical="@dimen/size_3dp"
+
+                                    android:layout_marginTop="@dimen/padding_5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:ellipsize="end"
+                                        android:maxLines="1"
+                                        android:textSize="13sp"
+                                        android:text="@string/total"
+                                        android:layout_width="0dp"
+                                        android:layout_gravity="center"
+                                        android:gravity="center|start"
+                                        android:textColor="@color/black"
+                                        android:layout_weight="1"
+                                        android:layout_height="match_parent" />
+
+                                    <TextView
+                                        android:ellipsize="end"
+                                        android:maxLines="1"
+                                        android:textSize="13sp"
+                                        tools:text="120.50 USD"
+                                        android:layout_width="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center|start"
+                                        android:textStyle="bold"
+                                        android:text="@{viewModel.mPriceTotal}"
+                                        android:textColor="@color/colorAppPrimary"
+                                        android:layout_height="match_parent" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 

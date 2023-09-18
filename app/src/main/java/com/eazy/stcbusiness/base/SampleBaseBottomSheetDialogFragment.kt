@@ -43,4 +43,32 @@ abstract class SampleBaseBottomSheetDialogFragment<T : ViewDataBinding> : Bottom
         }
     }
 
+    open fun getDataFromString(key: String, arguments: Bundle?) : String{
+        if (arguments != null && arguments.containsKey(key)) {
+            return arguments.getString(key).toString()
+        }
+        return ""
+    }
+
+    open fun getArgumentsDouble(key: String, arguments: Bundle?) : Double {
+        if (arguments != null && arguments.containsKey(key)) {
+            return arguments.getDouble(key)
+        }
+        return 0.0
+    }
+
+    open fun <T> getDataFromModelClass(key: String, arguments: Bundle?) : T? {
+        if (arguments != null && arguments.containsKey(key)) {
+            return arguments.getSerializable(key) as T
+        }
+        return null
+    }
+
+    open fun <T> getArgumentsList(key: String, arguments: Bundle?): ArrayList<T> {
+        if (arguments != null && arguments.containsKey(key)) {
+            return arguments.getSerializable(key) as ArrayList<T>
+        }
+        return ArrayList()
+    }
+
 }
