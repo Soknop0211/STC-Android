@@ -1,7 +1,9 @@
 package com.eazy.stcbusiness.ui.todo_ui.fragment
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.eazy.stcbusiness.R
@@ -29,15 +31,22 @@ class DestinationLocationBottomSheetFragment :
 
     companion object {
 
-        private const val ITEM_ID = "ITEM_ID"
+        private const val ACTION = "ACTION"
+        const val ONLY_DESTINATION = "ONLY_DESTINATION"
 
         @JvmStatic
         fun newInstance(mId : String) =
             DestinationLocationBottomSheetFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ITEM_ID, mId)
+                    putString(ACTION, mId)
                 }
             }
+
+        fun gotoDestinationLocationBottomSheetFragment(supportFragmentManager : FragmentManager, onClickAllAction: OnClickCallBackListener, mAction : String) {
+            val mDestinationBottomSheet = newInstance(mAction)
+            mDestinationBottomSheet.initListener(onClickAllAction)
+            mDestinationBottomSheet.show(supportFragmentManager, DestinationLocationBottomSheetFragment::class.java.name)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,23 +67,26 @@ class DestinationLocationBottomSheetFragment :
         mListLocation.add(LocationModel("1", "Kampong Speu, Cambodia"))
         mListLocation.add(LocationModel("1", "Kompong Thom, Cambodia"))
 
+        val mAction = getArgumentsString(ACTION, arguments)
+
         mBinding.recyclerView.apply {
             layoutManager = LinearLayoutManager(mActivity)
             adapter = SelectLocationAdapter(mId ?: "", mListLocation,
                 object : SelectLocationAdapter.OnClickCallBackLister {
                     override fun onClickCallBack(value: LocationModel) {
-                        // onClickAllAction.onClickSelectLocation(value)
+                        if (!TextUtils.isEmpty(mAction) && mAction == ONLY_DESTINATION) {
+                             onClickAllAction.onClickSelectLocation(value)
+                             dismiss()
+                        } else {
+                            val mDestinationBottomSheet = FilterByDestinationBottomSheetFragment.newInstance("")
+                            mDestinationBottomSheet.initListener(object : FilterByDestinationBottomSheetFragment.OnClickCallBackListener {
+                                override fun onClickSelectLocation() {
+                                    dismiss()
+                                }
 
-                        val mDestinationBottomSheet = FilterByDestinationBottomSheetFragment.newInstance("")
-                        mDestinationBottomSheet.initListener(object : OnClickCallBackListener {
-                            override fun onClickSelectLocation() {
-                                dismiss()
-                            }
-
-                        })
-                        mDestinationBottomSheet.show(childFragmentManager, mDestinationBottomSheet::class.java.name)
-
-                        // dismiss()
+                            })
+                            mDestinationBottomSheet.show(childFragmentManager, mDestinationBottomSheet::class.java.name)
+                        }
                     }
 
                 })
@@ -88,7 +100,7 @@ class DestinationLocationBottomSheetFragment :
     }
 
     interface OnClickCallBackListener {
-        fun onClickSelectLocation()
+        fun onClickSelectLocation(mLocationModel : LocationModel)
     }
 
     override fun onClickListener() {

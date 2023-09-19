@@ -30,7 +30,7 @@ class FilterByDestinationBottomSheetFragment : BaseBottomSheetDialogFragment<Fra
 
     private var minPrice: String = ""
     private var maxPrice: String = ""
-    private lateinit var onClickAllAction : DestinationLocationBottomSheetFragment.OnClickCallBackListener
+    private lateinit var onClickAllAction : OnClickCallBackListener
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -126,8 +126,12 @@ class FilterByDestinationBottomSheetFragment : BaseBottomSheetDialogFragment<Fra
         dismiss()
     }
 
-    fun initListener(onClickAllAction: DestinationLocationBottomSheetFragment.OnClickCallBackListener) {
+    fun initListener(onClickAllAction: OnClickCallBackListener) {
         this.onClickAllAction = onClickAllAction
+    }
+
+    interface OnClickCallBackListener {
+        fun onClickSelectLocation()
     }
 
 }

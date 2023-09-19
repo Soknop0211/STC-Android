@@ -9,6 +9,7 @@ import com.eazy.stcbusiness.databinding.FragmentTransportationAskQuestionBottomS
 import com.eazy.stcbusiness.model.CarRentalRecommendModel
 import com.eazy.stcbusiness.model.CarRentalSuggestedRideModel
 import com.eazy.stcbusiness.ui.happening_ui.HappeningAddPeopleBottomSheetFragment
+import com.eazy.stcbusiness.ui.tours_guide.TourGuideMainActivity.Companion.gotoTourGuideMainActivity
 import com.eazy.stcbusiness.ui.transportation.booknow.AddNoteBottomSheetFragment
 import com.eazy.stcbusiness.ui.transportation.booknow.TransportationConfirmCheckOutActivity
 import com.eazy.stcbusiness.utils.listener.CustomResponseOnClickListener
@@ -35,6 +36,7 @@ class TransportationAskQuestionBottomSheetFragment : SampleBaseBottomSheetDialog
         // Init Action
         mBinding.btnYes.setOnClickListener(CustomSetOnClickViewListener (object : CustomResponseOnClickListener {
             override fun onClick(view: View) {
+                gotoTourGuideMainActivity(mActivity!!)
                 dismiss()
             }
 

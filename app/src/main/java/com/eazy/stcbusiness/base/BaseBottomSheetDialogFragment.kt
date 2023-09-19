@@ -47,7 +47,7 @@ abstract class BaseBottomSheetDialogFragment<T : ViewDataBinding, VM : BaseViewM
         }
     }
 
-    open fun getDataFromString(key: String, arguments: Bundle?) : String{
+    open fun getArgumentsString(key: String, arguments: Bundle?) : String{
         if (arguments != null && arguments.containsKey(key)) {
             return arguments.getString(key).toString()
         }

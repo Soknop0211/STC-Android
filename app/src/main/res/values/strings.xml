@@ -119,5 +119,8 @@
     <string name="skip_label">Skip</string>
     <string name="tour_guide_service">Tour Guide Service</string>
     <string name="extra_charge">Extra Charge</string>
+    <string name="explore_tours_guide">Explore Tours Guide</string>
+    <string name="reviews">Reviews</string>
+    <string name="language">Language</string>
 
 </resources>

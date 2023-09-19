@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mViewModel"
+            type="com.eazy.stcbusiness.base.BaseViewModelObservation" />
+
+        <variable
+            name="viewModel"
+            type="com.eazy.stcbusiness.view_model.TourGuideViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                app:viewModel="@{viewModel}"
+                android:id="@+id/toolbar"
+                layout="@layout/custom_toolbar_transparent_background"/>
+
+            <LinearLayout
+                android:padding="@dimen/padding_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    app:delayClickListener="@{()-> viewModel.onLanguageClick()}"
+                    style="@style/SelectableItemBackground"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_5"
+                        android:text="@{viewModel.getLanguage}"
+                        style="@style/SelectableItemBackground"
+                        android:textColor="@color/black"
+                        app:drawableEndCompat="@drawable/ic_drop_down" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    app:delayClickListener="@{()-> viewModel.onDestinationClick()}"
+                    style="@style/SelectableItemBackground"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_5"
+                        android:text="@{viewModel.getDestination}"
+                        android:textColor="@color/black"
+                        app:drawableEndCompat="@drawable/ic_drop_down"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:background="@drawable/custom_background_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/tour_guide_item_layout"
+                android:id="@+id/recyclerView"/>
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>
