@@ -15,6 +15,7 @@ import com.eazy.stcbusiness.model.CustomCategoryDataList
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.ui.home.HomeContentFragment.Companion.MAIN_CATEGORY
 import com.eazy.stcbusiness.ui.todo_ui.ThingToDoDetailActivity
+import com.eazy.stcbusiness.ui.tours_guide.TourGuideMainActivity
 import com.eazy.stcbusiness.ui.transportation.booknow.TransportationMainActivity
 
 class HomeFragment : SampleBaseFragment() {
@@ -30,7 +31,11 @@ class HomeFragment : SampleBaseFragment() {
 
                 }) { mModel, mString ->
                     if (mString == MAIN_CATEGORY) {
-                        TransportationMainActivity.gotoTransportationMainActivity(mActivity!!)
+                        if (mModel.name.equals("Tours Guide", true)) {
+                            TourGuideMainActivity.gotoTourGuideMainActivity(mActivity!!)
+                        } else if (mModel.name.equals("Transportations", true)) {
+                            TransportationMainActivity.gotoTransportationMainActivity(mActivity!!)
+                        }
                     } else {
                         ThingToDoDetailActivity.gotoSearchDestinationThingToDoActivity(mActivity!!)
                     }

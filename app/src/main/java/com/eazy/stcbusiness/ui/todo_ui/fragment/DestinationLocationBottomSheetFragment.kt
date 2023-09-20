@@ -54,18 +54,20 @@ class DestinationLocationBottomSheetFragment :
 
         mViewModel.bind(this)
 
+        mBinding.titleTxt.text = mActivity?.getString(R.string.destination)
+
         val mListLocation = ArrayList<LocationModel>()
         mListLocation.add(LocationModel("1", "Siem Reap, Cambodia"))
-        mListLocation.add(LocationModel("1", "Battam Bong"))
-        mListLocation.add(LocationModel("1", "Sihanoukville, Cambodia"))
-        mListLocation.add(LocationModel("1", "Kampot, Cambodia"))
-        mListLocation.add(LocationModel("1", "Kep, Cambodia"))
-        mListLocation.add(LocationModel("1", "Koh Kong, Cambodia"))
-        mListLocation.add(LocationModel("1", "Mondulkiri, Cambodia"))
-        mListLocation.add(LocationModel("1", "Banteay Meanchey, Cambodia"))
-        mListLocation.add(LocationModel("1", "Kompng Cham, Cambodia"))
-        mListLocation.add(LocationModel("1", "Kampong Speu, Cambodia"))
-        mListLocation.add(LocationModel("1", "Kompong Thom, Cambodia"))
+        mListLocation.add(LocationModel("2", "Battam Bong"))
+        mListLocation.add(LocationModel("3", "Sihanoukville, Cambodia"))
+        mListLocation.add(LocationModel("4", "Kampot, Cambodia"))
+        mListLocation.add(LocationModel("5", "Kep, Cambodia"))
+        mListLocation.add(LocationModel("6", "Koh Kong, Cambodia"))
+        mListLocation.add(LocationModel("7", "Mondulkiri, Cambodia"))
+        mListLocation.add(LocationModel("8", "Banteay Meanchey, Cambodia"))
+        mListLocation.add(LocationModel("9", "Kompng Cham, Cambodia"))
+        mListLocation.add(LocationModel("10", "Kampong Speu, Cambodia"))
+        mListLocation.add(LocationModel("11", "Kompong Thom, Cambodia"))
 
         val mAction = getArgumentsString(ACTION, arguments)
 

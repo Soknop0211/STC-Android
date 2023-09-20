@@ -16,7 +16,8 @@ import com.eazy.stcbusiness.utils.getWidth
 import com.eazy.stcbusiness.utils.initImage
 
 
-class TodoDestinationAdapter(private val mActivity : Activity, private val mList: List<CustomCategoryModel>) : RecyclerView.Adapter<TodoDestinationAdapter.ViewHolder>() {
+class TodoDestinationAdapter(private val mActivity : Activity,
+                             private val mList: List<CustomCategoryModel>, private val mListener : (CustomCategoryModel) -> Unit) : RecyclerView.Adapter<TodoDestinationAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txtTittle: TextView = itemView.findViewById(R.id.txtTittle)
@@ -40,7 +41,7 @@ class TodoDestinationAdapter(private val mActivity : Activity, private val mList
         holder.image.initImage(mItem.urlImage)
 
         holder.mainLayout.setOnClickListener {
-            gotoSearchDestinationThingToDoActivity(mActivity)
+            mListener.invoke(mItem)
         }
     }
 

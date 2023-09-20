@@ -11,8 +11,10 @@ import com.eazy.stcbusiness.base.BaseActivity
 import com.eazy.stcbusiness.databinding.ActivityTourGuideMainBinding
 import com.eazy.stcbusiness.model.LocationModel
 import com.eazy.stcbusiness.ui.todo_ui.fragment.DestinationLocationBottomSheetFragment
+import com.eazy.stcbusiness.ui.tours_guide.TourGuideDetailActivity.Companion.gotoTourGuideDetailActivity
+import com.eazy.stcbusiness.ui.transportation.car_rental.ChangeLanguageBottomSheetFragment
+import com.eazy.stcbusiness.ui.transportation.car_rental.ChangeLanguageBottomSheetFragment.Companion.gotoChangeLanguageBottomSheetFragment
 import com.eazy.stcbusiness.ui.transportation.car_rental.adapter.TourGuideItemListAdapter
-import com.eazy.stcbusiness.utils.listener.OnClickCallBackListener
 import com.eazy.stcbusiness.view_model.OnClickItemListener
 import com.eazy.stcbusiness.view_model.TourGuideViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,7 +44,7 @@ class TourGuideMainActivity : BaseActivity<ActivityTourGuideMainBinding, TourGui
                 layoutManager = LinearLayoutManager(this@TourGuideMainActivity)
 
                 adapter = TourGuideItemListAdapter(it) {
-
+                    gotoTourGuideDetailActivity(this@TourGuideMainActivity)
                 }
             }
         }
@@ -57,10 +59,21 @@ class TourGuideMainActivity : BaseActivity<ActivityTourGuideMainBinding, TourGui
         setVariable(BR.viewModel, mViewModel)
 
         mViewModel.initList()
+
     }
 
     override fun onLanguageClick() {
+        mViewModel.initListLanguage()
 
+        mViewModel.itemListLang.observe(this) {
+            gotoChangeLanguageBottomSheetFragment(supportFragmentManager, it, object :
+                ChangeLanguageBottomSheetFragment.OnClickCallBackListener {
+                override fun onClickSelectLocation(mLocationModel: LocationModel) {
+                    mViewModel.setLanguage(mLocationModel.name ?: "")
+                }
+
+            })
+        }
     }
 
     override fun onDestinationClick() {

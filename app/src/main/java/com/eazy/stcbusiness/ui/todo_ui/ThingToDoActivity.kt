@@ -40,7 +40,9 @@ class ThingToDoActivity : SampleBaseActivity()  {
                 false,
                 3
             )
-            adapter = TodoDestinationAdapter(this@ThingToDoActivity, initList())
+            adapter = TodoDestinationAdapter(this@ThingToDoActivity, initList()) {
+                SearchDestinationThingsToDoActivity.gotoSearchDestinationThingToDoActivity(this@ThingToDoActivity)
+            }
             isNestedScrollingEnabled = true
         }
 

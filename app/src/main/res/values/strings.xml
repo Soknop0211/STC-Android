@@ -117,10 +117,14 @@
     <string name="save">Save</string>
     <string name="yes_label">Yes</string>
     <string name="skip_label">Skip</string>
+
+    <!--Tour Guide-->
     <string name="tour_guide_service">Tour Guide Service</string>
     <string name="extra_charge">Extra Charge</string>
     <string name="explore_tours_guide">Explore Tours Guide</string>
     <string name="reviews">Reviews</string>
     <string name="language">Language</string>
+    <string name="tour_guides">Tour Guides</string>
+    <string name="service">Service</string>
 
 </resources>

@@ -18,13 +18,13 @@ class TourGuideItemListAdapter(private val list : ArrayList<TourGuideItemModel>,
     }
 
     override fun onBindViewHolder(holder: BindingViewHolder, position: Int) {
-//        val mItem = list[position]
+        val mItem = list[position]
 //        val viewModel = RecommendCarRentalViewModel(holder.context, mItem) {}
 //        holder.setVariable(BR.viewModel, viewModel)
-//
-//        holder.binding.root.setOnClickListener {
-//            mOnClick.invoke(mItem)
-//        }
+
+        holder.binding.root.setOnClickListener {
+            mOnClick.invoke(mItem)
+        }
 
     }
 

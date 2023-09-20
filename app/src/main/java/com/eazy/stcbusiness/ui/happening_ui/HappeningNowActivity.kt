@@ -112,7 +112,7 @@ class HappeningNowActivity : BaseActivity<ActivityHappeningNowBinding, Happening
                 false,
                 3
             )
-            adapter = TodoDestinationAdapter(this@HappeningNowActivity, mList)
+            adapter = TodoDestinationAdapter(this@HappeningNowActivity, mList) {}
             isNestedScrollingEnabled = true
         }
     }

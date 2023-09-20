@@ -7,7 +7,7 @@ import com.eazy.stcbusiness.base.SampleBaseActivity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-interface OnClickListener : BaseView{
+interface OnClickListener : BaseView {
     fun onClickListener()
 }
 

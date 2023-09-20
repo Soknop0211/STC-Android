@@ -8,6 +8,8 @@ import androidx.lifecycle.MutableLiveData
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.BaseViewModel
 import com.eazy.stcbusiness.model.CarRentalRecommendModel
+import com.eazy.stcbusiness.model.LanguageModel
+import com.eazy.stcbusiness.model.LocationModel
 import com.eazy.stcbusiness.model.TourGuideItemModel
 import com.eazy.stcbusiness.network_module.ApiRepository
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
@@ -73,6 +75,43 @@ class TourGuideViewModel @Inject constructor(
         mListSubList.add(TourGuideItemModel(HomeContentFragment.TRANSPORTATION_FOR_YOU, "Book Now"))
         mListSubList.add(TourGuideItemModel(HomeContentFragment.TRANSPORTATION_FOR_YOU, "Book Now"))
         _itemList.value = mListSubList
+
+    }
+
+    /**** Car Recommend ****/
+    private val _itemListLang = MutableLiveData<ArrayList<LanguageModel>>()
+    val itemListLang: LiveData<ArrayList<LanguageModel>> get() = _itemListLang
+
+    fun initListLanguage() {
+
+        val mList = ArrayList<LanguageModel>()
+
+        var mModel = LanguageModel()
+        mModel.id = "khmer"
+        mModel.name = "Khmer"
+        mList.add(mModel)
+
+        mModel = LanguageModel()
+        mModel.id = "english"
+        mModel.name = "English"
+        mList.add(mModel)
+
+        mModel = LanguageModel()
+        mModel.id = "japanese "
+        mModel.name = "Japanese "
+        mList.add(mModel)
+
+        mModel = LanguageModel()
+        mModel.id = "china "
+        mModel.name = "China "
+        mList.add(mModel)
+
+        mModel = LanguageModel()
+        mModel.id = "thai "
+        mModel.name = "Thai "
+        mList.add(mModel)
+
+        _itemListLang.value = mList
 
     }
 

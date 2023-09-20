@@ -50,7 +50,7 @@
                         android:gravity="center"
                         android:padding="@dimen/padding_5"
                         android:text="@{viewModel.getLanguage}"
-                        style="@style/SelectableItemBackground"
+                        tools:text="@string/language"
                         android:textColor="@color/black"
                         app:drawableEndCompat="@drawable/ic_drop_down" />
 
@@ -69,6 +69,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="@dimen/padding_5"
+                        tools:text="@string/destination"
                         android:text="@{viewModel.getDestination}"
                         android:textColor="@color/black"
                         app:drawableEndCompat="@drawable/ic_drop_down"/>

@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <data>
-        <variable
-            name="viewModel"
-            type="com.eazy.stcbusiness.view_model.DestinationLocationViewModel" />
-    </data>
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -36,7 +31,7 @@
 
 
             <TextView
-                android:id="@+id/titleItem"
+                android:id="@+id/titleTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"
