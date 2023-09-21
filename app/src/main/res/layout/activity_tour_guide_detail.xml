@@ -11,8 +11,7 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
@@ -220,13 +219,13 @@
                 android:orientation="horizontal" >
 
                 <LinearLayout
-                    style="@style/SelectableItemBackground"
+                    android:clickable="@{!viewModel.isServiceTap}"
                     app:delayClickListener="@{()-> viewModel.onItemServiceClickListener()}"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:layout_marginEnd="@dimen/size_3dp"
+                    android:layout_marginEnd="1dp"
                     android:padding="@dimen/padding_5"
                     android:layout_height="wrap_content">
 
@@ -246,8 +245,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginStart="@dimen/size_3dp"
-                    style="@style/SelectableItemBackground"
+                    android:layout_marginStart="1dp"
+                    android:clickable="@{viewModel.isServiceTap}"
                     app:delayClickListener="@{()-> viewModel.onItemDetailClickListener()}"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -276,10 +275,24 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <FrameLayout
+            android:layout_marginBottom="@dimen/p_60dp"
             android:id="@+id/nav_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+        <LinearLayout
+            android:id="@+id/mPriceLayout"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                app:viewModel="@{viewModel}"
+                layout="@layout/bottom_show_price_layout"/>
+
+        </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

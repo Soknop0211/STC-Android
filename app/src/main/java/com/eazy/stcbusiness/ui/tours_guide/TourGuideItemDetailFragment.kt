@@ -1,11 +1,7 @@
 package com.eazy.stcbusiness.ui.tours_guide
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.eazy.stcbusiness.R
 import com.eazy.stcbusiness.base.SampleBaseFragment_
 import com.eazy.stcbusiness.base_dapter.CustomImageGridLayoutAdapter

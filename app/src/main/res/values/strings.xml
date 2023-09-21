@@ -126,5 +126,9 @@
     <string name="language">Language</string>
     <string name="tour_guides">Tour Guides</string>
     <string name="service">Service</string>
+    <string name="my_activity">My Activities</string>
+    <string name="view_all">View all</string>
+    <string name="reviews_rating"><![CDATA[Reviews & Rating]]></string>
+    <string name="add_comment">Add comment</string>
 
 </resources>

@@ -15,6 +15,8 @@ import com.eazy.stcbusiness.databinding.ActivityTourGuideDetailBinding
 import com.eazy.stcbusiness.databinding.ActivityTourGuideMainBinding
 import com.eazy.stcbusiness.model.CustomCategoryModel
 import com.eazy.stcbusiness.ui.home.HomeContentFragment
+import com.eazy.stcbusiness.utils.setMarginBottomOnCoordinatorLayout
+import com.eazy.stcbusiness.utils.widthHeightLayout
 import com.eazy.stcbusiness.view_model.OnClickItemListener
 import com.eazy.stcbusiness.view_model.OnOnClickItemDetailListener
 import com.eazy.stcbusiness.view_model.TourGuideDetailViewModel
@@ -51,6 +53,11 @@ class TourGuideDetailActivity : BaseActivity<ActivityTourGuideDetailBinding, Tou
             } else {
                 mViewModel.setTitle("")
             }
+        }
+
+        // Set Margin Price Set Bottom Layout
+        widthHeightLayout(mBinding.mPriceLayout) { _, height ->
+            mBinding.navFragment.setMarginBottomOnCoordinatorLayout(height)
         }
     }
 

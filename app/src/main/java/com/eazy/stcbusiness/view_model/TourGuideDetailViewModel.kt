@@ -33,6 +33,8 @@ class TourGuideDetailViewModel @Inject constructor(
         setTitle(mContext.getString(R.string.tour_guides))
 
         initView()
+
+        setPriceTotal( 80.00, mContext)
     }
 
     private fun initView() {

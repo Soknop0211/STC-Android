@@ -169,21 +169,23 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:gravity="center"
+                            android:gravity="end"
                             android:padding="@dimen/padding_5"
-                            android:layout_gravity="center">
+                            android:layout_gravity="end">
 
                             <TextView
                                 android:id="@+id/btnBookNow"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:background="@drawable/card_view_shape"
                                 android:backgroundTint="@color/colorAppPrimary"
                                 style="@style/SelectableItemBackground"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="@string/detail"
                                 android:textSize="17sp"
-                                android:padding="@dimen/margin_10"
+                                android:paddingTop="@dimen/padding_5"
+                                android:paddingBottom="@dimen/padding_8dp"
+                                android:paddingHorizontal="@dimen/margin_15"
                                 android:textColor="@color/white"/>
 
                         </LinearLayout>
